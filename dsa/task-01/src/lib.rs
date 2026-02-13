@@ -17,7 +17,7 @@ type RandErr = rand::distr::uniform::Error;
 
 pub fn rand_arr<T, const N: usize, R>(range: R) -> Result<[T; N], RandErr>
 where
-    T: SampleUniform + Default + Copy,
+    T: SampleUniform,
     Uniform<T>: TryFrom<R, Error = RandErr>,
 {
     let dist: Uniform<T> = range.try_into()?;
