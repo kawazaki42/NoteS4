@@ -22,14 +22,14 @@ where
 {
     let dist: Uniform<T> = range.try_into()?;
 
-    let mut buf = [T::default(); N];
+    let mut rng = rand::rng();
 
-    let iter = dist.sample_iter(rand::rng());
-
-    // for (x, dest) in iter.zip(buf.iter_mut()) {
-    for (dest, x) in buf.iter_mut().zip(iter) {
-        *dest = x
-    }
-
-    Ok(buf)
+    let result = std::array::from_fn(|_| dist.sample(&mut rng));
+    Ok(result)
 }
+
+// pub fn rand_arr_inc<T, const N: usize, R>(range: R) -> Result<[T; N], RandErr>
+// where
+//     T: SampleUniform + Default + Copy,
+// {
+// }
