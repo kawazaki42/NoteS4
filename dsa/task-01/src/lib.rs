@@ -31,7 +31,6 @@ where
 
 pub fn rand_arr_inc<T, const N: usize>(min: T, maxd: T) -> Result<[T; N], RandErr>
 where
-    // T: SampleUniform + SampleBorrow<T>,
     T: SampleUniform + Default + AddAssign + Copy,
 {
     let dist = Uniform::new_inclusive(T::default(), maxd)?;
@@ -51,53 +50,7 @@ where
 }
 
 pub fn is_sorted<T: PartialOrd>(arr: &[T]) -> bool {
-    // if arr.len() == 0 {
-    //     true
-    // }
-
-    // let max =
-
-    // for x in arr {
-
-    // }
-
-    // let iter = arr.iter();
-
-    // let Some(mut max) = iter.next() else {
-    //     return true;
-    // };
-
-    // for x in iter {
-    //     if x <=
-    // }
-
-    // match &arr[..] {
-    //     [] => true,
-    //     [first, rest @ ..] => {
-    //         let mut max = first;
-
-    //         for cur in rest {
-    //             if cur < max {
-    //                 return false;
-    //             }
-    //             max = cur;
-    //         }
-    //         true
-    //     }
-    // }
-
-    // !arr.windows(2).any(|pair| pair[0] > pair[1])
     arr.windows(2).all(|pair| pair[0] <= pair[1])
-
-    // let iter = arr.iter().scan(arr[0], |state, x| {
-    //     if x < state {
-    //         None
-    //     } else {
-    //         Some(x)
-    //     }
-    // });
-
-    // arr.iter().reduce()
 }
 
 #[cfg(test)]
