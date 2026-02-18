@@ -16,7 +16,7 @@ fn main() -> Result<(), &'static str> {
 
     let n = num_base::from_dec(&input);
 
-    let reversed: String = num_base::into_oct_rev(n).collect();
+    let reversed: String = num_base::into_rev_oct(n).collect();
     let result: String = reversed.chars().rev().collect();
 
     println!("{result}");
