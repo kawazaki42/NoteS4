@@ -5,6 +5,8 @@ use std::num::ParseIntError;
 use std::ops::AddAssign;
 use std::time;
 
+pub mod search;
+
 pub fn measure<F>(block: F) -> time::Duration
 where
     F: FnOnce() -> (),
