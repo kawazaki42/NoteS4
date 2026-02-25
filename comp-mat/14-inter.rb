@@ -1,159 +1,165 @@
 # Вариант 4
 
-# xs = [-5, -2, 1, 4, 7, 10]
-# ys = [4, -2, 2, -4, 7, -7]
+# NOTE: `self` in some places refers to class currently being defined.
+#       Thus, `self.some_method` means that `some_method` is 'static'.
 
-TEST_POINTS = [
-  [-5, 4],
-  [-2, -2],
-  [1, 2],
-  [4, -4],
-  [7, 7],
-  [10, -7],
-]
+module Interpolation
+  TEST_POINTS = [
+    [-5, 4],
+    [-2, -2],
+    [1, 2],
+    [4, -4],
+    [7, 7],
+    [10, -7],
+  ]
 
-# fail if xs.length != ys.length
+  # auxilary module to solve linear equation systems
+  module LinAl
+    TEST_EQUS = [
+      [5, 2, 9, 2, 44],
+      [8, 8, 2, 6, 54],
+      [7, 2, 8, 9, 71],
+      [3, 8, 8, 3, 55],
+    ]
 
-# amount of points
-# n = xs.length
+    refine Numeric do
+      def almost_zero?()
+        self.abs < 1e-10
+      end
+    end
 
-def lagrange(pts, x)
-  (0...n).sum do |k|
-    xs_no_k = xs[..k-1] + xs[k+1..]
+    refine Array do
+      def zeros? = all?(&:almost_zero?)
+    end
 
-    num = xs_no_k.map do |xm|
-      x - xm
-    end.reduce :*
+    # needed to use `refine` above
+    using self
 
-    den = xs_no_k.map do |xm|
-      xs[k] - xm
-    end.reduce :*
+    # solve an equation system
+    def self.jordan_gauss(mat)
+      nrows = mat.length
+      ncols = mat[0].length
 
-    ys[k] * Rational(num, den)
-  end
-end
-
-class Numeric
-  def almost_zero?()
-    self.abs < 1e-10
-  end
-end
-
-class Array
-  def zeros? = all?(&:almost_zero?)
-end
-
-def linal_solve(mat)
-  nrows = mat.length
-  ncols = mat[0].length
-
-  mat.map! do |row|
-    row.map! &:to_r
-  end
+      mat.map! do |row|
+        row.map! &:to_r
+      end
   
-  diaglen = [nrows, ncols].min
+      diaglen = [nrows, ncols].min
 
-  diaglen.times do |k|
-    # pp mat
-    # p
+      diaglen.times do |k|
+        # pp mat
+        # p
 
-    # step 1
+        # step 1
 
-    if mat[k][k].almost_zero?
-      non_zero_beginning = (k+1...nrows).find do |i|
-        not mat[i][k].almost_zero?
+        if mat[k][k].almost_zero?
+          non_zero_beginning = (k+1...nrows).find do |i|
+            not mat[i][k].almost_zero?
+          end
+
+          if non_zero_beginning
+            mat[k], mat[i] = mat[i], mat[k]
+          end
+        end
+
+        # step 2
+
+        leading_item = mat[k][k]
+
+        # (k+1...nrows).each do |i|
+        (0..k-1).chain(k+1...nrows).each do |i|
+          (k+1...ncols).each do |j|
+            mat[i][j] *= leading_item
+            mat[i][j] -= mat[i][k] * mat[k][j]
+            mat[i][j] /= leading_item
+          end
+        end
+
+        # step 3
+
+        # # zero out the column below current element
+        # mat.drop(k+1).each do |row|
+
+        # # zero out the column except current element
+        mat.each_with_index do |row, i|
+          row[k] = 0 if i != k
+        end
+
+        # step 4
+
+        leading_row = mat[k]
+
+        (k...ncols).each do |j|
+          leading_row[j] /= leading_item
+        end
+
+        # step 5 (not thoroughly tested)
+
+        mat.delete_if &:zeros?
+
+        mat.each do |row|
+          if not row[-1].almost_zero? and row[...-1].zeros?
+            pp mat
+            fail 'no solutions possible'
+          end
+        end
       end
 
-      if non_zero_beginning
-        mat[k], mat[i] = mat[i], mat[k]
-      end
-    end
+      # extcols = ncols
+      # basic_cols = extcols - 1
 
-    # step 2
+      # result = [nil] * basic_cols
 
-    leading_item = mat[k][k]
+      # (0...basic_cols).reverse_each do |k|
+      #   result[k] = mat[k][-1] - (k+1...basic_cols).sum do |j|
+      #     mat[k][j] * result[j]
+      #   end
+      # end
 
-    # (k+1...nrows).each do |i|
-    (0..k-1).chain(k+1...nrows).each do |i|
-      (k+1...ncols).each do |j|
-        mat[i][j] *= leading_item
-        mat[i][j] -= mat[i][k] * mat[k][j]
-        mat[i][j] /= leading_item
-      end
-    end
+      # result
 
-    # step 3
-
-    # # zero out the column below current element
-    # mat.drop(k+1).each do |row|
-
-    # # zero out the column except current element
-    mat.each_with_index do |row, i|
-      row[k] = 0 if i != k
-    end
-
-    # step 4
-
-    leading_row = mat[k]
-
-    (k...ncols).each do |j|
-      leading_row[j] /= leading_item
-    end
-
-    # step 5 (not thoroughly tested)
-
-    mat.delete_if &:zeros?
-
-    mat.each do |row|
-      if not row[-1].almost_zero? and row[...-1].zeros?
-        pp mat
-        fail 'no solutions possible'
-      end
+      mat.map &:last
     end
   end
 
-  # extcols = ncols
-  # basic_cols = extcols - 1
+  def self.jordan_gauss(pts)
+    mat = pts.map do |x, y|
+      pts.each_index.map{|i| x ** i }.push(y)
+    end
 
-  # result = [nil] * basic_cols
-
-  # (0...basic_cols).reverse_each do |k|
-  #   result[k] = mat[k][-1] - (k+1...basic_cols).sum do |j|
-  #     mat[k][j] * result[j]
-  #   end
-  # end
-
-  # result
-
-  mat.map &:last
-end
-
-TEST_DATA = [
-  [5, 2, 9, 2, 44],
-  [8, 8, 2, 6, 54],
-  [7, 2, 8, 9, 71],
-  [3, 8, 8, 3, 55],
-]
-
-def inter_jg(pts)
-  mat = pts.map do |x, y|
-    pts.each_index.map{|i| x ** i }.push(y)
+    LinAl::jordan_gauss(mat)
   end
 
-  linal_solve(mat)
-end
+  def self.lagrange(pts, x)
+    (0...n).sum do |k|
+      xs_no_k = xs[..k-1] + xs[k+1..]
 
-# see also: https://www.desmos.com/calculator/ngbjglouly 
-def test_inter_jg(pts)
-  coefs = inter_jg(pts)
+      num = xs_no_k.map do |xm|
+        x - xm
+      end.reduce :*
 
-  pts.map do |x, y|
-    actual = coefs.map.with_index do |k, i|
-      k * x**i
-    end.sum
+      den = xs_no_k.map do |xm|
+        xs[k] - xm
+      end.reduce :*
 
-    expected = y
+      ys[k] * Rational(num, den)
+    end
+  end
 
-    (expected - actual).to_f
+  module Test
+    # see also: https://www.desmos.com/calculator/ngbjglouly 
+    def self.jordan_gauss(pts = TEST_POINTS)
+      coefs = Interpolation::jordan_gauss(pts)
+
+      pts.map do |x, y|
+        actual = coefs.map.with_index do |k, i|
+          k * x**i
+        end.sum
+
+        expected = y
+
+        (expected - actual).to_f
+      end
+    end
   end
 end
