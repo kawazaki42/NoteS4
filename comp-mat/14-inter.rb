@@ -48,6 +48,8 @@ def jordan_gauss(mat)
     # pp mat
     # p
 
+    # step 1
+
     if mat[k][k].almost_zero?
       non_zero_beginning = (k+1...nrows).find do |i|
         not mat[i][k].almost_zero?
@@ -58,19 +60,26 @@ def jordan_gauss(mat)
       end
     end
 
+    # step 2
+
     leading_item = mat[k][k]
 
     (k+1...nrows).each do |i|
       (k+1...ncols).each do |j|
-        mat[i][j] *= mat[k][k]
+        mat[i][j] *= leading_item
         mat[i][j] -= mat[i][k] * mat[k][j]
-        mat[i][j] /= mat[k][k]
+        mat[i][j] /= leading_item
       end
     end
+
+    # step 3
+    # zero out the column below current element
 
     mat.drop(k+1).each do |row|
       row[k] = 0
     end
+
+    # step 4
 
     leading_row = mat[k]
 
@@ -78,13 +87,15 @@ def jordan_gauss(mat)
       leading_row[j] /= leading_item
     end
 
+    # step 5 (not thoroughly tested)
+
     mat.delete_if &:zeros?
 
-    fail if mat.any? do |row|
+    mat.each do |row|
       if not row[-1].almost_zero? and row[...-1].zeros?
         pp mat
-        true
-      else false end
+        fail 'no solutions possible'
+      end
     end
   end
 
