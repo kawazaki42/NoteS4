@@ -64,7 +64,8 @@ def jordan_gauss(mat)
 
     leading_item = mat[k][k]
 
-    (k+1...nrows).each do |i|
+    # (k+1...nrows).each do |i|
+    (0..k-1).chain(k+1...nrows).each do |i|
       (k+1...ncols).each do |j|
         mat[i][j] *= leading_item
         mat[i][j] -= mat[i][k] * mat[k][j]
@@ -73,10 +74,13 @@ def jordan_gauss(mat)
     end
 
     # step 3
-    # zero out the column below current element
 
-    mat.drop(k+1).each do |row|
-      row[k] = 0
+    # # zero out the column below current element
+    # mat.drop(k+1).each do |row|
+
+    # # zero out the column except current element
+    mat.each_with_index do |row, i|
+      row[k] = 0 if i != k
     end
 
     # step 4
@@ -99,18 +103,20 @@ def jordan_gauss(mat)
     end
   end
 
-  extcols = ncols
-  basic_cols = extcols - 1
+  # extcols = ncols
+  # basic_cols = extcols - 1
 
-  result = [nil] * basic_cols
+  # result = [nil] * basic_cols
 
-  (0...basic_cols).reverse_each do |k|
-    result[k] = mat[k][-1] - (k+1...basic_cols).sum do |j|
-      mat[k][j] * result[j]
-    end
-  end
+  # (0...basic_cols).reverse_each do |k|
+  #   result[k] = mat[k][-1] - (k+1...basic_cols).sum do |j|
+  #     mat[k][j] * result[j]
+  #   end
+  # end
 
-  result
+  # result
+
+  mat.map &:last
 end
 
 TEST_DATA = [
