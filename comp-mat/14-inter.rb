@@ -131,16 +131,27 @@ module Interpolation
   end
 
   def self.lagrange(pts, x)
-    (0...n).sum do |k|
-      xs_no_k = xs[..k-1] + xs[k+1..]
+    xs, ys = pts.transpose
 
-      num = xs_no_k.map do |xm|
-        x - xm
-      end.reduce :*
+    pts.each_index.sum do |k|
+      # xs_no_k = xs[..k-1] + xs[k+1..]
+      xs_no_k = xs.values_at(..k-1, k+1..)
 
-      den = xs_no_k.map do |xm|
-        xs[k] - xm
-      end.reduce :*
+      # num = xs_no_k.map do |xm|
+      #   x - xm
+      # end.reduce :*
+
+      # den = xs_no_k.map do |xm|
+      #   xs[k] - xm
+      # end.reduce :*
+
+      num = xs_no_k.reduce do |prod, xm|
+        prod *= x - xm
+      end
+
+      den = xs_no_k.reduce do |prod, xm|
+        prod *= xs[k] - xm
+      end
 
       ys[k] * Rational(num, den)
     end
