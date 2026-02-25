@@ -1,14 +1,23 @@
 # Вариант 4
 
-xs = [-5, -2, 1, 4, 7, 10]
-ys = [4, -2, 2, -4, 7, -7]
+# xs = [-5, -2, 1, 4, 7, 10]
+# ys = [4, -2, 2, -4, 7, -7]
 
-fail if xs.length != ys.length
+TEST_POINTS = [
+  [-5, 4],
+  [-2, -2],
+  [1, 2],
+  [4, -4],
+  [7, 7],
+  [10, -7],
+]
+
+# fail if xs.length != ys.length
 
 # amount of points
-n = xs.length
+# n = xs.length
 
-def lagrange(x)
+def lagrange(pts, x)
   (0...n).sum do |k|
     xs_no_k = xs[..k-1] + xs[k+1..]
 
@@ -34,12 +43,12 @@ class Array
   def zeros? = all?(&:almost_zero?)
 end
 
-def jordan_gauss(mat)
+def linal_solve(mat)
   nrows = mat.length
   ncols = mat[0].length
 
   mat.map! do |row|
-    row.map! &:to_f
+    row.map! &:to_r
   end
   
   diaglen = [nrows, ncols].min
@@ -125,3 +134,26 @@ TEST_DATA = [
   [7, 2, 8, 9, 71],
   [3, 8, 8, 3, 55],
 ]
+
+def inter_jg(pts)
+  mat = pts.map do |x, y|
+    pts.each_index.map{|i| x ** i }.push(y)
+  end
+
+  linal_solve(mat)
+end
+
+# see also: https://www.desmos.com/calculator/ngbjglouly 
+def test_inter_jg(pts)
+  coefs = inter_jg(pts)
+
+  pts.map do |x, y|
+    actual = coefs.map.with_index do |k, i|
+      k * x**i
+    end.sum
+
+    expected = y
+
+    (expected - actual).to_f
+  end
+end
