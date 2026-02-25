@@ -24,9 +24,9 @@ def lagrange(x)
   end
 end
 
-class Float
+class Numeric
   def almost_zero?()
-    self.abs < 1e-100
+    self.abs < 1e-10
   end
 end
 
@@ -34,15 +34,20 @@ class Array
   def zeros? = all?(&:almost_zero?)
 end
 
-# def zeros?(row) = row.all?(&:almost_zero?)
-
 def jordan_gauss(mat)
   nrows = mat.length
   ncols = mat[0].length
+
+  mat.map! do |row|
+    row.map! &:to_f
+  end
   
-  diaglen = min(nrows, ncols)
+  diaglen = [nrows, ncols].min
 
   diaglen.times do |k|
+    # pp mat
+    # p
+
     if mat[k][k].almost_zero?
       non_zero_beginning = (k+1...nrows).find do |i|
         not mat[i][k].almost_zero?
@@ -63,7 +68,7 @@ def jordan_gauss(mat)
       end
     end
 
-    mat.each do |row|
+    mat.drop(k+1).each do |row|
       row[k] = 0
     end
 
@@ -76,22 +81,30 @@ def jordan_gauss(mat)
     mat.delete_if &:zeros?
 
     fail if mat.any? do |row|
-      not row[-1].almost_zero? and row[...-1].zeros?
+      if not row[-1].almost_zero? and row[...-1].zeros?
+        pp mat
+        true
+      else false end
     end
   end
 
-  result = [nil] * ncols
+  extcols = ncols
+  basic_cols = extcols - 1
 
-  # result = [mat[ncols-1][ncols]]
-  # result.push result[-1]
+  result = [nil] * basic_cols
 
-  # x[ncols-1] = mat[ncols-1][ncols]
-
-  (0...n).reverse.each do |k|
-    mat[k][ncols] - (k+1...ncols).sum do |j|
+  (0...basic_cols).reverse_each do |k|
+    result[k] = mat[k][-1] - (k+1...basic_cols).sum do |j|
       mat[k][j] * result[j]
     end
   end
 
   result
 end
+
+TEST_DATA = [
+  [5, 2, 9, 2, 44],
+  [8, 8, 2, 6, 54],
+  [7, 2, 8, 9, 71],
+  [3, 8, 8, 3, 55],
+]
