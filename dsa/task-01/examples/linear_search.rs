@@ -1,9 +1,9 @@
-use dsa::{measure, rand_arr, search::find_linear};
+use dsa::{measure, rand_arr, search};
 
 fn main() {
     let haystack: [u8; 1000] = rand_arr(0..=255).expect("incorrect range?");
 
     measure(|| {
-        find_linear(haystack.iter(), &42);
+        search::linear(haystack.iter(), &42);
     });
 }
