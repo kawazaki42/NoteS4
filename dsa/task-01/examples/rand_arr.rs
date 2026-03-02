@@ -1,4 +1,4 @@
-use task_01::{is_sorted, rand_arr, rand_arr_inc};
+use dsa::{is_sorted, rand_arr, rand_arr_inc};
 
 fn main() {
     // meta-test

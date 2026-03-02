@@ -1,7 +1,7 @@
 use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
-use task_01::rand_arr;
-use task_01::search::find_linear;
+use dsa::rand_arr;
+use dsa::search::find_linear;
 
 const SIZE: usize = 1_000_000;
 

@@ -1,5 +1,5 @@
+use dsa::file::read_arr;
 use std::path::Path;
-use task_01::read_arr;
 
 fn main() {
     // const Path is unstable yet
