@@ -1,7 +1,7 @@
 use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
 use dsa::rand_arr;
-use dsa::search::find_linear;
+use dsa::search::linear;
 
 const SIZE: usize = 1_000_000;
 
@@ -15,7 +15,7 @@ fn setup() -> impl Iterator<Item = u8> {
 }
 
 fn routine(data: impl Iterator<Item = u8>) {
-    find_linear(data, 42);
+    linear(data, 42);
 }
 
 fn criterion_benchmark(c: &mut Criterion) {
