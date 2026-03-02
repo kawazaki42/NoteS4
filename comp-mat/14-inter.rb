@@ -182,7 +182,7 @@ module Interpolation
 
     # def self.split_diff_with_order(xs, ys, order)
 
-    def forward(pts, x)
+    def self.forward(pts, x)
       # _x0, y0 = pts.first
       xs, ys = pts.transpose
 
@@ -204,8 +204,8 @@ module Interpolation
 
       fail if not cols.last.one?
 
-      (pts.length - 1).times.sum do |i|
-        prod = split_diffs[i].first
+      (pts.length - 1).times.sum do |k|
+        prod = split_diffs[k].first
         xs.take(k).reduce(prod) do |prod, xm|
           prod *= x - xm
         end
@@ -214,16 +214,26 @@ module Interpolation
   end
 
   module Test
+    module_function  # all below
+
     # see also: https://www.desmos.com/calculator/ngbjglouly 
-    def self.jordan_gauss(pts = TEST_POINTS)
+    def jordan_gauss(pts = TEST_POINTS)
       coefs = Interpolation::jordan_gauss(pts)
 
-      pts.map do |x, y|
+      pts.map do |x, expected|
         actual = coefs.map.with_index do |k, i|
           k * x**i
         end.sum
 
-        expected = y
+        (expected - actual).to_f
+      end
+    end
+
+    def by_x(pts = TEST_POINTS, &meth)
+      xs, expected = pts.transpose
+
+      pts.map do |x, expected|
+        actual = meth.(pts, x)
 
         (expected - actual).to_f
       end
