@@ -3,6 +3,7 @@ package io.github.kawazaki42.course.classgui
 import javafx.fxml.FXML
 import javafx.scene.control.Label
 import javafx.scene.control.TextField
+import javafx.scene.paint.Color
 
 class HelloController {
     @FXML
@@ -14,26 +15,61 @@ class HelloController {
     @FXML
     private lateinit var inputImag: TextField
 
-    private fun readFields(): Complex {
-        val real = inputReal.text.toDoubleOrNull() ?: 0.0
-        val imag = inputImag.text.toDoubleOrNull() ?: 0.0
+    private fun showError(text: String) {
+        welcomeText.textFill = Color.RED
+        welcomeText.text = text
+//        println(welcomeText.textFill)
+    }
+
+    private fun hideError() {
+        welcomeText.textFill = Color.BLACK
+    }
+
+    private fun readField(widget: TextField, name: String): Double? {
+        val str = widget.text
+        if (str.isEmpty()) {
+            showError("No $name specified!")
+            return null
+        }
+
+        val result = str.toDoubleOrNull()
+        if (result == null)
+            showError("Wrong $name!")
+        else
+            hideError()
+        return result
+    }
+
+//    private fun validate(widget: TextField, subject: String): String? {
+//        val str = widget.text
+//        if (str.isEmpty()) return "No $subject specified!"
+//        if ()
+//    }
+
+    private fun createFromFields(): Complex? {
+        val real = readField(inputReal, "real part") ?: return null
+        val imag = readField(inputImag, "imag part") ?: return null
+
         return Complex(real, imag)
     }
 
     @FXML
     private fun onToStringButtonClick() {
 //        welcomeText.text = "Welcome to JavaFX Application!"
-        welcomeText.text = readFields().toString()
+        val c = createFromFields() ?: return
+        welcomeText.text = c.toString()
     }
 
     @FXML
     private fun onAbsButtonClick() {
-        welcomeText.text = readFields().abs().toString()
+        val c = createFromFields() ?: return
+        welcomeText.text = c.abs().toString()
     }
 
     @FXML
     private fun onArgButtonClick() {
-        val result = readFields().arg() / kotlin.math.PI
+        val c = createFromFields() ?: return
+        val result = c.arg() / kotlin.math.PI
         welcomeText.text = "${result}п"
     }
 }

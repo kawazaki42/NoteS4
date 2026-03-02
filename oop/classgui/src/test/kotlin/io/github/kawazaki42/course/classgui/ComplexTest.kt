@@ -103,5 +103,7 @@ class ComplexTest {
         assertEquals(kotlin.math.PI/4.0, Complex(1.0, 1.0).arg())
         assertEquals(kotlin.math.PI, Complex(-1.0).arg())
         assertEquals(0.0, Complex().arg())
+
+        assertEquals(0.0, Complex(1.0, 0.0).arg())
     }
 }

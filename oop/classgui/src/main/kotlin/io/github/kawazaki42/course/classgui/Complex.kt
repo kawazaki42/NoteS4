@@ -4,9 +4,10 @@ import kotlin.math.atan2
 import kotlin.math.hypot
 
 data class Complex(val real: Double = 0.0, val imag: Double = 0.0) {
+
     operator fun plus(other: Complex) = Complex(
         real + other.real,
-        imag + other.imag
+        imag + other.imag,
     )
 
     operator fun plus(other: Double) = copy(real = real + other)
