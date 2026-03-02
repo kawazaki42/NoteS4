@@ -1,8 +1,9 @@
 use rand::distr::Distribution;
 use rand::distr::uniform::{SampleUniform, Uniform};
 use std::io::BufRead;
-use std::num::ParseIntError;
+use std::num::{ParseFloatError, ParseIntError};
 use std::ops::AddAssign;
+use std::str::FromStr;
 use std::time;
 
 pub mod search;
@@ -57,9 +58,11 @@ pub fn is_sorted<T: PartialOrd>(arr: &[T]) -> bool {
     arr.windows(2).all(|pair| pair[0] <= pair[1])
 }
 
+#[derive(Debug)]
 pub enum FileError {
     IoError(std::io::Error),
-    ParseError(ParseIntError),
+    ParseIntError(ParseIntError),
+    ParseFloatError(ParseFloatError),
 }
 
 impl From<std::io::Error> for FileError {
@@ -70,13 +73,20 @@ impl From<std::io::Error> for FileError {
 
 impl From<ParseIntError> for FileError {
     fn from(this: ParseIntError) -> Self {
-        Self::ParseError(this)
+        Self::ParseIntError(this)
+    }
+}
+
+impl From<ParseFloatError> for FileError {
+    fn from(this: ParseFloatError) -> Self {
+        Self::ParseFloatError(this)
     }
 }
 
 pub fn read_arr<T>(path: &std::path::Path) -> Result<Vec<T>, FileError>
 where
-    T: std::str::FromStr<Err = ParseIntError>,
+    T: FromStr,
+    FileError: From<<T as FromStr>::Err>,
 {
     let file = std::fs::File::open(path)?;
     let buf = std::io::BufReader::new(file);
