@@ -2,29 +2,99 @@ use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
 use dsa::rand_arr;
 use dsa::search::linear;
+// use std::iter::IntoIterator
 
-const SIZE: usize = 1_000_000;
+// const SIZE: usize = 1_000_000;
 
 // type State = <[u8; 1] as std::iter::IntoIterator>::Iter;
 
-fn setup() -> impl Iterator<Item = u8> {
-    let data: [u8; SIZE] = rand_arr(0..=255).expect("incorrect range?!");
-    // let iter = data.into_iter();
+// struct Batch<T, const N: usize, I: Iterator<Item = T>> {
+//     haystack: [T; N],
+//     needles: I,
+// }
 
-    data.into_iter()
+struct Batch<T> {
+    haystack: Vec<T>,
+    needles: <Vec<T> as IntoIterator>::IntoIter,
 }
 
-fn routine(data: impl Iterator<Item = u8>) {
-    linear(data, 42);
+// type State<const N: usize> = Batch<usize, N, <[usize; N] as IntoIterator>::IntoIter>;
+// type State<const N: usize, I> = Batch<usize, N, I>;
+type State = Batch<usize>;
+
+// fn setup<const N: usize>() -> State {
+fn setup(n: usize) -> State {
+    // let data: [u8; SIZE] = rand_arr(0..=255).expect("incorrect range?!");
+    // let iter = data.into_iter();
+
+    // data.into_iter()
+
+    Batch {
+        // haystack: rand_arr(1..=usize::MAX).expect("incorrect range?!"),
+        haystack: dsa::rand_iter(1..=usize::MAX)
+            .expect("incorrect range?!")
+            .take(n)
+            .collect(),
+        needles: dsa::rand_iter(0..=usize::MAX)
+            .expect("incorrect range?!")
+            .take(n)
+            .collect::<Vec<_>>()
+            .into_iter(),
+        // needles: rand_arr(0..=usize::MAX)
+        //     .expect("incorrect range?!")
+        //     .into_iter(),
+        // needles: rand_arr(0..=usize::MAX).expect("incorrect range?!"),
+        // idx: 0,
+    }
+}
+
+// fn routine<const N: usize>(s: &mut State<N, impl Iterator<Item = usize>>) {
+fn routine(s: &mut State) {
+    // linear(s.haystack.iter(), &s.needles[s.idx]);
+    linear(
+        s.haystack.iter(),
+        &s.needles.next().expect("no more needles?!"),
+    );
+    // s.idx += 1;
 }
 
 fn criterion_benchmark(c: &mut Criterion) {
     // const T: &str = "u8";
-    let desc = format!("linear search in {SIZE}");
 
-    c.bench_function(&desc, |bencher| {
-        bencher.iter_batched(setup, routine, criterion::BatchSize::SmallInput)
-    });
+    for size in [100, 10_000, 1_000_000, 100_000_000] {
+        let desc = format!("linear search in {size:?}");
+        c.bench_function(&desc, |bencher| {
+            bencher.iter_batched_ref(|| setup(size), routine, criterion::BatchSize::LargeInput);
+        });
+    }
+
+    // let desc = format!("linear search in 100");
+    // c.bench_function(&desc, |bencher| {
+    //     bencher.iter_batched_ref(setup::<100>, routine, criterion::BatchSize::LargeInput);
+    // });
+
+    // let desc = format!("linear search in 10_000");
+    // c.bench_function(&desc, |bencher| {
+    //     bencher.iter_batched_ref(setup::<10_000>, routine, criterion::BatchSize::LargeInput);
+    // });
+
+    // let desc = format!("linear search in 1_000_000");
+    // c.bench_function(&desc, |bencher| {
+    //     bencher.iter_batched_ref(
+    //         setup::<1_000_000>,
+    //         routine,
+    //         criterion::BatchSize::LargeInput,
+    //     );
+    // });
+
+    // let desc = format!("linear search in 1_000_000_000");
+    // c.bench_function(&desc, |bencher| {
+    //     bencher.iter_batched_ref(
+    //         setup::<1_000_000_000>,
+    //         routine,
+    //         criterion::BatchSize::PerIteration,
+    //     );
+    // });
 }
 
 criterion_group!(benches, criterion_benchmark);

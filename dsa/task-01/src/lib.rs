@@ -39,6 +39,17 @@ where
     Ok(result)
 }
 
+pub fn rand_iter<T, R>(range: R) -> Result<impl Iterator<Item = T>, RandErr>
+where
+    T: SampleUniform,
+    Uniform<T>: TryFrom<R, Error = RandErr>,
+{
+    let dist: Uniform<T> = range.try_into()?;
+    let rng = rand::rng();
+
+    Ok(dist.sample_iter(rng))
+}
+
 pub fn rand_arr_inc<T, const N: usize>(min: T, maxd: T) -> Result<[T; N], RandErr>
 where
     T: SampleUniform + Default + AddAssign + Copy,
