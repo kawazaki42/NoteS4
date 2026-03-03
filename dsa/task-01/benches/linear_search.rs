@@ -1,7 +1,9 @@
+use std::time::Duration;
+
 use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
-use dsa::rand_arr;
-use dsa::search::linear;
+// use dsa::rand_arr;
+use dsa::search::{binary, linear};
 // use std::iter::IntoIterator
 
 // const SIZE: usize = 1_000_000;
@@ -62,10 +64,13 @@ fn criterion_benchmark(c: &mut Criterion) {
     // const T: &str = "u8";
 
     for size in [100, 10_000, 1_000_000, 100_000_000] {
-        let desc = format!("linear search in {size:?}");
-        c.bench_function(&desc, |bencher| {
-            bencher.iter_batched_ref(|| setup(size), routine, criterion::BatchSize::LargeInput);
-        });
+        let desc = format!("linear search in {size:#?}");
+        c
+            // .sample_size(10)
+            // .measurement_time(Duration::from_secs(10))
+            .bench_function(&desc, |bencher| {
+                bencher.iter_batched_ref(|| setup(size), routine, criterion::BatchSize::LargeInput);
+            });
     }
 
     // let desc = format!("linear search in 100");
@@ -97,5 +102,29 @@ fn criterion_benchmark(c: &mut Criterion) {
     // });
 }
 
-criterion_group!(benches, criterion_benchmark);
+fn bench_binary(c: &mut Criterion) {
+    for size in [100, 10_000, 1_000_000, 100_000_000] {
+        let desc = format!("binary search in {size:#?}");
+        c.bench_function(&desc, |bencher| {
+            bencher.iter_batched_ref(
+                || setup(size),
+                |batch| {
+                    binary(
+                        &batch.haystack,
+                        batch.needles.next().expect("no more needles?!"),
+                    )
+                },
+                criterion::BatchSize::LargeInput,
+            );
+        });
+    }
+}
+
+criterion_group!(
+    name = benches;
+    config = Criterion::default()
+        .sample_size(10)
+        .measurement_time(Duration::from_secs(20));
+    targets = criterion_benchmark, bench_binary
+);
 criterion_main!(benches);
