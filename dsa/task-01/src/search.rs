@@ -48,7 +48,7 @@ fn binary_with_offset<T: Ord>(haystack: &[T], needle: T, offset: usize) -> Optio
 mod tests {
     use super::*;
 
-    //*
+    /*
     #[should_panic]
     #[test]
     fn fail() {

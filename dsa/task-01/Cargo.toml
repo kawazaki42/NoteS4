@@ -13,3 +13,8 @@ criterion = "0.8.2"
 name = "linear_search"
 # Use criterion instead of builtin bench (which is unstable yet)
 harness = false
+
+# for inspecting optimizations
+[profile.inspect]
+inherits = "dev"
+opt-level = 3
