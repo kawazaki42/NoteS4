@@ -63,6 +63,8 @@ fn routine(s: &mut State) {
 fn criterion_benchmark(c: &mut Criterion) {
     // const T: &str = "u8";
 
+    // TODO: rand(..N * 2)
+
     for size in [100, 10_000, 1_000_000, 100_000_000] {
         let desc = format!("linear search in {size:#?}");
         c
@@ -103,11 +105,21 @@ fn criterion_benchmark(c: &mut Criterion) {
 }
 
 fn bench_binary(c: &mut Criterion) {
-    for size in [100, 10_000, 1_000_000, 100_000_000] {
+    for size in [100usize, 10_000, 1_000_000, 100_000_000] {
         let desc = format!("binary search in {size:#?}");
         c.bench_function(&desc, |bencher| {
             bencher.iter_batched_ref(
-                || setup(size),
+                || Batch {
+                    haystack: dsa::rand_iter_inc(1, 100)
+                        .expect("incorrect range?!")
+                        .take(size)
+                        .collect(),
+                    needles: dsa::rand_iter(0..=usize::MAX)
+                        .expect("incorrect range?!")
+                        .take(size)
+                        .collect::<Vec<_>>()
+                        .into_iter(),
+                },
                 |batch| {
                     binary(
                         &batch.haystack,

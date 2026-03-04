@@ -50,6 +50,22 @@ where
     Ok(dist.sample_iter(rng))
 }
 
+pub fn rand_iter_inc<T>(min: T, maxd: T) -> Result<impl Iterator<Item = T>, RandErr>
+where
+    T: SampleUniform + Default + AddAssign + Copy,
+{
+    let dist = Uniform::new_inclusive(T::default(), maxd)?;
+
+    let rng = rand::rng();
+
+    let result = dist.sample_iter(rng).scan(min, |a, b| {
+        *a += b;
+        Some(*a)
+    });
+
+    Ok(result)
+}
+
 pub fn rand_arr_inc<T, const N: usize>(min: T, maxd: T) -> Result<[T; N], RandErr>
 where
     T: SampleUniform + Default + AddAssign + Copy,
