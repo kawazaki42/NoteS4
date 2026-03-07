@@ -20,8 +20,10 @@ module LinAl
   # needed to use `refine` above
   using self
 
+  module_function  # all below
+
   # solve an equation system
-  def self.jordan_gauss(mat)
+  def jordan_gauss(mat)
     nrows = mat.length
     ncols = mat[0].length
 

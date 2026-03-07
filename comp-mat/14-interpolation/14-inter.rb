@@ -1,8 +1,5 @@
 # Вариант 4
 
-# NOTE: `self` in some places refers to class currently being defined.
-#       Thus, `self.some_method` means that `some_method` is 'static'.
-
 require_relative 'linal'
 
 module Interpolation
@@ -15,7 +12,9 @@ module Interpolation
     [10, -7],
   ]
 
-  def self.jordan_gauss(pts)
+  module_function  # makes methods static
+
+  def jordan_gauss(pts)
     mat = pts.map do |x, y|
       pts.each_index.map{|i| x ** i }.push(y)
     end
@@ -23,7 +22,7 @@ module Interpolation
     LinAl::jordan_gauss(mat)
   end
 
-  def self.lagrange(pts, x)
+  def lagrange(pts, x)
     xs, ys = pts.transpose
 
     pts.each_index.sum do |k|
@@ -51,8 +50,10 @@ module Interpolation
   end
 
   module Newton
+    module_function  # all below
+
     # def self.split_diff(pts)
-    def self.split_diff(xs, ys, leap_x = 0)
+    def split_diff(xs, ys, leap_x = 0)
       ypairs = ys.lazy.each_cons(2)
       xpairs = xs.lazy.each_cons(2 + leap_x).map do |win|
         [win.first, win.last]
@@ -75,7 +76,7 @@ module Interpolation
 
     # def self.split_diff_with_order(xs, ys, order)
 
-    def self.forward(pts, x)
+    def forward(pts, x)
       # _x0, y0 = pts.first
       xs, ys = pts.transpose
 
