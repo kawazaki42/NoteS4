@@ -10,13 +10,13 @@ module Interpolation
     [4, -4],
     [7, 7],
     [10, -7],
-  ]
+  ].freeze
 
   module_function  # makes methods static
 
   def jordan_gauss(pts)
     mat = pts.map do |x, y|
-      pts.each_index.map{|i| x ** i }.push(y)
+      pts.each_index.map { |i| x**i }.push(y)
     end
 
     LinAl::jordan_gauss(mat)
@@ -27,7 +27,7 @@ module Interpolation
 
     pts.each_index.sum do |k|
       # xs_no_k = xs[..k-1] + xs[k+1..]
-      xs_no_k = xs.values_at(..k-1, k+1..)
+      xs_no_k = xs.values_at(..k - 1, k + 1..)
 
       # num = xs_no_k.map do |xm|
       #   x - xm
@@ -110,7 +110,7 @@ module Interpolation
   module Test
     module_function  # all below
 
-    # see also: https://www.desmos.com/calculator/ngbjglouly 
+    # see also: https://www.desmos.com/calculator/ngbjglouly
     def jordan_gauss(pts = TEST_POINTS)
       coefs = Interpolation::jordan_gauss(pts)
 
@@ -124,7 +124,7 @@ module Interpolation
     end
 
     def by_x(pts = TEST_POINTS, &meth)
-      xs, expected = pts.transpose
+      # xs, expected = pts.transpose
 
       pts.map do |x, expected|
         actual = meth.(pts, x)
