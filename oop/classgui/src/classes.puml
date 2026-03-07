@@ -1,0 +1,37 @@
+@startuml
+
+class Complex {
++ real: Double
++ imag: Double
+}
+
+class DemoApplication {
++ override start(stage: Stage)
+}
+
+class LauncherKt {
++ main()
+}
+
+class Controller {
+- label: Label
+- inputReal: TextField
+- inputImag: TextField
+- showError(text: String)
+- hideError()
+- readField(widget: TextField, name: String): Double?
+- createFromFields(): Complex?
+- onToStringButtonClick()
+- onAbsButtonClick()
+- onArgButtonClick()
+}
+
+Controller --> Complex
+
+LauncherKt --> DemoApplication
+
+DemoApplication ---|> javafx.application.Application
+
+Application --> Controller
+
+@enduml

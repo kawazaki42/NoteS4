@@ -5,9 +5,9 @@ import javafx.scene.control.Label
 import javafx.scene.control.TextField
 import javafx.scene.paint.Color
 
-class HelloController {
+class Controller {
     @FXML
-    private lateinit var welcomeText: Label
+    private lateinit var label: Label
 
     @FXML
     private lateinit var inputReal: TextField
@@ -16,13 +16,13 @@ class HelloController {
     private lateinit var inputImag: TextField
 
     private fun showError(text: String) {
-        welcomeText.textFill = Color.RED
-        welcomeText.text = text
+        label.textFill = Color.RED
+        label.text = text
 //        println(welcomeText.textFill)
     }
 
     private fun hideError() {
-        welcomeText.textFill = Color.BLACK
+        label.textFill = Color.BLACK
     }
 
     private fun readField(widget: TextField, name: String): Double? {
@@ -57,19 +57,19 @@ class HelloController {
     private fun onToStringButtonClick() {
 //        welcomeText.text = "Welcome to JavaFX Application!"
         val c = createFromFields() ?: return
-        welcomeText.text = c.toString()
+        label.text = c.toString()
     }
 
     @FXML
     private fun onAbsButtonClick() {
         val c = createFromFields() ?: return
-        welcomeText.text = c.abs().toString()
+        label.text = c.abs().toString()
     }
 
     @FXML
     private fun onArgButtonClick() {
         val c = createFromFields() ?: return
         val result = c.arg() / kotlin.math.PI
-        welcomeText.text = "${result}п"
+        label.text = "${result}п"
     }
 }
