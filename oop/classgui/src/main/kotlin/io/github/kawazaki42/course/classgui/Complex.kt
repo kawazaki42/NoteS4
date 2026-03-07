@@ -1,9 +1,20 @@
 package io.github.kawazaki42.course.classgui
 
+import kotlin.math.absoluteValue
 import kotlin.math.atan2
 import kotlin.math.hypot
+import kotlin.math.sign
 
 data class Complex(val real: Double = 0.0, val imag: Double = 0.0) {
+
+    override fun toString(): String {
+        val imagSigned = if (imag < 0)
+            "- ${imag.absoluteValue}"
+        else
+            "+ $imag"
+
+        return "$real ${imagSigned}i"
+    }
 
     operator fun plus(other: Complex) = Complex(
         real + other.real,

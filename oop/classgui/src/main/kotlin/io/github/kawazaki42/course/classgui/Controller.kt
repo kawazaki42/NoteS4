@@ -15,6 +15,12 @@ class Controller {
     @FXML
     private lateinit var inputImag: TextField
 
+    private var subject: Complex? = null
+        get() {
+            field = createFromFields()
+            return field
+        }
+
     private fun showError(text: String) {
         label.textFill = Color.RED
         label.text = text
@@ -56,19 +62,19 @@ class Controller {
     @FXML
     private fun onToStringButtonClick() {
 //        welcomeText.text = "Welcome to JavaFX Application!"
-        val c = createFromFields() ?: return
+        val c = subject ?: return
         label.text = c.toString()
     }
 
     @FXML
     private fun onAbsButtonClick() {
-        val c = createFromFields() ?: return
+        val c = subject ?: return
         label.text = c.abs().toString()
     }
 
     @FXML
     private fun onArgButtonClick() {
-        val c = createFromFields() ?: return
+        val c = subject ?: return
         val result = c.arg() / kotlin.math.PI
         label.text = "${result}п"
     }
