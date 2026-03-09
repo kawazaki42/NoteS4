@@ -1,0 +1,9 @@
+name: comp-mat
+version: 0.1.0
+
+authors:
+  - anonymous <212337579+kawazaki42@users.noreply.github.com>
+
+crystal: '>= 1.11.2'
+
+license: MIT
