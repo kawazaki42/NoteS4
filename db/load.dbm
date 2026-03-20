@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="200,406" last-zoom="1" max-obj-count="7"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" name-color="#000000" sql-disabled="true">
+</schema>
+
+<table name="lecturer" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="600" y="180"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="surname">
+		<type name="text" length="0"/>
+	</column>
+	<column name="first_name">
+		<type name="text" length="0"/>
+	</column>
+	<column name="patronym">
+		<type name="text" length="0"/>
+	</column>
+	<column name="department">
+		<type name="text" length="0"/>
+	</column>
+	<column name="degree">
+		<type name="text" length="0"/>
+	</column>
+	<column name="occupation">
+		<type name="text" length="0"/>
+	</column>
+	<column name="seniority">
+		<type name="interval" length="0"/>
+	</column>
+	<constraint name="lecturer_pk" type="pk-constr" table="public.lecturer">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="discipline" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1340" y="280"/>
+	<column name="id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="name">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="discipline_pk" type="pk-constr" table="public.discipline">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="group" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="820" y="560"/>
+	<column name="name" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="group_pk" type="pk-constr" table="public.&quot;group&quot;">
+		<columns names="name" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="lesson" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1320" y="520"/>
+
+	<customidxs object-type="column">
+		<object name="id_discipline" index="0"/>
+		<object name="id_lecturer" index="2"/>
+		<object name="name_group" index="1"/>
+	</customidxs>
+	<customidxs object-type="constraint">
+		<object name="discipline_fk" index="0"/>
+		<object name="group_fk" index="2"/>
+		<object name="lecturer_fk" index="3"/>
+		<object name="lesson_pk" index="1"/>
+	</customidxs></table>
+
+<relationship name="discipline_has_many_lesson" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#98666e"
+	 src-table="public.discipline"
+	 dst-table="public.lesson"
+	 src-required="false" dst-required="false">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="group_has_many_lesson" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#adce68"
+	 src-table="public.&quot;group&quot;"
+	 dst-table="public.lesson"
+	 src-required="false" dst-required="false">
+	<constraint name="lesson_pk" type="pk-constr" alias="lesson_pk" protected="true" table="public.lesson">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="kind" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1320" y="880"/>
+	<column name="name" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="kind_pk" type="pk-constr" table="public.kind">
+		<columns names="name" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="lecturer_has_many_lesson" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#7de34e"
+	 src-table="public.lecturer"
+	 dst-table="public.lesson"
+	 src-required="false" dst-required="false"/>
+
+<table name="study_year" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1700" y="640"/>
+	<column name="year" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="study_year_pk" type="pk-constr" table="public.study_year">
+		<columns names="year" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="kind_has_many_lesson" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3eb47e"
+	 src-table="public.kind"
+	 dst-table="public.lesson"
+	 src-required="false" dst-required="false">
+	<constraint name="lesson_pk" type="pk-constr" alias="lesson_pk" protected="true" table="public.lesson">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="study_year_has_many_lesson" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#84897a"
+	 src-table="public.study_year"
+	 dst-table="public.lesson"
+	 src-required="false" dst-required="false">
+	<constraint name="lesson_pk" type="pk-constr" alias="lesson_pk" protected="true" table="public.lesson">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+</dbmodel>
