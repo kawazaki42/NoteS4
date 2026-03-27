@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
- <office:meta><meta:initial-creator>kassatkin0397@mail.ru</meta:initial-creator><meta:creation-date>2026-03-13T01:57:21</meta:creation-date><dc:date>2026-03-27T10:59:02.938284342</dc:date><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:editing-duration>PT1M14S</meta:editing-duration><meta:editing-cycles>1</meta:editing-cycles><meta:document-statistic meta:table-count="1" meta:cell-count="83" meta:object-count="0"/><meta:user-defined meta:name="AppVersion">12.0000</meta:user-defined></office:meta>
+ <office:meta><meta:initial-creator>kassatkin0397@mail.ru</meta:initial-creator><meta:creation-date>2026-03-13T01:57:21</meta:creation-date><dc:date>2026-03-27T11:37:39.391529811</dc:date><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:editing-duration>PT39M46S</meta:editing-duration><meta:editing-cycles>11</meta:editing-cycles><meta:document-statistic meta:table-count="1" meta:cell-count="132" meta:object-count="0"/><meta:user-defined meta:name="AppVersion">12.0000</meta:user-defined></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
    <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
    <config:config-item config:name="VisibleAreaWidth" config:type="int">35031</config:config-item>
-   <config:config-item config:name="VisibleAreaHeight" config:type="int">6535</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">8546</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
      <config:config-item-map-named config:name="Tables">
       <config:config-item-map-entry config:name="Лист1">
-       <config:config-item config:name="CursorPositionX" config:type="int">3</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">14</config:config-item>
+       <config:config-item config:name="CursorPositionX" config:type="int">14</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">3</config:config-item>
        <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
        <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
@@ -70,6 +70,15 @@
    <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
    <config:config-item config:name="EmbedLatinScriptFonts" config:type="boolean">true</config:config-item>
    <config:config-item config:name="EmbedOnlyUsedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item-map-indexed config:name="ForbiddenCharacters">
+    <config:config-item-map-entry>
+     <config:config-item config:name="Language" config:type="string">en</config:config-item>
+     <config:config-item config:name="Country" config:type="string">US</config:config-item>
+     <config:config-item config:name="Variant" config:type="string"/>
+     <config:config-item config:name="BeginLine" config:type="string"/>
+     <config:config-item config:name="EndLine" config:type="string"/>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
    <config:config-item config:name="GridColor" config:type="int">-1</config:config-item>
    <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
    <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
@@ -698,13 +707,13 @@
       <text:p>R_н</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
-      <text:p>Е_эг</text:p>
+      <text:p>P_н</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
-      <text:p>R_эг</text:p>
+      <text:p>P_эг</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="string" calcext:value-type="string">
-      <text:p>n</text:p>
+      <text:p>\eta</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
@@ -737,11 +746,8 @@
      <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
       <text:p>Ом</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
-      <text:p>В</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
-      <text:p>Ом</text:p>
+     <table:table-cell table:number-columns-repeated="2" table:style-name="ce3" office:value-type="string" calcext:value-type="string">
+      <text:p>Вт</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="string" calcext:value-type="string">
       <text:p>о.е.</text:p>
@@ -760,13 +766,24 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,1*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="10.09" calcext:value-type="float">
-      <text:p>10.09</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=10.09 / 1000" office:value-type="float" office:value="0.01009" calcext:value-type="float">
+      <text:p>0.01009</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="90.7" calcext:value-type="float">
       <text:p>90.7</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K4]/[.J4]" office:value-type="float" office:value="8989.09811694747" calcext:value-type="float">
+      <text:p>8989.09811694747</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K4]*[.J4]" office:value-type="float" office:value="0.915163" calcext:value-type="float">
+      <text:p>0.915163</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J4]" office:value-type="float" office:value="1.009" calcext:value-type="float">
+      <text:p>1.009</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M4]/[.N4]" office:value-type="float" office:value="0.907" calcext:value-type="float">
+      <text:p>0.907</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -779,9 +796,15 @@
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="100" calcext:value-type="float">
       <text:p>100</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3"/>
-     <table:table-cell table:style-name="ce2" table:number-columns-spanned="1" table:number-rows-spanned="2"/>
-     <table:table-cell table:style-name="ce2" table:number-columns-spanned="1" table:number-rows-spanned="2"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.E5]/[.B5]-[.F5]" office:value-type="string" office:string-value="" calcext:value-type="error">
+      <text:p>#DIV/0!</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce2" table:formula="of:=[.C5]" office:value-type="float" office:value="100" calcext:value-type="float" table:number-columns-spanned="1" table:number-rows-spanned="2">
+      <text:p>100</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce2" table:formula="of:=[.E5]/[.B6]" office:value-type="float" office:value="997.008973080758" calcext:value-type="float" table:number-columns-spanned="1" table:number-rows-spanned="2">
+      <text:p>997.008973080758</text:p>
+     </table:table-cell>
      <table:table-cell/>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="2" calcext:value-type="float">
       <text:p>2</text:p>
@@ -789,26 +812,39 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,2*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="19.91" calcext:value-type="float">
-      <text:p>19.91</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=19.91 / 1000" office:value-type="float" office:value="0.01991" calcext:value-type="float">
+      <text:p>0.01991</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="80.6" calcext:value-type="float">
       <text:p>80.6</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K5]/[.J5]" office:value-type="float" office:value="4048.21697639377" calcext:value-type="float">
+      <text:p>4048.21697639377</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K5]*[.J5]" office:value-type="float" office:value="1.604746" calcext:value-type="float">
+      <text:p>1.604746</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J5]" office:value-type="float" office:value="1.991" calcext:value-type="float">
+      <text:p>1.991</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M5]/[.N5]" office:value-type="float" office:value="0.806" calcext:value-type="float">
+      <text:p>0.806</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
       <text:p>КЗ</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="100.3" calcext:value-type="float">
-      <text:p>100.3</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=100.3 / 1000" office:value-type="float" office:value="0.1003" calcext:value-type="float">
+      <text:p>0.1003</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.E6]/[.B6]-[.F6]" office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
      <table:covered-table-cell table:number-columns-repeated="2" table:style-name="ce2"/>
      <table:table-cell/>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="3" calcext:value-type="float">
@@ -817,13 +853,24 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,3*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="31.19" calcext:value-type="float">
-      <text:p>31.19</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=31.19 / 1000" office:value-type="float" office:value="0.03119" calcext:value-type="float">
+      <text:p>0.03119</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="68.5" calcext:value-type="float">
       <text:p>68.5</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K6]/[.J6]" office:value-type="float" office:value="2196.21673613338" calcext:value-type="float">
+      <text:p>2196.21673613338</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K6]*[.J6]" office:value-type="float" office:value="2.136515" calcext:value-type="float">
+      <text:p>2.136515</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J6]" office:value-type="float" office:value="3.119" calcext:value-type="float">
+      <text:p>3.119</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M6]/[.N6]" office:value-type="float" office:value="0.685" calcext:value-type="float">
+      <text:p>0.685</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -838,28 +885,45 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,4*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="40.17" calcext:value-type="float">
-      <text:p>40.17</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=40.17 / 1000" office:value-type="float" office:value="0.04017" calcext:value-type="float">
+      <text:p>0.04017</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="60.3" calcext:value-type="float">
       <text:p>60.3</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K7]/[.J7]" office:value-type="float" office:value="1501.12023898432" calcext:value-type="float">
+      <text:p>1501.12023898432</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K7]*[.J7]" office:value-type="float" office:value="2.422251" calcext:value-type="float">
+      <text:p>2.422251</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J7]" office:value-type="float" office:value="4.017" calcext:value-type="float">
+      <text:p>4.017</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M7]/[.N7]" office:value-type="float" office:value="0.603" calcext:value-type="float">
+      <text:p>0.603</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
       <text:p>Нагрузка №1</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="10.15" calcext:value-type="float">
-      <text:p>10.15</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=10.15/1000" office:value-type="float" office:value="0.01015" calcext:value-type="float">
+      <text:p>0.01015</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="89.8" calcext:value-type="float">
       <text:p>89.8</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3"/>
-     <table:table-cell table:style-name="ce2" table:number-columns-spanned="1" table:number-rows-spanned="2"/>
-     <table:table-cell table:style-name="ce2" table:number-columns-spanned="1" table:number-rows-spanned="2"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.E8]/[.B8]-[.F8]" office:value-type="float" office:value="8847.29064039409" calcext:value-type="float">
+      <text:p>8847.29064039409</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce2" table:formula="of:=([.C9]*[.B8]-[.C8]*[.B9])/([.B8]-[.B9])" office:value-type="float" office:value="99.9064377682403" calcext:value-type="float" table:number-columns-spanned="1" table:number-rows-spanned="2">
+      <text:p>99.9064377682403</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce2" table:formula="of:=([.C9]-[.C8])/([.B8]-[.B9])" office:value-type="float" office:value="995.708154506438" calcext:value-type="float" table:number-columns-spanned="1" table:number-rows-spanned="2">
+      <text:p>995.708154506438</text:p>
+     </table:table-cell>
      <table:table-cell/>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="5" calcext:value-type="float">
       <text:p>5</text:p>
@@ -867,26 +931,39 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,5*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="49.94" calcext:value-type="float">
-      <text:p>49.94</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=49.94 / 1000" office:value-type="float" office:value="0.04994" calcext:value-type="float">
+      <text:p>0.04994</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="50.5" calcext:value-type="float">
       <text:p>50.5</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K8]/[.J8]" office:value-type="float" office:value="1011.21345614738" calcext:value-type="float">
+      <text:p>1011.21345614738</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K8]*[.J8]" office:value-type="float" office:value="2.52197" calcext:value-type="float">
+      <text:p>2.52197</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J8]" office:value-type="float" office:value="4.994" calcext:value-type="float">
+      <text:p>4.994</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M8]/[.N8]" office:value-type="float" office:value="0.505" calcext:value-type="float">
+      <text:p>0.505</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string">
       <text:p>Нагрузка №2</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="56.75" calcext:value-type="float">
-      <text:p>56.75</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=56.75/1000" office:value-type="float" office:value="0.05675" calcext:value-type="float">
+      <text:p>0.05675</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="43.4" calcext:value-type="float">
       <text:p>43.4</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.E9]/[.B9]-[.F9]" office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
      <table:covered-table-cell table:number-columns-repeated="2" table:style-name="ce2"/>
      <table:table-cell/>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="6" calcext:value-type="float">
@@ -895,13 +972,24 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,6*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="59.71" calcext:value-type="float">
-      <text:p>59.71</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=59.71 / 1000" office:value-type="float" office:value="0.05971" calcext:value-type="float">
+      <text:p>0.05971</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="40" calcext:value-type="float">
       <text:p>40</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K9]/[.J9]" office:value-type="float" office:value="669.904538603249" calcext:value-type="float">
+      <text:p>669.904538603249</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K9]*[.J9]" office:value-type="float" office:value="2.3884" calcext:value-type="float">
+      <text:p>2.3884</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J9]" office:value-type="float" office:value="5.971" calcext:value-type="float">
+      <text:p>5.971</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M9]/[.N9]" office:value-type="float" office:value="0.4" calcext:value-type="float">
+      <text:p>0.4</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -912,13 +1000,24 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,7*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="71.43" calcext:value-type="float">
-      <text:p>71.43</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=71.43 / 1000" office:value-type="float" office:value="0.07143" calcext:value-type="float">
+      <text:p>0.07143</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="28.8" calcext:value-type="float">
       <text:p>28.8</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K10]/[.J10]" office:value-type="float" office:value="403.191936161277" calcext:value-type="float">
+      <text:p>403.191936161277</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K10]*[.J10]" office:value-type="float" office:value="2.057184" calcext:value-type="float">
+      <text:p>2.057184</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J10]" office:value-type="float" office:value="7.143" calcext:value-type="float">
+      <text:p>7.143</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M10]/[.N10]" office:value-type="float" office:value="0.288" calcext:value-type="float">
+      <text:p>0.288</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -929,13 +1028,24 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,8*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="79.6" calcext:value-type="float">
-      <text:p>79.6</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=79.6 / 1000" office:value-type="float" office:value="0.0796" calcext:value-type="float">
+      <text:p>0.0796</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="20.4" calcext:value-type="float">
       <text:p>20.4</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K11]/[.J11]" office:value-type="float" office:value="256.281407035176" calcext:value-type="float">
+      <text:p>256.281407035176</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K11]*[.J11]" office:value-type="float" office:value="1.62384" calcext:value-type="float">
+      <text:p>1.62384</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J11]" office:value-type="float" office:value="7.96" calcext:value-type="float">
+      <text:p>7.96</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M11]/[.N11]" office:value-type="float" office:value="0.204" calcext:value-type="float">
+      <text:p>0.204</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -946,13 +1056,24 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>0,9*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="91.3" calcext:value-type="float">
-      <text:p>91.3</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=91.3 / 1000" office:value-type="float" office:value="0.0913" calcext:value-type="float">
+      <text:p>0.0913</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="8.5" calcext:value-type="float">
       <text:p>8.5</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K12]/[.J12]" office:value-type="float" office:value="93.0996714129244" calcext:value-type="float">
+      <text:p>93.0996714129244</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K12]*[.J12]" office:value-type="float" office:value="0.77605" calcext:value-type="float">
+      <text:p>0.77605</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J12]" office:value-type="float" office:value="9.13" calcext:value-type="float">
+      <text:p>9.13</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M12]/[.N12]" office:value-type="float" office:value="0.085" calcext:value-type="float">
+      <text:p>0.085</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
@@ -963,16 +1084,36 @@
      <table:table-cell table:style-name="ce6" office:value-type="string" calcext:value-type="string">
       <text:p>1*I_кз</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="100.3" calcext:value-type="float">
-      <text:p>100.3</text:p>
+     <table:table-cell table:style-name="ce3" table:formula="of:=100.3 / 1000" office:value-type="float" office:value="0.1003" calcext:value-type="float">
+      <text:p>0.1003</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce3" office:value-type="float" office:value="0" calcext:value-type="float">
       <text:p>0</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce3" table:number-columns-repeated="4"/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K13]/[.J13]" office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.K13]*[.J13]" office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.$E$5]*[.J13]" office:value-type="float" office:value="10.03" calcext:value-type="float">
+      <text:p>10.03</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M13]/[.N13]" office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
      <table:table-cell table:number-columns-repeated="16369"/>
     </table:table-row>
-    <table:table-row table:style-name="ro1" table:number-rows-repeated="1048562">
+    <table:table-row table:style-name="ro1" table:number-rows-repeated="3">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>R_н = E/I – R_эг</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1" table:number-rows-repeated="1048558">
      <table:table-cell table:number-columns-repeated="16384"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
