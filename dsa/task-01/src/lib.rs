@@ -5,6 +5,7 @@ use std::time;
 
 pub mod file;
 pub mod search;
+pub mod sort;
 
 pub fn measure<F>(block: F) -> time::Duration
 where
