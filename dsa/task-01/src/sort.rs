@@ -1,94 +1,3 @@
-// pub fn merge_sort<T>(arr: &[T]) -> impl Iterator<Item = &T> {
-//     match arr {
-//         [] | [_] => arr.iter(),
-//         _ => {
-//             let half = arr.len() / 2;
-//             let a = &arr[..half];
-//             let b = &arr[half..];
-
-//             // merge_sort(a) + merge_sort(b)
-//             merge_sort(a).chain(merge_sort(b))
-//         }
-//     }
-// }
-
-// pub struct MergeSort<'a, T>(&'a [T]);
-
-use std::cmp::min;
-use std::fmt::Debug;
-
-#[derive(Debug)]
-pub struct MergeSort<'a, T>(&'a [T], &'a [T]);
-
-impl<'a, T> MergeSort<'a, T> {
-    fn from(arr: &'a [T]) -> Self {
-        let half = arr.len() / 2;
-        let aa = &arr[..half];
-        let bb = &arr[half..];
-
-        Self(aa, bb)
-    }
-}
-
-impl<'a, T: Ord + Debug> Iterator for MergeSort<'a, T> {
-    type Item = &'a T;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        dbg!(&self);
-        match self {
-            Self([], []) => None,
-            Self(a, []) => {
-                *self = MergeSort::from(a);
-                self.next()
-            }
-            Self([], [b]) => {
-                self.1 = &[];
-                Some(b)
-            }
-            Self([], bb) => {
-                *self = MergeSort::from(bb);
-                self.next()
-            }
-            Self([a, aa @ ..], [b, bb @ ..]) => {
-                // *self = Self(aa, bb);
-                // Some(min(a, b))
-                use std::cmp::Ordering::*;
-                match a.cmp(b) {
-                    Less | Equal => {
-                        self.0 = aa;
-                        Some(a)
-                    }
-                    Greater => {
-                        self.1 = bb;
-                        Some(b)
-                    }
-                }
-            }
-        }
-    }
-}
-
-// struct Merge<'a, T>(&'a [T], &'a [T]);
-
-enum Merge<'a, T> {
-    One(&'a [T]),
-    Two(&'a [T], &'a [T]),
-}
-
-// impl<'a, T> Iterator for Merge<'a, T> {
-//     type Item = T;
-
-//     fn next(&mut self) -> Option<Self::Item> {
-//         match self {
-//             Merge::One(a) => {
-//                 a.split_first().map(|(head, tail)| {self.0 = tail; head})
-//             }
-//         }
-//         let Some(a) = self.0.get(0) else {};
-//         let Some(b) = self.0.get(0) else
-//     }
-// }
-
 // pub fn quicksort<T>(&[T]) ->
 
 // pub struct QuickSort<'a, T>(pivot)
@@ -137,24 +46,26 @@ enum Merge<'a, T> {
 //     // }
 // }
 
-// pub fn merge<T: Ord + Clone>(aa: &[T], bb: &[T]) -> Vec<T> {
-//     let mut result = Vec::new();
+pub mod impurative {
+    pub fn merge<T: Ord + Clone>(aa: &[T], bb: &[T]) -> Vec<T> {
+        let mut result = Vec::new();
 
-//     let mut ai = 0;
-//     let mut bi = 0;
+        let mut ai = 0;
+        let mut bi = 0;
 
-//     while ai < aa.len() && bi < bb.len(){
-//         if aa[ai] > bb[bi] {
-//             result.push(bb[bi].clone());
-//             bi += 1;
-//         } else {
-//             result.push(aa[ai].clone());
-//             ai += 1;
-//         }
-//     }
+        while ai < aa.len() && bi < bb.len() {
+            if aa[ai] > bb[bi] {
+                result.push(bb[bi].clone());
+                bi += 1;
+            } else {
+                result.push(aa[ai].clone());
+                ai += 1;
+            }
+        }
 
-//     result
-// }
+        result
+    }
+}
 
 fn merge<T: Ord + Copy>(
     mut aa: impl Iterator<Item = T>,
