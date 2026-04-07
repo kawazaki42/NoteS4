@@ -75,19 +75,19 @@ enum Merge<'a, T> {
     Two(&'a [T], &'a [T]),
 }
 
-impl<'a, T> Iterator for Merge<'a, T> {
-    type Item = T;
+// impl<'a, T> Iterator for Merge<'a, T> {
+//     type Item = T;
 
-    fn next(&mut self) -> Option<Self::Item> {
-        match self {
-            Merge::One(a) => {
-                a.split_first().map(|(head, tail)| {self.0 = tail; head})
-            }
-        }
-        let Some(a) = self.0.get(0) else {};
-        let Some(b) = self.0.get(0) else
-    }
-}
+//     fn next(&mut self) -> Option<Self::Item> {
+//         match self {
+//             Merge::One(a) => {
+//                 a.split_first().map(|(head, tail)| {self.0 = tail; head})
+//             }
+//         }
+//         let Some(a) = self.0.get(0) else {};
+//         let Some(b) = self.0.get(0) else
+//     }
+// }
 
 // pub fn quicksort<T>(&[T]) ->
 
@@ -137,9 +137,72 @@ impl<'a, T> Iterator for Merge<'a, T> {
 //     // }
 // }
 
-// pub fn merge<T: Ord>(aa: &[T], bb: &[T]) -> Vec<T> {
+// pub fn merge<T: Ord + Clone>(aa: &[T], bb: &[T]) -> Vec<T> {
 //     let mut result = Vec::new();
+
+//     let mut ai = 0;
+//     let mut bi = 0;
+
+//     while ai < aa.len() && bi < bb.len(){
+//         if aa[ai] > bb[bi] {
+//             result.push(bb[bi].clone());
+//             bi += 1;
+//         } else {
+//             result.push(aa[ai].clone());
+//             ai += 1;
+//         }
+//     }
+
+//     result
 // }
+
+fn merge<T: Ord + Copy>(
+    mut aa: impl Iterator<Item = T>,
+    mut bb: impl Iterator<Item = T>,
+) -> Vec<T> {
+    let mut result = Vec::new();
+
+    let mut ma = aa.next();
+    let mut mb = bb.next();
+
+    loop {
+        match (ma, mb) {
+            (None, None) => return result,
+            (Some(a), None) => {
+                result.push(a);
+                ma = aa.next()
+            }
+            (None, Some(b)) => {
+                result.push(b);
+                mb = bb.next()
+            }
+            (Some(a), Some(b)) => {
+                if a <= b {
+                    result.push(a);
+                    ma = aa.next();
+                } else {
+                    result.push(b);
+                    mb = bb.next();
+                }
+            }
+        }
+    }
+}
+
+pub fn merge_sort<T: Ord + Copy>(arr: &[T]) -> Vec<T> {
+    match arr {
+        [] | [_] => arr.to_owned(),
+        _ => {
+            let mid = arr.len() / 2;
+            let (aa, bb) = arr.split_at(mid);
+
+            let ia = merge_sort(aa);
+            let ib = merge_sort(bb);
+
+            merge(ia.into_iter(), ib.into_iter())
+        }
+    }
+}
 
 /// # Returns
 ///
@@ -185,10 +248,19 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn test_bubble() {
         let unsorted = [6, 7, 4, 2];
         // let sorted: Vec<_> = MergeSort::from(&unsorted).map(|&a| a).collect();
         let sorted = bubble_sort(&unsorted);
+
+        assert_eq!(sorted, vec![2, 4, 6, 7]);
+    }
+
+    #[test]
+    fn test_merge() {
+        let unsorted = [6, 7, 4, 2];
+        // let sorted: Vec<_> = MergeSort::from(&unsorted).map(|&a| a).collect();
+        let sorted = merge_sort(&unsorted);
 
         assert_eq!(sorted, vec![2, 4, 6, 7]);
     }
