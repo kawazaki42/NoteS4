@@ -15,11 +15,12 @@ object Test {
     const val Y0 = 0.143
 }
 
-interface DifferentialEquationSolver: Iterator<Pair<Double, Double>> {
+interface DifferentialEquationSolver: Iterator<Double> {
     val diffun: (Double, Double) -> Double
     val step: Double
 
     override fun hasNext() = true
+    fun xs(): Sequence<Double>
 }
 
 open class Euler(override val diffun: (Double, Double) -> Double, var x: Double, var y: Double, override val step: Double) :
@@ -32,7 +33,9 @@ open class Euler(override val diffun: (Double, Double) -> Double, var x: Double,
 
     open fun nextY() = y + step * diffun(x, y)
 
-    override fun next() = Pair(x, y).also { move() }
+    override fun next() = y.also { move() }
+
+    override fun xs() = generateSequence(x) { x + step }
 }
 
 class EulerMod(diff: (Double, Double) -> Double, x: Double, y: Double, step: Double) : Euler(diff, x, y, step) {
@@ -42,27 +45,29 @@ class EulerMod(diff: (Double, Double) -> Double, x: Double, y: Double, step: Dou
 class RungeKutta(override val diffun: (Double, Double) -> Double, var x: Double, var y: Double, override val step: Double) :
     DifferentialEquationSolver {
 
-    override fun next(): Pair<Double, Double> {
+    override fun next(): Double {
         val a = step * diffun(x, y)
         val b = step * diffun(x + step/2, y + a/2)
         val c = step * diffun(x + step/2, y + b/2)
         val d = step * diffun(x + step, y + c)
 
-        return Pair(x, y).also {
+        return y.also {
             y += (a + 2*b + 2*c + d) / 6
             x += step
         }
         // TODO: 0th iteration
     }
+
+    override fun xs() = generateSequence(x) { x + step }
 }
 
 class Adams(val initializer: DifferentialEquationSolver): DifferentialEquationSolver by initializer {
     val ORDER = 3
-    val COEFS = listOf(-9, +37, -59, +55)
+    val COEFS = listOf(-9, +z37, -59, +55)
 
     val hist = initializer.asSequence().take(ORDER + 1).toMutableList()
 
-    override fun next(): Pair<Double, Double> {
+    override fun next(): Double {
         val newY = hist
             .map { (x, y) -> diffun(x, y) }
             .zip(COEFS)
