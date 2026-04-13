@@ -46,6 +46,87 @@
 //     // }
 // }
 
+struct Median<T> {
+    first: T,
+    mid: T,
+    last: T,
+}
+
+impl<T: Ord> Median<T> {
+    // fn low(self) -> Pos {
+    //     if self.first <= self.mid && self.first <= self.last {
+    //         Pos::First
+    //     } else if self.last <= self.first && self.last <= self.mid {
+    //         Pos::Last
+    //     } else {
+    //         Pos::Mid
+    //     }
+    // }
+
+    // fn mid(self) -> Pos {
+    //     let (a, b) = match self.low() {
+    //         Pos::First => (self.mid, self.)
+    //     }
+    // }
+    fn sort(&mut self) {
+        if self.first >
+    }
+}
+
+fn median<T: Ord>(first: T, mid: T, last: T) -> Pos {
+
+}
+
+enum Median<T> {
+    First(T),
+    Mid(T),
+    Last(T),
+}
+
+enum Pos {
+    First,
+    Mid,
+    Last,
+}
+
+pub fn quick<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+    let (Some(&first), Some(&last)) = (arr.first(), arr.last()) else {
+        return vec![];
+    };
+
+    // let mut low = first;
+    // let mut high = last;
+
+    // // ensure `low <= high`
+    // if low > high {
+    //     (low, high) = (high, low)
+    // }
+
+    let midx = arr.len() / 2;
+    let mid = arr[midx].clone();
+
+    // if median > high {
+    //     (median, high) = (high, median)
+    // } else if median < low {
+    //     (low, median) = (median, low)
+    // }
+
+    let median = if first <= mid && mid <= high {
+        mid
+    } else if
+
+    let a = &arr[..mid];
+    let b = &arr[mid + 1..];
+
+    let mut result = quick(a);
+    result.push(median);
+    for x in quick(b) {
+        result.push(x)
+    }
+
+    result
+}
+
 pub mod impurative {
     pub fn merge<T: Ord + Clone>(aa: &[T], bb: &[T]) -> Vec<T> {
         let mut result = Vec::new();
