@@ -1,44 +1,48 @@
+use std::mem::MaybeUninit;
 use std::ops::{Index, IndexMut};
 
 pub struct Vec<T> {
-    raw: Option<Box<[T]>>,
+    // raw: Option<Box<[T]>>,
     // capacity: usize,
+    raw: Box<[MaybeUninit<T>]>,
     size: usize,
 }
 
+/// NOTE: unchecked indexing!
 impl<T, Idx> Index<Idx> for Vec<T>
 where
-    [T]: Index<Idx, Output = T>,
+    [MaybeUninit<T>]: Index<Idx, Output = MaybeUninit<T>>,
 {
     type Output = T;
 
     fn index(&self, index: Idx) -> &Self::Output {
-        let slice = self.raw.as_ref().expect("unchecked index");
-        &slice[index]
+        let slice = self.raw.as_ref();
+        unsafe { slice[index].assume_init_ref() }
     }
 }
 
+/// NOTE: unchecked indexing!
 impl<T, Idx> IndexMut<Idx> for Vec<T>
 where
-    [T]: IndexMut<Idx, Output = T>,
+    [MaybeUninit<T>]: IndexMut<Idx, Output = MaybeUninit<T>>,
 {
     fn index_mut(&mut self, index: Idx) -> &mut Self::Output {
-        let slice = self.raw.as_mut().expect("unchecked index");
-        &mut slice[index]
+        let slice = self.raw.as_mut();
+        unsafe { slice[index].assume_init_mut() }
     }
 }
 
 impl<T> Vec<T> {
     pub fn new() -> Self {
         Self {
-            raw: None,
+            raw: Box::new_uninit_slice(0),
             // capacity: 0,
             size: 0,
         }
     }
 
     pub fn push(&mut self, elem: T) {
-        self.realloc_if_needed();
+        self = self.realloc_if_needed();
         // let new = Self::realloc_if_needed(self.raw);
         // if self.realloc_needed() {
         //     self.raw.take()
@@ -55,10 +59,11 @@ impl<T> Vec<T> {
     // }
 
     pub fn capacity(&self) -> usize {
-        match &self.raw {
-            None => 0,
-            Some(b) => b.len(),
-        }
+        // match &self.raw {
+        //     None => 0,
+        //     Some(b) => b.len(),
+        // }
+        self.raw.len()
     }
 
     fn realloc_needed(&self) -> bool {
@@ -69,6 +74,7 @@ impl<T> Vec<T> {
     // fn realloc_if_needed(ob: Option<Box<[T]>>) -> Box<[T]> {
     fn realloc_if_needed(&mut self) {
         if !self.realloc_needed() {
+            // return self;
             return;
         }
 
@@ -84,20 +90,25 @@ impl<T> Vec<T> {
 
         let mut new = Box::new_zeroed_slice(new_cap);
 
-        if let Some(b) = self.raw.take() {
-            for (i, x) in b.into_iter().enumerate() {
-                // for i in 0..cap {
-                new[i].write(x);
-            }
+        std::mem::take(self.raw.as_mut());
+
+        // if let Some(b) = self.raw.take() {
+        for (i, x) in self.raw.into_iter().enumerate() {
+            // for i in 0..cap {
+            let x = unsafe { x.assume_init() };
+            new[i].write(x);
         }
+        // }
 
         // TODO: all-0 might be invalid for some types
-        let new = unsafe { new.assume_init() };
+        // let new = unsafe { new.assume_init() };
 
-        self.raw = Some(new);
+        // self.raw = Some(new);
 
         // // let new = std::array::from_fn();
-        // self.raw = new;
+        self.raw = new;
+
+        // self
 
         // if !self.raw.is_null() && self.size < self.capacity {
         //     return;
