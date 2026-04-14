@@ -1,30 +1,52 @@
+use std::ops::{Index, IndexMut};
+
 pub struct Vec<T> {
     raw: Option<Box<[T]>>,
-    capacity: usize,
+    // capacity: usize,
     size: usize,
 }
 
-// impl<T> Index<usize> for Vec<T> {
-//     type Output = T;
-//     fn index(&self, index: usize) -> &Self::Output {
-//         // let slice = unsafe {self.raw.cast::<[T]>().as_ref()};
-//         let slice = std::slice::fr
-//         &.expect("got nullptr!")[index]
-//     }
-// }
+impl<T, Idx> Index<Idx> for Vec<T>
+where
+    [T]: Index<Idx, Output = T>,
+{
+    type Output = T;
+
+    fn index(&self, index: Idx) -> &Self::Output {
+        let slice = self.raw.as_ref().expect("unchecked index");
+        &slice[index]
+    }
+}
+
+impl<T, Idx> IndexMut<Idx> for Vec<T>
+where
+    [T]: IndexMut<Idx, Output = T>,
+{
+    fn index_mut(&mut self, index: Idx) -> &mut Self::Output {
+        let slice = self.raw.as_mut().expect("unchecked index");
+        &mut slice[index]
+    }
+}
 
 impl<T> Vec<T> {
     pub fn new() -> Self {
         Self {
             raw: None,
-            capacity: 0,
+            // capacity: 0,
             size: 0,
         }
     }
 
     pub fn push(&mut self, elem: T) {
-        self.maybe_realloc();
-        self[self.size] = elem;
+        self.realloc_if_needed();
+        // let new = Self::realloc_if_needed(self.raw);
+        // if self.realloc_needed() {
+        //     self.raw.take()
+        //     self.raw = Some(new);
+        // }
+
+        let lasti = self.size;
+        self[lasti] = elem;
         self.size += 1;
     }
 
@@ -32,21 +54,44 @@ impl<T> Vec<T> {
     //     Layout::array::<T>(capacity).expect("couldn't calculate `layout`")
     // }
 
-    fn maybe_grow(&mut self) {
-        let cap = match self.raw {
-            Some(b) if self.size < b.len() => return,
+    pub fn capacity(&self) -> usize {
+        match &self.raw {
             None => 0,
             Some(b) => b.len(),
+        }
+    }
+
+    fn realloc_needed(&self) -> bool {
+        self.size == self.capacity()
+    }
+
+    // #[inline]
+    // fn realloc_if_needed(ob: Option<Box<[T]>>) -> Box<[T]> {
+    fn realloc_if_needed(&mut self) {
+        if !self.realloc_needed() {
+            return;
+        }
+
+        let new_cap = match self.capacity() {
+            0 => 1,
+            n => 2 * n,
         };
 
-        let mut new = Box::new_zeroed_slice(cap * 2);
+        // let cap = match &ob {
+        //     Some(b) => b.len(),
+        //     None => 0,
+        // };
 
-        if let Some(b) = self.raw {
+        let mut new = Box::new_zeroed_slice(new_cap);
+
+        if let Some(b) = self.raw.take() {
             for (i, x) in b.into_iter().enumerate() {
+                // for i in 0..cap {
                 new[i].write(x);
             }
         }
 
+        // TODO: all-0 might be invalid for some types
         let new = unsafe { new.assume_init() };
 
         self.raw = Some(new);

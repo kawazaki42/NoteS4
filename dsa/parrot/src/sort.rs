@@ -46,11 +46,11 @@
 //     // }
 // }
 
-struct Median<T> {
-    first: T,
-    mid: T,
-    last: T,
-}
+// struct Median<T> {
+//     first: T,
+//     mid: T,
+//     last: T,
+// }
 
 impl<T: Ord> Median<T> {
     // fn low(self) -> Pos {
@@ -68,14 +68,14 @@ impl<T: Ord> Median<T> {
     //         Pos::First => (self.mid, self.)
     //     }
     // }
-    fn sort(&mut self) {
-        if self.first >
-    }
+    // fn sort(&mut self) {
+    //     if self.first >
+    // }
 }
 
-fn median<T: Ord>(first: T, mid: T, last: T) -> Pos {
+// fn median<T: Ord>(first: T, mid: T, last: T) -> Pos {
 
-}
+// }
 
 enum Median<T> {
     First(T),
@@ -89,43 +89,43 @@ enum Pos {
     Last,
 }
 
-pub fn quick<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
-    let (Some(&first), Some(&last)) = (arr.first(), arr.last()) else {
-        return vec![];
-    };
+// pub fn quick<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+//     let (Some(&first), Some(&last)) = (arr.first(), arr.last()) else {
+//         return vec![];
+//     };
 
-    // let mut low = first;
-    // let mut high = last;
+//     // let mut low = first;
+//     // let mut high = last;
 
-    // // ensure `low <= high`
-    // if low > high {
-    //     (low, high) = (high, low)
-    // }
+//     // // ensure `low <= high`
+//     // if low > high {
+//     //     (low, high) = (high, low)
+//     // }
 
-    let midx = arr.len() / 2;
-    let mid = arr[midx].clone();
+//     let midx = arr.len() / 2;
+//     let mid = arr[midx].clone();
 
-    // if median > high {
-    //     (median, high) = (high, median)
-    // } else if median < low {
-    //     (low, median) = (median, low)
-    // }
+//     // if median > high {
+//     //     (median, high) = (high, median)
+//     // } else if median < low {
+//     //     (low, median) = (median, low)
+//     // }
 
-    let median = if first <= mid && mid <= high {
-        mid
-    } else if
+//     let median = if first <= mid && mid <= high {
+//         mid
+//     } else if
 
-    let a = &arr[..mid];
-    let b = &arr[mid + 1..];
+//     let a = &arr[..mid];
+//     let b = &arr[mid + 1..];
 
-    let mut result = quick(a);
-    result.push(median);
-    for x in quick(b) {
-        result.push(x)
-    }
+//     let mut result = quick(a);
+//     result.push(median);
+//     for x in quick(b) {
+//         result.push(x)
+//     }
 
-    result
-}
+//     result
+// }
 
 pub mod impurative {
     pub fn merge<T: Ord + Clone>(aa: &[T], bb: &[T]) -> Vec<T> {
