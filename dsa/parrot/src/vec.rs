@@ -197,14 +197,18 @@ mod tests {
         {
             let mut v = Vec::new();
 
-            let mut slice = &mut drop_counts[..];
+            let slice = &mut drop_counts[..];
 
-            for _ in 0..N {
-                // v.push(MustDrop(&mut drop_counts[i]));
-                let (head, tail) = slice.split_first_mut().unwrap();
-                slice = tail;
-                v.push(MustDrop(head));
+            for r in slice {
+                v.push(MustDrop(r));
             }
+
+            // for _ in 0..N {
+            //     // v.push(MustDrop(&mut drop_counts[i]));
+            //     let (head, tail) = slice.split_first_mut().unwrap();
+            //     slice = tail;
+            //     v.push(MustDrop(head));
+            // }
         }
 
         assert_eq!(drop_counts, [1; N]);
