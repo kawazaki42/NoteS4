@@ -36,6 +36,16 @@ where
     }
 }
 
+impl<T> Drop for Vec<T> {
+    fn drop(&mut self) {
+        if let Some(mut bx) = self.raw.take() {
+            for r in &mut bx[..self.size] {
+                unsafe { r.assume_init_drop() };
+            }
+        }
+    }
+}
+
 impl<T> Vec<T> {
     pub fn new() -> Self {
         Self {
@@ -55,8 +65,26 @@ impl<T> Vec<T> {
         // }
 
         let lasti = self.size;
-        self.raw.as_mut().expect("allocation failed")[lasti].write(elem);
+        let mut_slice = self.raw.as_mut().expect("allocation failed").as_mut();
+        mut_slice[lasti].write(elem);
         self.size += 1;
+    }
+
+    pub fn pop(&mut self) -> Option<T> {
+        if self.size == 0 {
+            return None;
+        }
+
+        let bx = self.raw.take().expect("no ptr");
+
+        // let mut_slice = self.raw.as_ref().expect("allocation failed").as_ref();
+        // let result = unsafe { mut_slice[self.size - 1].assume_init() };
+        let result = unsafe { bx[self.size - 1].assume_init_read() };
+
+        self.size -= 1;
+
+        self.raw = Some(bx);
+        Some(result)
     }
 
     // fn layout(capacity: usize) -> Layout {
@@ -132,10 +160,57 @@ mod tests {
     #[test]
     fn two() {
         let mut v = Vec::new();
+
+        assert_eq!(v.len(), 0);
+
         v.push(1);
         v.push(2);
 
         assert_eq!(v.len(), 2);
         assert_eq!(v[0], 1);
+    }
+
+    #[test]
+    fn pop() {
+        let mut v = Vec::new();
+        v.push(1);
+        v.push(2);
+
+        assert_eq!(v.pop(), Some(2));
+        assert_eq!(v.len(), 1);
+    }
+
+    #[test]
+    fn drop() {
+        const N: usize = 3;
+
+        let mut drop_counts = [0; N];
+
+        struct MustDrop<'a>(&'a mut usize);
+
+        impl Drop for MustDrop<'_> {
+            fn drop(&mut self) {
+                *self.0 += 1;
+            }
+        }
+
+        {
+            let mut v = Vec::new();
+
+            let mut slice = &mut drop_counts[..];
+
+            for _ in 0..N {
+                // v.push(MustDrop(&mut drop_counts[i]));
+                let (head, tail) = slice.split_first_mut().unwrap();
+                slice = tail;
+                v.push(MustDrop(head));
+            }
+        }
+
+        assert_eq!(drop_counts, [1; N]);
+
+        // v.push(MustDrop(&mut drop_counts.split_first_mut()));
+        // v.push(MustDrop(&mut drop_counts[1]));
+        // v.push(MustDrop(&mut drop_counts[2]));
     }
 }
