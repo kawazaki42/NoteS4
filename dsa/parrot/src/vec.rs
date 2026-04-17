@@ -87,6 +87,18 @@ impl<T> Vec<T> {
         Some(result)
     }
 
+    pub fn get(&mut self, index: usize) -> Option<&T> {
+        if !(0..self.size).contains(&index) {
+            return None;
+        }
+
+        let slice = self.raw.as_ref().expect("no pointer").as_ref();
+        // let slice = &slice[..self.size];
+        // let slice = self.raw.as_ref().expect();
+        let result = unsafe { slice[index].assume_init_ref() };
+        Some(result)
+    }
+
     // fn layout(capacity: usize) -> Layout {
     //     Layout::array::<T>(capacity).expect("couldn't calculate `layout`")
     // }
