@@ -52,42 +52,42 @@
 //     last: T,
 // }
 
-impl<T: Ord> Median<T> {
-    // fn low(self) -> Pos {
-    //     if self.first <= self.mid && self.first <= self.last {
-    //         Pos::First
-    //     } else if self.last <= self.first && self.last <= self.mid {
-    //         Pos::Last
-    //     } else {
-    //         Pos::Mid
-    //     }
-    // }
+// impl<T: Ord> Median<T> {
+//     // fn low(self) -> Pos {
+//     //     if self.first <= self.mid && self.first <= self.last {
+//     //         Pos::First
+//     //     } else if self.last <= self.first && self.last <= self.mid {
+//     //         Pos::Last
+//     //     } else {
+//     //         Pos::Mid
+//     //     }
+//     // }
 
-    // fn mid(self) -> Pos {
-    //     let (a, b) = match self.low() {
-    //         Pos::First => (self.mid, self.)
-    //     }
-    // }
-    // fn sort(&mut self) {
-    //     if self.first >
-    // }
-}
+//     // fn mid(self) -> Pos {
+//     //     let (a, b) = match self.low() {
+//     //         Pos::First => (self.mid, self.)
+//     //     }
+//     // }
+//     // fn sort(&mut self) {
+//     //     if self.first >
+//     // }
+// }
 
 // fn median<T: Ord>(first: T, mid: T, last: T) -> Pos {
 
 // }
 
-enum Median<T> {
-    First(T),
-    Mid(T),
-    Last(T),
-}
+// enum Median<T> {
+//     First(T),
+//     Mid(T),
+//     Last(T),
+// }
 
-enum Pos {
-    First,
-    Mid,
-    Last,
-}
+// enum Pos {
+//     First,
+//     Mid,
+//     Last,
+// }
 
 // pub fn quick<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
 //     let (Some(&first), Some(&last)) = (arr.first(), arr.last()) else {
