@@ -27,17 +27,15 @@ pub struct Vec<T> {
     size: usize,
 }
 
+// operator overloading.
+// see: https://doc.rust-lang.org/stable/core/ops/trait.Index.html
+
 impl<T, Idx> Index<Idx> for Vec<T>
 where
     [MaybeUninit<T>]: Index<Idx, Output = MaybeUninit<T>> + Index<std::ops::Range<usize>>,
 {
     type Output = T;
 
-    /// Get `n`th element of the dynamic array by an _immutable_ reference.
-    ///
-    /// # Panics
-    ///
-    /// On out-of-bound access.
     fn index(&self, index: Idx) -> &Self::Output {
         let slice = self.raw.as_ref().expect("nullptr").as_ref();
         let slice = &slice[..self.size];
@@ -50,11 +48,6 @@ impl<T, Idx> IndexMut<Idx> for Vec<T>
 where
     [MaybeUninit<T>]: IndexMut<Idx, Output = MaybeUninit<T>> + IndexMut<std::ops::Range<usize>>,
 {
-    /// Get `n`th element of the dynamic array by a _mutable_ reference.
-    ///
-    /// # Panics
-    ///
-    /// On out-of-bound access.
     fn index_mut(&mut self, index: Idx) -> &mut Self::Output {
         // let slice = self.raw.as_mut();
         let slice = self.raw.as_mut().expect("nullptr").as_mut();
@@ -247,7 +240,7 @@ impl<T> Vec<T> {
 
     /// Count of elements that can be stored without reallocation.
     ///
-    /// Clients will probably need [`self.len()`] instead.
+    /// Clients will probably need [`Vec::len()`] instead.
     ///
     /// TODO: `reserve`
     pub fn capacity(&self) -> usize {
