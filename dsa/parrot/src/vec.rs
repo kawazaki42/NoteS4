@@ -8,13 +8,17 @@ pub struct Vec<T> {
     // raw: Option<Box<[T]>>,
     // capacity: usize,
     /// - `T`: element type
+    ///
     /// - `MaybeUninit`: type that takes as much memory as T,
     ///   but not guaranteed to be initialized (thus unsafe).
     ///   Needs manual `drop` (destructor).
+    ///
     /// - `[]`: dynamically sized (unknown at compile time) _slice_ of an array.
     ///   Cannot exist alone by itself, only as a kind of a
     ///   _fat pointer_ - always bundled with count of elements
+    ///
     /// - `Box`: an _owning_ reference. Similar to `std::unique_ptr` smart pointer in C++.
+    ///
     /// - `Option`: either `None` or `Some(T)`.
     ///   Nullability needed to respect ownership system:
     ///   even a `&mut self` cannot take ownership of a member field,
