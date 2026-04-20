@@ -14,110 +14,43 @@ pub struct ListNode<T> {
     next: ListPointer<T>,
 }
 
-pub trait NakedList<T> {
-    fn is_empty(&self) -> bool;
-    fn len(&self) -> usize;
-    fn contains(&self, elem: &T) -> bool;
-    fn front(&self) -> Option<&T>;
-    fn back(&self) -> Option<&T>;
+/// Singly linked list with cache for last node and count of nodes.
+pub struct SinglyLinkedList<'a, T> {
+    head: ListPointer<T>,
+    last: Option<&'a mut ListNode<T>>,
+    count: usize,
 }
 
-pub trait MutableNakedList<T>: NakedList<T> {
-    fn front_mut(&mut self) -> Option<&mut T>;
-}
-
-impl<T, P> NakedList<T> for Option<P>
-where
-    P: Deref<Target = ListNode<T>>,
-{
-    // TODO: new/default
-
-    fn is_empty(&self) -> bool {
-        match self {
-            None => true,
-            _ => false,
-        }
-    }
-
-    fn len(&self) -> usize {
-        match self {
-            None => 0,
-            Some(cur) => 1 + cur.next.len(),
-        }
-    }
-
-    fn contains(&self, elem: &T) -> bool {
-        match self {
-            None => false,
-            Some(cur) => cur.next.contains(elem),
-        }
-    }
-
-    fn front(&self) -> Option<&T> {
-        match self {
-            None => None,
-            Some(cur) => Some(&cur.value),
-        }
-
-        // self.map(|cur| &cur.value)
-    }
-
-    fn back(&self) -> Option<&T> {
-        match self {
-            None => None,
-            Some(cur) => match cur.next {
-                None => Some(&cur.value),
-                Some(next) => next.back(),
-            },
-        }
-    }
-}
-
-impl<T, P> MutableNakedList<T> for Option<P>
-where
-    P: DerefMut<Target = ListNode<T>>,
-{
-    fn front_mut(&mut self) -> Option<&mut T> {
-        match self {
-            None => None,
-            Some(cur) => Some(&mut cur.value),
-        }
-    }
-
-    fn bad
-}
-
-pub struct SinglyLinkedList<T> {
-    head: ListNode<T>,
-}
-
-impl<T> SinglyLinkedList<T> {
+impl<'a, T> SinglyLinkedList<'a, T> {
     pub fn new() -> Self {
-        Self { head: Nil }
+        Self {
+            head: None,
+            last: None,
+            count: 0,
+        }
+    }
+
+    pub fn append(&mut self, other: SinglyLinkedList<'a, T>) {
+        match &mut self.last {
+            None => *self = other,
+            Some(last) => {
+                last.next = other.head;
+                self.count += other.count;
+                self.last = other.last;
+            }
+        }
     }
 
     pub fn is_empty(&self) -> bool {
-        match self.head {
-            Nil => true,
-            _ => false,
-        }
+        self.count == 0
     }
 
     pub fn len(&self) -> usize {
-        let mut cur = &self.head;
-
-        for i in 0.. {
-            match cur {
-                Nil => return i,
-                Cons { next, .. } => cur = next,
-            }
-        }
-
-        unreachable!();
+        self.count
     }
 
     pub fn clear(&mut self) {
-        self.head = Nil;
+        *self = Self::new()
     }
 
     pub fn contains(&self, needle: &T) -> bool
@@ -128,38 +61,111 @@ impl<T> SinglyLinkedList<T> {
 
         loop {
             match cur {
-                Nil => return false,
-                Cons { value, .. } if value == needle => return true,
-                Cons { next, .. } => cur = next,
+                None => return false,
+                Some(ptr) => match ptr.as_ref() {
+                    ListNode { value, .. } if value == needle => return true,
+                    ListNode { next, .. } => cur = next,
+                },
             }
         }
     }
 
     pub fn front(&self) -> Option<&T> {
-        match self.head {
-            Nil => None,
-            Cons { ref value, .. } => Some(value),
-        }
+        // match &self.head {
+        //     None => None,
+        //     Some(ptr) => Some(&ptr.value),
+        // }
+
+        let head = self.head.as_ref()?;
+        Some(&head.value)
     }
 
     pub fn front_mut(&mut self) -> Option<&mut T> {
-        match self.head {
-            Nil => None,
-            Cons { ref mut value, .. } => Some(value),
-        }
+        // match &mut self.head {
+        //     None => None,
+        //     Some(ptr) => Some(&mut ptr.value),
+        // }
+
+        let head = self.head.as_mut()?;
+        Some(&mut head.value)
     }
 
     pub fn back(&self) -> Option<&T> {
-        let mut cur = &self.head;
+        // match &self.last {
+        //     None => None,
+        //     Some(ptr) => Some(&ptr.value),
+        // }
 
-        loop {
-            match cur {
-                Nil => return None,
-                Cons { next, value } => match next {
-                    Nil => return Some(value),
-                    _ => cur = next,
-                },
+        // Some(&self.last?.value)
+        let last = self.last.as_ref()?;
+        Some(&last.value)
+    }
+
+    pub fn back_mut(&mut self) -> Option<&mut T> {
+        // match &mut self.head {
+        //     None => None,
+        //     Some(ptr) => Some(&mut ptr.value),
+        // }
+
+        let last = self.last.as_mut()?;
+        Some(&mut last.value)
+    }
+
+    pub fn push_front(&mut self, elem: T) {
+        self.head = Some(Box::new(ListNode {
+            value: elem,
+            next: self.head.take(),
+        }));
+
+        self.count += 1;
+    }
+
+    pub fn push_front_mut(&mut self, elem: T) -> &mut T {
+        self.push_front(elem);
+
+        &mut self
+            .head
+            .as_mut()
+            .expect("list cannot be empty after pushing")
+            .value
+    }
+
+    pub fn pop_front(&mut self) -> Option<T> {
+        let ListNode { value, next } = *self.head.take()?;
+        self.head = next;
+        self.count -= 1;
+        Some(value)
+    }
+
+    pub fn push_back(&mut self, elem: T) {
+        // self.head = Some(Box::new(ListNode {
+        //     value: elem,
+        //     next: self.head.take(),
+        // }));
+
+        match &mut self.last {
+            None => return self.push_front(elem),
+            Some(last) => {
+                last.next = Some(Box::new(ListNode {
+                    value: elem,
+                    next: None,
+                }));
+                self.count += 1;
             }
         }
+    }
+
+    pub fn push_back_mut(&mut self, elem: T) -> &mut T {
+        self.push_back(elem);
+
+        &mut self
+            .last
+            .as_mut()
+            .expect("list cannot be empty after pushing")
+            .value
+    }
+
+    pub fn pop_back(&mut self) -> Option<T> {
+        self.last?
     }
 }
