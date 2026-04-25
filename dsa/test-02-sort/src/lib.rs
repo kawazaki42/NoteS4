@@ -1,4 +1,27 @@
-use rand::{RngExt, distr::StandardUniform};
+use rand::RngExt;
+use rand::distr::{Distribution, StandardUniform, Uniform, uniform::SampleUniform};
+
+type RandArrError<T, R> = <Uniform<T> as TryFrom<R>>::Error;
+
+pub fn random_vec<T, R>(n: usize, range: R) -> Result<Vec<T>, RandArrError<T, R>>
+where
+    // StandardUniform: rand::distr::Distribution<T>,
+    T: SampleUniform,
+    // R: RangeBounds<T>,
+    Uniform<T>: TryFrom<R>,
+{
+    let r = rand::rng();
+
+    let result = Uniform::try_from(range)?
+        // .unwrap()
+        // .ok()?
+        // .expect("wrong range!")
+        .sample_iter(r)
+        .take(n)
+        .collect();
+
+    Ok(result)
+}
 
 pub fn random_array<T, const N: usize>() -> [T; N]
 where
