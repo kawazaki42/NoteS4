@@ -5,8 +5,6 @@
 
 // use ListNode::{Cons, Nil};
 
-use std::ops::{Deref, DerefMut};
-
 pub type ListPointer<T> = Option<Box<ListNode<T>>>;
 
 pub struct ListNode<T> {
@@ -165,7 +163,7 @@ impl<'a, T> SinglyLinkedList<'a, T> {
             .value
     }
 
-    pub fn pop_back(&mut self) -> Option<T> {
-        self.last?
-    }
+    // pub fn pop_back(&mut self) -> Option<T> {
+    //     self.last?
+    // }
 }
