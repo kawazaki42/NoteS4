@@ -1,3 +1,5 @@
+use std::iter::{Empty, Peekable, empty};
+
 use rand::RngExt;
 use rand::distr::{Distribution, StandardUniform, Uniform, uniform::SampleUniform};
 
@@ -93,9 +95,42 @@ where
 
 use CachedIter::*;
 
-struct MergeIter<T, I>(CachedIter<T, I>, CachedIter<T, I>)
+// struct MergeIter<T, I>(CachedIter<T, I>, CachedIter<T, I>)
+// where
+//     I: Iterator<Item = T>;
+
+struct MergeIter<T, A, B>(Peekable<A>, Peekable<B>)
 where
-    I: Iterator<Item = T>;
+    A: Iterator<Item = T>,
+    B: Iterator<Item = T>;
+
+impl<T, A, B> Iterator for MergeIter<T, A, B>
+where
+    A: Iterator<Item = T>,
+    B: Iterator<Item = T>,
+    T: PartialOrd,
+{
+    type Item = T;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let a = self.0.peek();
+        let b = self.1.peek();
+
+        match (a, b) {
+            (Some(a), Some(b)) => {
+                if a <= b {
+                    self.0.next()
+                } else {
+                    self.1.next()
+                }
+            }
+
+            (Some(_), None) => self.0.next(),
+            (None, Some(_)) => self.1.next(),
+            (None, None) => None,
+        }
+    }
+}
 
 // impl<T, I, C> Merge<T, I>
 // where
@@ -107,57 +142,58 @@ where
 //     }
 // }
 
-impl<T, I> Iterator for MergeIter<T, I>
-where
-    I: Iterator<Item = T>,
-    T: PartialOrd,
-{
-    type Item = T;
+// // impl<T, I> Iterator for MergeIter<T, I>
+// impl<T, A, B> Iterator for MergeIter<T, A, B>
+// where
+//     // I: Iterator<Item = T>,
+//     T: PartialOrd,
+// {
+//     type Item = T;
 
-    fn next(&mut self) -> Option<Self::Item> {
-        let owned = std::mem::replace(self, Self(Nil, Nil));
+//     fn next(&mut self) -> Option<Self::Item> {
+//         let owned = std::mem::replace(self, Self(Nil, Nil));
 
-        match owned {
-            MergeIter(Nil, Nil) => None,
-            MergeIter(Cons(head0, tail0), Cons(head1, tail1)) => {
-                if head0 <= head1 {
-                    *self = Self(tail0.into(), Cons(head1, tail1));
-                    Some(head0)
-                } else {
-                    *self = Self(Cons(head0, tail0), tail1.into());
-                    Some(head1)
-                }
-            }
-            MergeIter(Cons(head, tail), Nil) | MergeIter(Nil, Cons(head, tail)) => {
-                *self = Self(tail.into(), Nil);
-                Some(head)
-            }
-        }
+//         match owned {
+//             MergeIter(Nil, Nil) => None,
+//             MergeIter(Cons(head0, tail0), Cons(head1, tail1)) => {
+//                 if head0 <= head1 {
+//                     *self = Self(tail0.into(), Cons(head1, tail1));
+//                     Some(head0)
+//                 } else {
+//                     *self = Self(Cons(head0, tail0), tail1.into());
+//                     Some(head1)
+//                 }
+//             }
+//             MergeIter(Cons(head, tail), Nil) | MergeIter(Nil, Cons(head, tail)) => {
+//                 *self = Self(tail.into(), Nil);
+//                 Some(head)
+//             }
+//         }
 
-        // let head0 = self.0.split_first();
-        // let head1 = self.1.split_first();
+//         // let head0 = self.0.split_first();
+//         // let head1 = self.1.split_first();
 
-        // match (pair0, pair1) {
-        //     (None, None) => None,
-        //     (Some(a), Some(b)) => {
-        //         if head0 <= head1 {
-        //             self.0 = tail0;
-        //             Some(head0)
-        //         } else {
-        //             self.1 = tail1;
-        //             Some(head1)
-        //         }
-        //     }
-        //     (Some(pair), None) | (None, Some(pair)) => {
-        //         let (head, tail) = pair;
-        //         self.0 = tail;
-        //         self.1 = Nil;
+//         // match (pair0, pair1) {
+//         //     (None, None) => None,
+//         //     (Some(a), Some(b)) => {
+//         //         if head0 <= head1 {
+//         //             self.0 = tail0;
+//         //             Some(head0)
+//         //         } else {
+//         //             self.1 = tail1;
+//         //             Some(head1)
+//         //         }
+//         //     }
+//         //     (Some(pair), None) | (None, Some(pair)) => {
+//         //         let (head, tail) = pair;
+//         //         self.0 = tail;
+//         //         self.1 = Nil;
 
-        //         Some(head)
-        //     }
-        // }
-    }
-}
+//         //         Some(head)
+//         //     }
+//         // }
+//     }
+// }
 
 struct MergeSlice<'a, T>(&'a [T], &'a [T]);
 
@@ -197,29 +233,58 @@ fn merge<T: PartialOrd + Clone>(a: &[T], b: &[T]) -> Vec<T> {
     MergeSlice(a, b).cloned().collect()
 }
 
-fn merge_iter<T, I>(a: I, b: I) -> MergeIter<T, <I as IntoIterator>::IntoIter>
+// fn merge_iter<T, I>(a: I, b: I) -> MergeIter<T, <I as IntoIterator>::IntoIter>
+fn merge_iter<T, A, B>(a: A, b: B) -> MergeIter<T, A, B>
 where
     T: PartialOrd,
-    I: IntoIterator<Item = T>,
+    A: Iterator<Item = T>,
+    B: Iterator<Item = T>,
+    // I: IntoIterator<Item = T>,
+    // AI = <A as IntoIterator>::IntoIter,
 {
-    MergeIter(a.into(), b.into())
+    // MergeIter(a.into(), b.into())
+    MergeIter(a.peekable(), b.peekable())
 }
 
-// pub fn merge_sort_iter<T, I>(iter: I) -> MergeIter<T, I>
+// // pub fn merge_sort_iter<T, I>(iter: I) -> MergeIter<T, I>
+// pub fn merge_sort_iter<T, I>(
+//     iter: I,
+// ) -> MergeIter<T, impl Iterator<Item = T>, impl Iterator<Item = T>>
 // where
 //     T: PartialOrd,
 //     // I: IntoIterator<Item = T>,
 //     I: ExactSizeIterator + Iterator<Item = T>,
 // {
 //     let len = iter.len();
-//     let a = iter.into_iter().take(len / 2);
-//     let b = iter.into_iter().skip(len / 2);
+
+//     // let a = iter.into_iter().take(len / 2);
+//     // let b = iter.into_iter().skip(len / 2);
 
 //     let a = merge_sort_iter(a);
 //     let b = merge_sort_iter(b);
 
 //     merge_iter(a, b)
 // }
+
+// pub fn merge_sort_iter<T>(mut a: Vec<T>) -> impl Iterator<Item = T>
+pub fn merge_sort_iter<T>(
+    mut a: Vec<T>,
+) -> MergeIter<T, impl Iterator<Item = T>, impl Iterator<Item = T>>
+where
+    T: PartialOrd,
+{
+    if a.is_empty() {
+        let it = empty().peekable();
+        return MergeIter(it, it);
+    }
+    let len = a.len();
+    let b = a.split_off(len / 2);
+
+    let a = merge_sort_iter(a);
+    let b = merge_sort_iter(b);
+
+    merge_iter(a, b)
+}
 
 pub fn merge_sort<T: Clone + PartialOrd>(arr: &[T]) -> Vec<T> {
     match arr {
