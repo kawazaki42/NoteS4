@@ -8,6 +8,12 @@ import javafx.scene.control.TextArea
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
 import javafx.util.Callback
+import java.net.URI
+import java.net.URL
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpRequest.BodyPublishers
+import java.net.http.HttpResponse
 
 //import java.awt.event.KeyEvent
 
@@ -57,10 +63,11 @@ class HelloController {
 //        println(question.style)
 
         val question = prompt.text
-        val answer = "pivo"
-
-        dialog.add(question)
-        dialog.add(answer)
+        prompt.clear()
+//        val answer = "pivo"
+//
+//        dialog.add(question)
+//        dialog.add(answer)
 
 //        dialog.childrenUnmodifiable.add(question)
 
@@ -72,12 +79,34 @@ class HelloController {
 
 //        dialogView.cellFactory = fac
 
-//        dialogView.items += "pivo?"
-        dialogView.items += prompt.text
-        dialogView.items += "pivo!"
+        val client = HttpClient.newBuilder().followRedirects(HttpClient.Redirect.NORMAL).build()
+
+        val uri = URI.create("http://localhost:11434/api/chat/")
+
+//        val stringPublisher: (String) -> HttpRequest.BodyPublisher = HttpRequest.BodyPublishers::ofString
+
+        val bodyHandler = HttpResponse.BodyHandlers.ofString()
+        val bodyPublisher = BodyPublishers.ofString("""{
+            "model": "gemma4:31b-cloud",
+            "messages": [{"role": "user", "content": "$question"}]
+        }""")
+
+        val request = HttpRequest.newBuilder(uri).POST(bodyPublisher).build()
+
+        val response = client.send(request, bodyHandler)
+
+        dialogView.items += question
+        val msg = """
+            ${response.toString()}
+            
+            ${response.body()}
+            
+            ${response.uri()} ${response.statusCode()} ${response.version()}
+        """.trimIndent()
+//        dialogView.items += response.statusCode().toString()
+//        dialogView.items += response.toString()
+        dialogView.items += msg
 
 //        println(dialogView.cssMetaData)
-
-        prompt.clear()
     }
 }
