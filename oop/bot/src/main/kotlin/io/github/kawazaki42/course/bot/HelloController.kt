@@ -1,20 +1,24 @@
 package io.github.kawazaki42.course.bot
 
 import javafx.fxml.FXML
-import javafx.geometry.Pos
 import javafx.scene.control.Label
+import javafx.scene.control.ListCell
+import javafx.scene.control.ListView
 import javafx.scene.control.TextArea
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
-import javafx.scene.layout.VBox
+import javafx.util.Callback
+
 //import java.awt.event.KeyEvent
 
 class HelloController {
     @FXML
     private lateinit var welcomeText: Label
 
+    val dialog = mutableListOf<String>()
+
     @FXML
-    private lateinit var dialog: VBox
+    private lateinit var dialogView: ListView<String>
 
     @FXML
     private lateinit var prompt: TextArea
@@ -41,19 +45,38 @@ class HelloController {
     private fun sendPrompt() {
 //        welcomeText.text = "Welcome to JavaFX Application!"
 //        println()
-        val question = Label(prompt.text).apply {
-//            style += "-fx-alignment: CENTER_RIGHT"
-            alignment = Pos.CENTER_RIGHT
-        }
-        val answer = Label("pivo")
+//        val question = Label(prompt.text).apply {
+////            style += "-fx-alignment: CENTER_RIGHT"
+//            alignment = Pos.CENTER_RIGHT
+//        }
+//        val answer = Label("pivo")
 
 //        question.styleClass += "question"
 //        answer.styleClass += "answer"
 
-        println(question.style)
+//        println(question.style)
 
-        dialog.children.add(question)
-        dialog.children.add(answer)
+        val question = prompt.text
+        val answer = "pivo"
+
+        dialog.add(question)
+        dialog.add(answer)
+
+//        dialog.childrenUnmodifiable.add(question)
+
+//        val s = dialog.iterator()
+
+//        val fac = Callback<ListView<String>, ListCell<String>> { _ -> ListCell<String>().apply { item = s.next() } }
+
+//        val fac = { object: ListCell<String>() { override fun  } }
+
+//        dialogView.cellFactory = fac
+
+//        dialogView.items += "pivo?"
+        dialogView.items += prompt.text
+        dialogView.items += "pivo!"
+
+//        println(dialogView.cssMetaData)
 
         prompt.clear()
     }
