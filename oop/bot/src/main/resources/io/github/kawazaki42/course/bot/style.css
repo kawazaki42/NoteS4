@@ -1,3 +1,15 @@
-.question {
-  -fx-alignment: CENTER_RIGHT
+// .question {
+//   -fx-alignment: CENTER_RIGHT
+// }
+
+.list-view {
+//  -fx-fit-to-width: true;
+  -fx-max-width: Infinity;
+}
+
+.list-cell {
+  -fx-max-width: Infinity;
+  -fx-wrap-text: true;
+  -fx-pref-width: 0;
+//  -fx-background-color: blue;
 }
