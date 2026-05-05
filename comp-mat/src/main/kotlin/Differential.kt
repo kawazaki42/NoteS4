@@ -4,19 +4,20 @@ import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.pow
-import kotlin.math.roundToLong
 import kotlin.math.sqrt
 
 object TestData {
     fun f(x: Double) = 3 * cos(x)
     const val X0 = PI / 4
     const val EPSILON = 0.001
+
     // f' = -3 sin x
     // f'' = -3 cos x
     // f''' = +3 sin x
     // f^(4) = +3 cos x
     // f^(5) = -3 sin x
     // upper bound: 3
+
     const val M1 = 3.0
     const val M2 = 3.0
 
@@ -111,20 +112,24 @@ class DiscreteDifferentialFinder(val x0: Double, val step: Double, val ys: List<
 
     fun getX(i: Int) = x0 + step * i
 
+    // NOTE: 0th elem is the original ys
     val finiteDifferencesByOrder by lazy {
         finiteDifferenceSequence.toList()
     }
 
+    // rows of finite difference table
     val finiteDifferencesByPoint by lazy {
         List(finiteDifferencesByOrder.size) { pointIdx ->
-            finiteDifferencesByOrder.mapNotNull { byOrder ->
-                byOrder.getOrNull(pointIdx)
-            }
+            finiteDifferencesByOrder
+//                .drop(1)
+                .mapNotNull { ithColumn ->
+                    ithColumn.getOrNull(pointIdx)
+                }
         }
     }
 
     val finiteDifferenceSequence = generateSequence(ys) { prev ->
-        prev.windowed(2) { (a, b) ->
+        prev.zipWithNext { a, b ->
             b - a
         }.ifEmpty { null }
     }
@@ -137,27 +142,52 @@ class DiscreteDifferentialFinder(val x0: Double, val step: Double, val ys: List<
 //        }
 //    }
 
+    private val Int.isEven get() = this % 2 == 0
+
     fun optimalSummandCount(pointIdx: Int) = finiteDifferencesByPoint[pointIdx].lastIndex - 1
 
     fun diffFor(
         pointIdx: Int,
         summandCount: Int = optimalSummandCount(pointIdx)
-    ): Double? {
+    ): Double {
 //        val summandCount = points.size - pointIdx
 
-        return (1..summandCount).mapNotNull { order ->
-            val sign = (-1.0).pow(order - 1)
+        require(summandCount <= ys.size)
+
+        var sum = 0.0
+
+//        return buildList {
+        for (order in 1..summandCount) {
+            //            val sign = (-1.0).pow(order - 1)
+            val sign = if (order.isEven) -1 else 1
 
 //            val d = finiteDifferencesByOrder
 //                .getOrNull(order)
 //                ?.getOrNull(pointIdx)
 //                ?: return@mapNotNull null
 
-            val d = finiteDifferencesByPoint[pointIdx].getOrNull(order) ?: return null
+            val col = finiteDifferencesByOrder[order]
+            val fd = col[pointIdx]
 
-            sign * d / order
-        }.ifEmpty { return null }
-            .sum() / step
+//            val row = finiteDifferencesByPoint[pointIdx]
+////                .drop(1)  // don't take the y itself
+//
+//            val fd = row
+//                .getOrNull(order)
+//                ?: return null
+
+            sum += sign * fd / order
+        }
+//        }
+
+//        (1..summandCount).sumOf { 6L }
+
+//        return (1..summandCount).mapNotNull { order ->
+//
+//        }.ifEmpty { return null }
+//            .sum() / step
+
+        return sum / step
     }
 
     fun errorFor(
@@ -172,9 +202,11 @@ class DiscreteDifferentialFinder(val x0: Double, val step: Double, val ys: List<
 //            ?.getOrNull(pointIdx)
 //            ?: return null
 
-        val d = finiteDifferencesByPoint[pointIdx].getOrNull(order) ?: return null
+//        val d = finiteDifferencesByPoint[pointIdx].getOrNull(order) ?: return null
+        val fd = finiteDifferencesByOrder[order][pointIdx]
 
-        return abs(d * ys[pointIdx]) / (step * order)
+//        return abs(d * ys[pointIdx]) / (step * order)
+        return abs(fd) / (step * order)
     }
 }
 
@@ -219,7 +251,7 @@ fun main() {
 //    val tabDiff = DiscreteDifferentialFinder(TestData.TABLE)
 //    tabDiff.report()
 
-    DiscreteDifferentialFinder(4.0, 0.7, (40..47).map { i ->
+    DiscreteDifferentialFinder(4.0, 0.1, (40..47).map { i ->
         val x = i / 10.0
         sqrt(1 + x.pow(2))
     }).report()
