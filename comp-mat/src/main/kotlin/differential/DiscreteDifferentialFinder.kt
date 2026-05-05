@@ -4,7 +4,11 @@ import kotlin.math.abs
 
 
 //class DiscreteDifferentialFinder(val points: List<Pair<Double, Double>>)
-class DiscreteDifferentialFinder(val x0: Double, val step: Double, val ys: List<Double>) {
+class DiscreteDifferentialFinder(
+    val x0: Double,
+    val step: Double,
+    val ys: List<Double>,
+) {
 //    init {
 //        step  // throws
 //    }
@@ -47,7 +51,7 @@ class DiscreteDifferentialFinder(val x0: Double, val step: Double, val ys: List<
     }
 
     // rows of finite difference table
-    val finiteDifferencesByPoint by lazy {
+    val finiteDifferencesForPoint by lazy {
         List(finiteDifferencesByOrder.size) { pointIdx ->
             finiteDifferencesByOrder
 //                .drop(1)
@@ -73,7 +77,10 @@ class DiscreteDifferentialFinder(val x0: Double, val step: Double, val ys: List<
 
     private val Int.isEven get() = this % 2 == 0
 
-    fun optimalSummandCount(pointIdx: Int) = finiteDifferencesByPoint[pointIdx].lastIndex - 1
+    fun optimalSummandCount(pointIdx: Int) =
+        finiteDifferencesForPoint[pointIdx].lastIndex - 1
+
+//    fun optimalSummandCount(pointIdx: Int) = ys.size - pointIdx - 2
 
     fun diffFor(
         pointIdx: Int,
@@ -81,7 +88,7 @@ class DiscreteDifferentialFinder(val x0: Double, val step: Double, val ys: List<
     ): Double {
 //        val summandCount = points.size - pointIdx
 
-        require(summandCount <= ys.size)
+        require(summandCount < ys.size + 1)
 
         var sum = 0.0
 
