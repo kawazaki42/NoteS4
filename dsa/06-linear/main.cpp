@@ -39,7 +39,7 @@ class LinkedList: public OrderedCollection<E> {
     size_t size;
 
 public:
-    LinkedList();
+    LinkedList() {}
 
     void push_front(E elem) override;
     void push_back(E elem) override;
