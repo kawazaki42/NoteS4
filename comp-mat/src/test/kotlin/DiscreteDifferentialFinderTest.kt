@@ -1,5 +1,4 @@
-import io.github.kawazaki42.course.DiscreteDifferentialFinder
-import org.junit.jupiter.api.Assertions.*
+import io.github.kawazaki42.course.differential.DiscreteDifferentialFinder
 import org.junit.jupiter.api.Test
 
 class DiscreteDifferentialFinderTest {
