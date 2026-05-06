@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.comp_mat.diff_eq
+package io.github.kawazaki42.course.diffeq
 
 import kotlin.collections.last
 import kotlin.collections.map
