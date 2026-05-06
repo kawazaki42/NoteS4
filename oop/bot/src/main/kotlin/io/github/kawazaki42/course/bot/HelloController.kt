@@ -31,15 +31,22 @@ enum class Role {
 }
 
 @Serializable
-class Message(var role: Role, var content: String, @Transient var complete: Boolean = true) {
+class Message(
+    var role: Role,
+    var content: String,
+    @Transient var complete: Boolean = true
+) {
     override fun toString() = if (complete) content else "$content..."
 }
+
 
 @Serializable
 class OllamaRequest(val model: String, var messages: List<Message>)
 
+
 @Serializable
 data class OllamaResponse(val message: Message)
+
 
 class HelloController {
     @FXML
@@ -47,9 +54,6 @@ class HelloController {
 
     @FXML
     private lateinit var promptInput: TextArea
-
-    @FXML
-    private fun onKeyTyped() {}
 
     @FXML
     private fun onKeyPressed(key: KeyEvent) {
@@ -63,7 +67,10 @@ class HelloController {
 
     var model = OllamaRequest("gemma4:31b-cloud", emptyList())
 
-    val client = HttpClient.newBuilder().followRedirects(HttpClient.Redirect.NORMAL).build()
+    val client = HttpClient
+        .newBuilder()
+        .followRedirects(HttpClient.Redirect.NORMAL)
+        .build()
 
     val jsonDecoder = Json {
         ignoreUnknownKeys = true
@@ -73,7 +80,7 @@ class HelloController {
     fun initialize() {
         dialogView.items = observableArrayList(Message(
             Role.system,
-            "answer briefly. i'm testing my own implementation of llm frontend",
+            "I'm testing my LLM chat client. Try not to spend too many tokens",
             complete = true
         ))
 
@@ -142,6 +149,8 @@ class HelloController {
             }.getOrElse { e ->
                 newMsg.content = "<Error: $e>"
                 newMsg.complete = true
+
+                // todo: explain `@`
                 return@thread
             }
 
@@ -154,7 +163,7 @@ class HelloController {
                 // This fails with non-FX threads, so `runLater` is necessary.
                 runLater {
                     newMsg.content += part
-//                    dialogView.refresh()
+                    dialogView.refresh()
                 }
             }
 
