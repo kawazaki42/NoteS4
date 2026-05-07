@@ -4,14 +4,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.kawazaki42.course.bot.HelloController">
+<VBox fx:controller="io.github.kawazaki42.course.bot.HelloController"
+      alignment="CENTER"
+      spacing="20.0"
+      stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <ListView fx:id="dialogView" focusTraversable="false" />
+    <ListView fx:id="dialogView" />
+    <!--focusTraversable="false"-->
     <!--items="${dialog}"-->
-    <HBox prefHeight="100.0" prefWidth="200.0">
-        <TextArea fx:id="promptInput" onKeyPressed="#onKeyPressed" wrapText="true" />
-        <Button defaultButton="true" onAction="#sendPrompt" text="Send" />
+    <HBox alignment="BOTTOM_RIGHT" maxWidth="-Infinity">
+        <TextArea fx:id="promptInput" maxWidth="Infinity" onKeyPressed="#onKeyPressed" wrapText="true"/>
+        <Button defaultButton="true" minWidth="-Infinity" onAction="#sendPrompt" text="Send">
+            <HBox.margin>
+                <Insets bottom="5.0" left="5.0"/>
+            </HBox.margin>
+        </Button>
     </HBox>
 </VBox>
