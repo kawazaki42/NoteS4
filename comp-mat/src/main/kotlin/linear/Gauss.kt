@@ -32,7 +32,7 @@ fun EquationSystem.gauss(): EquationSystem {
     )
 }
 
-private fun EquationSystem.reversedBothAxis() = EquationSystem(equations.map {
+fun EquationSystem.reversedBothAxis() = EquationSystem(equations.map {
     it.copy(coefs = it.coefs.asReversed())
 }.asReversed())
 
