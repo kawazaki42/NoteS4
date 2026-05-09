@@ -4,8 +4,8 @@ TODO
 - [x] 13 [optimization](src/main/kotlin/opt)
 - [ ] 14 [interpolation](src/main/kotlin/interpolation)
   - [x] jordan/gauss
-  - [ ] lagrange
-  - [ ] newton
+  - [x] lagrange
+  - [x] newton
 - [x] 15 [spline interpolation](15-spline/main.rb)
 - [ ] 16 intregation
 - [x] 17 [differentiation (derivatives)](src/main/kotlin/differential)
