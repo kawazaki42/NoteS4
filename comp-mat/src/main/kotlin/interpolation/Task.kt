@@ -10,10 +10,25 @@ object BookExample {
         7.0 to 1.0,
         8.0 to -7.0,
     )
-}
 
-fun main() {
-    println(
-        polynomEquationSystem(BookExample.points).jordanGauss()
-    )
+    @JvmStatic
+    fun main(args: Array<String>) {
+        println(
+            polynomEquationSystem(BookExample.points).jordanGauss()
+        )
+
+        println(
+            lagrange(
+                listOf(
+                    Point(0.4, 7.6),
+                    Point(1.9, 9.2),
+                    Point(4.7, -13.8),
+                    Point(8.2, 6.0),
+                    Point(11.7, 9.8),
+                    Point(19.3, -14.2),
+                ),
+                funArg = 8.5,
+            )
+        )
+    }
 }

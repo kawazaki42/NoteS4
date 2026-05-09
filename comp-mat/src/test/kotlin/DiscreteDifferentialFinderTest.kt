@@ -1,4 +1,4 @@
-import io.github.kawazaki42.course.differential.DiscreteDifferentialFinder
+import io.github.kawazaki42.course.compMat.differential.DiscreteDifferentialFinder
 import org.junit.jupiter.api.Test
 
 class DiscreteDifferentialFinderTest {
