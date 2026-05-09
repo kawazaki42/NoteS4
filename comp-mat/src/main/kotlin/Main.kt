@@ -4,6 +4,7 @@ import io.github.kawazaki42.course.linear.Equation
 import io.github.kawazaki42.course.linear.EquationSystem
 import io.github.kawazaki42.course.linear.Number
 import io.github.kawazaki42.course.linear.gauss
+import io.github.kawazaki42.course.linear.jordanGauss
 
 ////TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 //// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -55,6 +56,6 @@ fun main() {
                 7.0 to 1.0,
                 8.0 to -7.0,
             )
-        ).gauss()
+        ).jordanGauss()
     )
 }
