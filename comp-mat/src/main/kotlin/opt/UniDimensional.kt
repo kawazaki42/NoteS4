@@ -71,7 +71,7 @@ fun seek(
     f: (Double) -> Double,
 ) = seekSequence(x0, step, f)
     .last()
-    .let { (l, c, r) ->
+    .let { (l, _, r) ->
         Pair(l, r).sorted()
     }
 
