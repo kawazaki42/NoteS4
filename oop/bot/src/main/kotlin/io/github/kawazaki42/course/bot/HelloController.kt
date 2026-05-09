@@ -18,7 +18,7 @@ import javafx.application.Platform.runLater
 import javafx.collections.transformation.FilteredList
 
 class HelloController(
-    var model: OllamaBot = OllamaBot(
+    var model: Bot = OllamaBot(
         "http://localhost:11434/api/chat/",
         "gemma4:31b-cloud",
         observableArrayList(Message(
@@ -66,7 +66,7 @@ class HelloController(
 
         // user's message
         val messages = model.messages
-        messages += Message(Role.user, prompt, complete = true,)
+        messages += Message(Role.user, prompt, complete = true)
 
         // bot's (incomplete) message
         val newMsg = Message(Role.system, "", complete = false)

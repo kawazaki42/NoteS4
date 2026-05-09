@@ -28,13 +28,15 @@ class Message(
 }
 
 interface Bot {
+    val messages: ObservableList<Message>
+
     fun answer(): Sequence<String>
 }
 
 class OllamaBot(
     val apiAddress: URI,
     val modelName: String,
-    val messages: ObservableList<Message> = observableArrayList()
+    override val messages: ObservableList<Message> = observableArrayList()
 ) : Bot {
     constructor(
         apiAddress: String,
