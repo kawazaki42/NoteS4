@@ -1,4 +1,4 @@
-package io.github.kawazaki42.opt
+package io.github.kawazaki42.course.compMat.opt
 
 const val DEFAULT_PRECISION = 1e-6
 

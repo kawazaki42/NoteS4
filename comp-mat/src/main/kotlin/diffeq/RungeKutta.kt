@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.diffeq
+package io.github.kawazaki42.course.compMat.diffeq
 
 class RungeKutta(
     override val x: Double,

@@ -1,4 +1,4 @@
-package io.github.kawazaki42.opt
+package io.github.kawazaki42.course.compMat.opt
 
 import kotlin.math.pow
 import kotlin.math.sqrt

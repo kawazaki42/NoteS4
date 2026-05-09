@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.linear
+package io.github.kawazaki42.course.compMat.linear
 
 val Number.powers get() = generateSequence(1.0) { cur -> cur * this }
 

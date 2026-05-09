@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.differential
+package io.github.kawazaki42.course.compMat.differential
 
 import kotlin.math.pow
 

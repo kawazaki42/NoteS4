@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.anneal
+package io.github.kawazaki42.course.compMat.anneal
 
 import kotlin.math.exp
 import kotlin.random.Random.Default.nextDouble

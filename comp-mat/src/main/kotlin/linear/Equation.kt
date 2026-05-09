@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.linear
+package io.github.kawazaki42.course.compMat.linear
 
 import kotlin.math.abs
 

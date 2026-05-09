@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.linear
+package io.github.kawazaki42.course.compMat.linear
 
 fun EquationSystem.gauss(): EquationSystem {
     if (equations.isEmpty()) return this
