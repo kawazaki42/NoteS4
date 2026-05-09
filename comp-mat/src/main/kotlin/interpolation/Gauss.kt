@@ -4,11 +4,11 @@ import io.github.kawazaki42.course.compMat.linear.Equation
 import io.github.kawazaki42.course.compMat.linear.EquationSystem
 import io.github.kawazaki42.course.compMat.linear.Number
 
-val io.github.kawazaki42.course.compMat.linear.Number.powers get() = generateSequence(1.0) { cur -> cur * this }
+val Number.powers get() = generateSequence(1.0) { cur -> cur * this }
 
-fun polynomEquationSystem(points: List<Pair<io.github.kawazaki42.course.compMat.linear.Number, io.github.kawazaki42.course.compMat.linear.Number>>): EquationSystem {
-    val x = points.map(Pair<io.github.kawazaki42.course.compMat.linear.Number, io.github.kawazaki42.course.compMat.linear.Number>::first)
-    val y = points.map(Pair<io.github.kawazaki42.course.compMat.linear.Number, Number>::second)
+fun polynomEquationSystem(points: List<Pair<Number, Number>>): EquationSystem {
+    val x = points.map(Pair<Number, Number>::first)
+    val y = points.map(Pair<Number, Number>::second)
 
     val equs = x.map {
         it.powers.take(points.size).toList()

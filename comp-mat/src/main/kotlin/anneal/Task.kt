@@ -2,9 +2,6 @@ package io.github.kawazaki42.course.compMat.anneal
 
 import kotlin.math.ln
 import kotlin.math.pow
-import kotlin.random.Random.Default.nextDouble
-
-import kotlin.ranges.random
 
 fun f(x: List<Double>) = ln(
     0.7 * (x[0] - 0.6).pow(4) +

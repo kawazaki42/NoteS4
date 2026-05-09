@@ -1,7 +1,5 @@
 package io.github.kawazaki42.course.compMat.diffeq
 
-import kotlin.io.path.fileVisitor
-
 //class Adams(val initializer: DifferentialEquationSolver): DifferentialEquationSolver by initializer {
 class Adams(
     val order: Int,
