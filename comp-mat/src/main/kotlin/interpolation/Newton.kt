@@ -29,8 +29,3 @@ fun newtonBackward(points: List<Point>, calcIn: Number) =
                     calcIn - x
                 }
         }
-
-private fun main() {
-    println(newtonForward(testPoints, 10.0))
-    println(newtonBackward(testPoints, 10.0))
-}

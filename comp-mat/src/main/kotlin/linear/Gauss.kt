@@ -37,3 +37,5 @@ fun EquationSystem.reversedBothAxis() = EquationSystem(equations.map {
 }.asReversed())
 
 fun EquationSystem.jordanGauss() = gauss().reversedBothAxis().gauss().reversedBothAxis()
+
+fun EquationSystem.jordanGaussSolution() = jordanGauss().equations.map(Equation::free)
