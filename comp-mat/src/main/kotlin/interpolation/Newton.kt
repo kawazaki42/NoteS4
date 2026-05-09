@@ -10,8 +10,8 @@ fun newtonForward(points: List<Point>, calcIn: Number) =
         .sumOf { (i, d) ->
             d * points
                 .take(i)
-                .fold(1.0) { prod, (x, _) ->
-                    prod * (calcIn - x)
+                .prodOf { (x, _) ->
+                    calcIn - x
                 }
         }
 
@@ -25,8 +25,8 @@ fun newtonBackward(points: List<Point>, calcIn: Number) =
         .sumOf { (i, d) ->
             d * points
                 .takeLast(i)
-                .fold(1.0) { prod, (x, _) ->
-                    prod * (calcIn - x)
+                .prodOf { (x, _) ->
+                    calcIn - x
                 }
         }
 
