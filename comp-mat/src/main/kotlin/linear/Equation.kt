@@ -6,6 +6,11 @@ typealias Number = Double
 
 const val EPSILON = 1e-3
 
+val Number.isAlmostZero get() = abs(this) < EPSILON
+//    fun Double.isNearZero() = abs(this) < EPSILON
+
+infix fun Number.isAlmost(other: Double) = (this - other).isAlmostZero
+
 data class Equation(val coefs: List<Number>, val free: Number) {
     val varCount get() = coefs.size
 
@@ -38,8 +43,3 @@ class EquationSystem(val equations: List<Equation>) {
 
     override fun toString() = equations.joinToString(separator = "\n")
 }
-
-val Double.isAlmostZero get() = abs(this) < EPSILON
-//    fun Double.isNearZero() = abs(this) < EPSILON
-
-infix fun Double.isAlmost(other: Double) = (this - other).isAlmostZero
