@@ -11,9 +11,9 @@ TODO
 - [x] 15 [spline interpolation](lec/15-spline/main.rb)
   - [x] quadratic
   - [x] cubic
-- [ ] 16 [intregation](src/main/kotlin/integral)
+- [x] 16 [intregation](src/main/kotlin/integral)
   - [x] trapezoid
-  - [ ] simpson
+  - [x] simpson
 - [x] 17 [differentiation (derivatives)](src/main/kotlin/differential)
 - [ ] 18 [differential equations](src/main/kotlin/diffeq)
   - [x] Euler

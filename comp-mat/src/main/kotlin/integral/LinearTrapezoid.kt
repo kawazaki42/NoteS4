@@ -1,8 +1,6 @@
 package io.github.kawazaki42.course.compMat.integral
 
 import io.github.kawazaki42.course.compMat.linear.Number
-import kotlin.math.PI
-import kotlin.math.sin
 
 data class LinearTrapezoid(
     override val begin: Number,
