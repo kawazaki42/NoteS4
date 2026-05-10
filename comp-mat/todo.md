@@ -15,7 +15,7 @@ TODO
   - [x] trapezoid
   - [x] simpson
 - [x] 17 [differentiation (derivatives)](src/main/kotlin/differential)
-- [ ] 18 [differential equations](src/main/kotlin/diffeq)
+- [x] 18 [differential equations](src/main/kotlin/diffeq)
   - [x] Euler
   - [x] EulerMod
     - some test issues

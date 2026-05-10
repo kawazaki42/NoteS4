@@ -1,6 +1,5 @@
 package io.github.kawazaki42.course.compMat.diffeq
 
-import io.github.kawazaki42.course.compMat.differential.DiscreteDifferentialFinder
 import io.github.kawazaki42.course.compMat.interpolation.Point
 import io.github.kawazaki42.course.compMat.linear.Number
 import kotlin.collections.map
@@ -78,13 +77,15 @@ private val debugTask =
     SolverParams(0.0, 1.0, 0.75) { x, y -> sin(x) * cos(y) }
 //}
 
+private val debugTask2 = SolverParams(0.0, 0.0, 0.5) { x, y -> x * cos(y).pow(2) }
+
 /** Вариант 4 */
 private val personalTask =
 //    methods.map { new ->
     SolverParams(0.0, 0.143, 0.1) { x, y -> cos(4 * x) * sin(7 * y).pow(2) }
 //}
 
-private val task = debugTask
+private val task = personalTask
 
 fun main() {
 //    val solutions = solvers.associateWith {
