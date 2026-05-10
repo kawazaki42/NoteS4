@@ -1,4 +1,4 @@
-package io.github.kawazaki42.course.compMat.opt
+package io.github.kawazaki42.course.compMat.optimization
 
 import kotlin.collections.zip
 import kotlin.math.ln
