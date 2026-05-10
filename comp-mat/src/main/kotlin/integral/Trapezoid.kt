@@ -4,49 +4,66 @@ import io.github.kawazaki42.course.compMat.linear.Number
 import kotlin.math.PI
 import kotlin.math.sin
 
-data class Trapezoid(
-    val x: Number,
-    val width: Number,
-    val xToY: (Number) -> Number,
-) {
-    val area get() = width * (xToY(x) + xToY(x + width)) / 2
+interface Trapezoid {
+    val begin: Number
+    val width: Number
 
-    companion object {
-        fun approximate(
-            x: Number,
-            step: Number,
-            f: (Number) -> Number,
-        ): Sequence<Trapezoid> = generateSequence(Trapezoid(x, step, f)) {
-            it.copy(x = it.x + step)
-        }
+    // val heightAt: (Number) -> Number
 
-        fun integrate(
-            x: Number,
-            step: Number,
-            intervalCount: Int,
-            f: (Number) -> Number,
-        ) = approximate(x, step, f)
-            .take(intervalCount)
-            .sumOf(Trapezoid::area)
+    val area: Number
 
-        fun integrate(
-            range: ClosedRange<Number>,
-            intervalCount: Int,
-            f: (Number) -> Number,
-        ) = integrate(
-            range.start,
-            range.divideBy(intervalCount),
-            intervalCount,
-            f
-        )
-    }
+    fun next(): Trapezoid
+
+    fun approximate() = generateSequence(
+        this,
+        Trapezoid::next,
+    )
+
+    fun integrate(intervalCount: Int) = approximate()
+        .take(intervalCount)
+        .sumOf(Trapezoid::area)
 }
 
 fun ClosedRange<Number>.divideBy(nParts: Int) =
     endInclusive.minus(start).div(nParts)
 
+fun integrateWith(
+    cons: (
+        begin: Number,
+        width: Number,
+        heightAt: (Number) -> Number,
+    ) -> Trapezoid,
+    range: ClosedRange<Number>,
+    intervalCount: Int,
+    f: (Number) -> Number,
+) = cons(
+    range.start,
+    range.divideBy(intervalCount),
+    f,
+).integrate(intervalCount)
+
 fun main() {
-    println(Trapezoid.integrate(2 * PI..3 * PI, 20) {
-        sin(it) / it
-    })
+    val range = 2 * PI..3 * PI
+    val f = { x: Number -> sin(x) / x }
+
+    println(integrateWith(
+        ::LinearTrapezoid,
+        range,
+        intervalCount = 20,
+        f,
+    ))
+
+    println(integrateWith(
+        ParabolicTrapezoid::fromWidth,
+        range,
+        intervalCount = 2,
+        f,
+    ))
+
+    println(integrateWith(
+        ParabolicTrapezoid::fromWidth,
+        range,
+        intervalCount = 3,
+        f,
+    ))
 }
