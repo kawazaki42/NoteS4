@@ -21,6 +21,5 @@ TODO
     - some test issues
   - [x] RungeKutta
   - [x] Adams
-    - some test issues
 - [ ] ~~19 linear optimization~~
 - [x] 20 [anneal simulation](src/main/kotlin/anneal)
