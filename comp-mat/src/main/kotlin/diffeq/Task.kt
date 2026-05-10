@@ -1,30 +1,19 @@
 package io.github.kawazaki42.course.compMat.diffeq
 
+import io.github.kawazaki42.course.compMat.linear.Number
 import kotlin.collections.map
 import kotlin.math.cos
 import kotlin.math.pow
 import kotlin.math.sin
 
-
-// Вариант 4
-fun yDiff(x: Double, y: Double): Double = cos(4 * x) * sin(7 * y).pow(2)
-
-const val X0 = 0.0
-const val Y0 = 0.143
-
-const val STEP = 0.1
-
-//val solvers = listOf(
-//    Euler(::yDiff, X0, Y0, step),
-//    EulerMod(::yDiff, X0, Y0, step),
-//    RungeKutta(::yDiff, X0, Y0, step),
-////        Adams(RungeKutta(::yDiff), X0, y0, step)),
-//    Adams.initFrom(RungeKutta(::yDiff, X0, Y0, step))
-//)
-
 const val nSteps = 11
 
-val methods = listOf(
+val methods: List<(
+    x: Number,
+    y: Number,
+    step: Number,
+    (Number, Number) -> Number,
+) -> DifferentialEquationSolver> = listOf(
     ::Euler,
     ::EulerMod,
     ::RungeKutta,
@@ -38,58 +27,23 @@ val methods = listOf(
     }
 }
 
-//val solvers = methods.map { it(::yDiff, X0, Y0, step) }
-val solvers = methods.map { new ->
+val debugTask = methods.map { new ->
     new(0.0, 1.0, 0.75) { x, y -> sin(x) * cos(y) }
 }
 
+/** Вариант 4 */
+val personalTask = methods.map { new ->
+    new(0.0, 0.143, 0.1) { x, y -> cos(4 * x) * sin(7 * y).pow(2) }
+}
+
+val solvers = debugTask
+
 fun main() {
-//    val solutions = solvers.map {
-//        it.asSequence()
-//            .take(10)
-//            .toList()
-//    }
-
-//    buildMap(4) {
-//        for (s in solvers) {
-//            put(s, s
-//                .asSequence()
-//                .take(10)
-//                .toList())
-//        }
-//    }
-
     val solutions = solvers.associateWith {
         it.asSequence()
             .take(nSteps)
             .toList()
     }
-
-//    fun <T> List<Pair<T, T>>.firstOnly() = map { (x, _) -> x }
-//    fun <T> List<Pair<T, T>>.secondOnly() = map { (_, y) -> y }
-
-//    val xss = solutions.map { pairList -> pairList.firstOnly() }
-//    val yss = solutions.map { pairList -> pairList.secondOnly() }
-
-//    val xsByMethod = solutions.map { seq ->
-//        seq.map { state -> state.x }
-//    }
-
-//    val xs = solutions.mapValues { (_, stateList) ->
-//        stateList.map { state -> state.x }
-//    }
-//
-//    val ysByMethod = solutions.map { seq ->
-//        seq.map(DifferentialEquationSolver::y)
-//    }
-
-//    val xs = xsByMethod.first()
-
-//    for (m in xsByMethod) {
-//        assert(m == xs) {
-//            "$m != $xs"
-//        }
-//    }
 
     fun List<DifferentialEquationSolver>.xs() = map { it.x }
 
@@ -102,17 +56,6 @@ fun main() {
 //        .zipWithNext { a, b ->
 //            assert(a == b)
 //        }
-
-//    for ((x, yByMeth) in xs.zip(ysByMethod)) {
-////        val (euler, eulerMod, runge, adams) = yByMeth
-//
-//        val xStr = "%.3f".format(x)
-//        val row = yByMeth.joinToString("|", "$xStr|") { "%.3f".format(it) }
-//
-//        println(row)
-//    }
-
-//    operator fun StringBuilder.unaryPlus(s: String) = appendLine(s)
 
     fun DifferentialEquationSolver.describe() = "${this::class.simpleName}" +
         if (this is Adams)
