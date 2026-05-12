@@ -70,6 +70,8 @@ F x1 x2 x3 x4 =
         x1 && not x2
 ```
 
+![alt text](circ-01.excalidraw.svg)
+
 ```hs
 a \|/ b = not (a || b)
 
@@ -82,3 +84,5 @@ F x1 x2 x3 x4 =
     x2 \|/ not x3 ||
     not x1 \|/ x2
 ```
+
+![alt text](circ-02.excalidraw.svg)
