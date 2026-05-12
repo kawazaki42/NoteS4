@@ -8,6 +8,7 @@ pub mod search;
 pub mod sort;
 
 pub mod linked;
+pub mod stack;
 pub mod vec;
 
 pub fn measure<F>(block: F) -> time::Duration

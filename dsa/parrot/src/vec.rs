@@ -1,5 +1,7 @@
 //! Implementation of abstract data structure: dynamic array
 
+use std::borrow::Borrow;
+use std::fmt::Debug;
 use std::mem::MaybeUninit;
 use std::ops::{Index, IndexMut};
 
@@ -229,7 +231,7 @@ impl<T> Vec<T> {
     ///
     /// - `Some(&T)` if index in bounds.
     /// - `None` if no such element.
-    pub fn get(&mut self, index: usize) -> Option<&T> {
+    pub fn get(&self, index: usize) -> Option<&T> {
         if !(0..self.size).contains(&index) {
             return None;
         }
@@ -253,6 +255,37 @@ impl<T> Vec<T> {
             Some(b) => b.len(),
         }
         // self.raw.len()
+    }
+
+    pub fn last(&self) -> Option<&T> {
+        self.get(self.len() - 1)
+    }
+
+    pub fn as_slice(&self) -> &[T] {
+        if let Some(slice) = self.raw.as_ref() {
+            let unboxed = slice.as_ref();
+
+            unsafe { unboxed[..self.len()].assume_init_ref() }
+        } else {
+            &[]
+        }
+    }
+}
+
+impl<T> Borrow<[T]> for Vec<T> {
+    fn borrow(&self) -> &[T] {
+        self.as_slice()
+    }
+}
+
+// impl<T> IntoIterator for Vec<T> {
+//     type Item = T;
+//     type IntoIter = <[T] as IntoIterator>::IntoIter;
+// }
+
+impl<T: Debug> Debug for Vec<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        <[T] as Debug>::fmt(self.as_slice(), f)
     }
 }
 
