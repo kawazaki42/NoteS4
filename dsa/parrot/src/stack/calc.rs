@@ -7,7 +7,7 @@ where
     S: Stack<O>,
 {
     pub operands: S,
-    marker: PhantomData<O>,
+    marker: PhantomData<O>, // needed because generic system complains
 }
 
 pub enum OperatorKind {

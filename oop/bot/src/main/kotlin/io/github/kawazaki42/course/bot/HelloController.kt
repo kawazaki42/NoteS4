@@ -1,7 +1,5 @@
 package io.github.kawazaki42.course.bot
 
-import io.github.kawazaki42.course.bot.remoteapi.OllamaResponse
-import io.github.kawazaki42.course.bot.remoteapi.Role
 import javafx.fxml.FXML
 import javafx.collections.FXCollections.observableArrayList
 
@@ -11,13 +9,13 @@ import javafx.scene.control.TextArea
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
 
-import kotlinx.serialization.json.Json
-
 import kotlin.concurrent.thread
 import javafx.application.Platform.runLater
 import javafx.collections.transformation.FilteredList
 
-class HelloController(
+import io.github.kawazaki42.course.bot.Message.Role
+
+class HelloController {
     var model: Bot = OllamaBot(
         "http://localhost:11434/api/chat/",
         "gemma4:31b-cloud",
@@ -28,7 +26,7 @@ class HelloController(
             visible = false,
         ))
     )
-) {
+
     @FXML
     private lateinit var dialogView: ListView<Message>
 
@@ -64,8 +62,9 @@ class HelloController(
         val prompt = promptInput.text
         promptInput.clear()
 
-        // user's message
         val messages = model.messages
+
+        // user's message
         messages += Message(Role.user, prompt, complete = true)
 
         // bot's (incomplete) message

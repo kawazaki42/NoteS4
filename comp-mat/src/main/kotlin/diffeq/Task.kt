@@ -85,7 +85,7 @@ private val personalTask =
     SolverParams(0.0, 0.143, 0.1) { x, y -> cos(4 * x) * sin(7 * y).pow(2) }
 //}
 
-private val task = personalTask
+private val task = debugTask
 
 fun main() {
 //    val solutions = solvers.associateWith {
