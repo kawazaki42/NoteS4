@@ -3,5 +3,5 @@ package io.github.kawazaki42.course.bot
 import javafx.application.Application
 
 fun main() {
-    Application.launch(HelloApplication::class.java)
+    Application.launch(ApplicationImpl::class.java)
 }

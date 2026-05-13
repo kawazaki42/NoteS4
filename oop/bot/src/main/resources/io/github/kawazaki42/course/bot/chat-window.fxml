@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:controller="io.github.kawazaki42.course.bot.HelloController"
+<VBox fx:controller="io.github.kawazaki42.course.bot.Controller"
       alignment="CENTER"
       spacing="20.0"
       stylesheets="@style.css"

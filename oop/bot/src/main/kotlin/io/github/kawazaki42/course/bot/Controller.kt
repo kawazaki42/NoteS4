@@ -15,7 +15,7 @@ import javafx.collections.transformation.FilteredList
 
 import io.github.kawazaki42.course.bot.Message.Role
 
-class HelloController {
+class Controller {
     var model: Bot = OllamaBot(
         "http://localhost:11434/api/chat/",
         "gemma4:31b-cloud",

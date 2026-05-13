@@ -75,7 +75,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                io.github.kawazaki42.course.bot/io.github.kawazaki42.course.bot.HelloApplication
+                                io.github.kawazaki42.course.bot/io.github.kawazaki42.course.bot.ApplicationImpl
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
