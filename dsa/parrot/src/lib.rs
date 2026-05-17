@@ -8,6 +8,7 @@ pub mod search;
 pub mod sort;
 
 pub mod linked;
+pub mod linked_double;
 pub mod stack;
 pub mod vec;
 

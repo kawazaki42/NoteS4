@@ -1,5 +1,6 @@
 package io.github.kawazaki42.course.bot
 
+import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import kotlinx.serialization.Serializable
 
@@ -26,3 +27,20 @@ interface Bot {
     fun answer(): Sequence<String>
 }
 
+//class MathBot(
+//    override val messages: ObservableList<Message> = FXCollections.observableArrayList()
+//) : Bot {
+//    override fun answer(): Sequence<String> {
+//        val sumExpr = buildRegex {
+//
+//        }
+//
+//        buildRegex {
+//            begin()
+//            capture {
+//                literally("*")
+//            }
+//            end()
+//        }
+//    }
+//}

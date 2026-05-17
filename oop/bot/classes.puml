@@ -1,0 +1,16 @@
+@startuml
+
+interface Initializable {
+  + initialize(url: URL?, bundle: ResourceBundle?)
+}
+
+class Controller implements Initializable {
+  + model: Bot
+  - dialogView: ListView<Message>
+  - promptInput: TextArea
+  - onKeyPressed(key: KeyEvent)
+  + initialize(url: URL?, bundle: ResourceBundle?)
+  - sendPrompt()
+}
+
+@enduml

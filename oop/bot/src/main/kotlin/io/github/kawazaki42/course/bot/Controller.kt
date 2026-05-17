@@ -14,8 +14,11 @@ import javafx.application.Platform.runLater
 import javafx.collections.transformation.FilteredList
 
 import io.github.kawazaki42.course.bot.Message.Role
+import javafx.fxml.Initializable
+import java.net.URL
+import java.util.ResourceBundle
 
-class Controller {
+class Controller : Initializable {
     var model: Bot = OllamaBot(
         "http://localhost:11434/api/chat/",
         "gemma4:31b-cloud",
@@ -45,14 +48,7 @@ class Controller {
 
 //    var model = OllamaRequest("gemma4:31b-cloud", emptyList())
 
-    @FXML
-    fun initialize() {
-//        dialogView.items = observableArrayList(
-//
-//        )
-
-//        model.messages = dialogView.items
-
+    override fun initialize(url: URL?, bundle: ResourceBundle?) {
         // shared ObservableList reference: idiomatic way to sync
         dialogView.items = FilteredList(model.messages, Message::visible)
     }

@@ -15,7 +15,11 @@ pub struct ListNode<T> {
 /// Singly linked list with cache for last node and count of nodes.
 pub struct SinglyLinkedList<'a, T> {
     head: ListPointer<T>,
+    /// `None` if no elements are in list.
+    /// References head if there is only one element.
     last: Option<&'a mut ListNode<T>>,
+    /// needed for deletion
+    penultimate: Option<&'a mut ListNode<T>>,
     count: usize,
 }
 
@@ -24,17 +28,19 @@ impl<'a, T> SinglyLinkedList<'a, T> {
         Self {
             head: None,
             last: None,
+            penultimate: None,
             count: 0,
         }
     }
 
     pub fn append(&mut self, other: SinglyLinkedList<'a, T>) {
-        match &mut self.last {
+        match self.last.as_mut() {
             None => *self = other,
             Some(last) => {
                 last.next = other.head;
                 self.count += other.count;
                 self.last = other.last;
+                self.penultimate = other.penultimate;
             }
         }
     }
@@ -115,6 +121,10 @@ impl<'a, T> SinglyLinkedList<'a, T> {
             next: self.head.take(),
         }));
 
+        self.last.get_or_insert(self.head);
+
+        self.penultimate.get_or_insert(&mut self.head);
+
         self.count += 1;
     }
 
@@ -163,7 +173,7 @@ impl<'a, T> SinglyLinkedList<'a, T> {
             .value
     }
 
-    // pub fn pop_back(&mut self) -> Option<T> {
-    //     self.last?
-    // }
+    pub fn pop_back(&mut self) -> Option<T> {
+        self.last?
+    }
 }

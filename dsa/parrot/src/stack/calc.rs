@@ -10,6 +10,7 @@ where
     marker: PhantomData<O>, // needed because generic system complains
 }
 
+#[non_exhaustive]
 pub enum OperatorKind {
     Plus,
     Minus,
