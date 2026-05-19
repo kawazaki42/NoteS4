@@ -88,6 +88,8 @@ F x1 x2 x3 x4 =
     not x1 \|/ x2
 ```
 
+not ((not not x1) \|/ (not not x3)) \|/ x4
+
 ![alt text](circ-02.excalidraw.svg)
 
 Задача 2
@@ -115,3 +117,11 @@ y2 = x1 || x3 || x5 || x7
 ![](circ-03.excalidraw.svg)
 
 ![](circ-04.excalidraw.svg)
+
+$F(A, B) = \overline A \land \overline B$
+
+по закону де Моргана:
+
+$F(A, B) = \overline{A \lor B} = A \downarrow B$
+
+![circ-05.excalidraw](circ-05.excalidraw.svg)
