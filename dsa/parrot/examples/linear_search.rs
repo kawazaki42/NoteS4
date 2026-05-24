@@ -4,6 +4,6 @@ fn main() {
     let haystack: [u8; 1000] = rand_arr(0..=255).expect("incorrect range?");
 
     measure(|| {
-        search::linear(haystack.iter(), &42);
+        search::linear(haystack.iter(), &&42);
     });
 }

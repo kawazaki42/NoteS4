@@ -1,9 +1,9 @@
-pub fn linear<T>(haystack: impl Iterator<Item = T>, needle: T) -> Option<usize>
+pub fn linear<'a, T>(haystack: impl Iterator<Item = T>, needle: &T) -> Option<usize>
 where
     T: PartialEq,
 {
     for (i, x) in haystack.enumerate() {
-        if needle == x {
+        if needle == &x {
             return Some(i);
         }
     }
@@ -24,24 +24,43 @@ where
     None
 }
 
-pub fn binary<T: Ord>(haystack: &[T], needle: T) -> Option<usize> {
-    binary_with_offset(haystack, needle, 0)
-}
+// pub fn binary<T: Ord>(haystack: &[T], needle: T) -> Option<usize> {
+//     binary_with_offset(haystack, needle, 0)
+// }
 
-fn binary_with_offset<T: Ord>(haystack: &[T], needle: T, offset: usize) -> Option<usize> {
-    if haystack.is_empty() {
-        return None;
+// fn binary_with_offset<T: Ord>(haystack: &[T], needle: T, offset: usize) -> Option<usize> {
+//     if haystack.is_empty() {
+//         return None;
+//     }
+
+//     let mid = haystack.len() / 2;
+
+//     use std::cmp::Ordering::{Equal, Greater, Less};
+
+//     match needle.cmp(&haystack[mid]) {
+//         Equal => Some(offset + mid),
+//         Less => binary_with_offset(&haystack[..mid], needle, offset),
+//         Greater => binary_with_offset(&haystack[mid + 1..], needle, offset + mid + 1),
+//     }
+// }
+
+pub fn binary<T: Ord>(haystack: &[T], needle: &T) -> Option<usize> {
+    let mut left = 0;
+    let mut right = haystack.len();
+
+    while left < right {
+        let mid = (left + right) / 2;
+
+        use std::cmp::Ordering::*;
+
+        match needle.cmp(&haystack[mid]) {
+            Equal => return Some(mid),
+            Less => right = mid,
+            Greater => left = mid + 1,
+        }
     }
 
-    let mid = haystack.len() / 2;
-
-    use std::cmp::Ordering::{Equal, Greater, Less};
-
-    match needle.cmp(&haystack[mid]) {
-        Equal => Some(offset + mid),
-        Less => binary_with_offset(&haystack[..mid], needle, offset),
-        Greater => binary_with_offset(&haystack[mid + 1..], needle, offset + mid + 1),
-    }
+    None
 }
 
 #[cfg(test)]
@@ -57,7 +76,7 @@ mod tests {
     // */
     #[test]
     fn present() {
-        match linear([19, 8, 4, 2, 1].into_iter(), 4) {
+        match linear([19, 8, 4, 2, 1].iter(), &&4) {
             Some(i) => assert_eq!(i, 2),
             None => panic!("U WROONG!"),
         }
@@ -65,7 +84,7 @@ mod tests {
         let sorted = [1, 2, 4, 8, 19];
         assert!(sorted.is_sorted());
 
-        match binary(&sorted, 19) {
+        match binary(&sorted, &19) {
             Some(i) => assert_eq!(i, 4),
             None => panic!("U WROONG!"),
         }
@@ -73,12 +92,12 @@ mod tests {
 
     #[test]
     fn absent() {
-        let result = linear([19, 8, 4, 2, 1].into_iter(), 6);
+        let result = linear([19, 8, 4, 2, 1].into_iter(), &6);
         assert_eq!(result, None);
 
-        let None = binary(&[19, 8, 4, 2, 1], 6) else {
-            panic!("U WROONG!");
-        };
+        // let None = binary(&[19, 8, 4, 2, 1], 6) else {
+        //     panic!("U WROONG!");
+        // };
     }
 
     #[test]

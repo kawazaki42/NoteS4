@@ -1,4 +1,6 @@
+use std::hint::black_box;
 use std::time::Duration;
+use std::usize;
 
 use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
@@ -53,10 +55,10 @@ fn setup(n: usize) -> State {
 // fn routine<const N: usize>(s: &mut State<N, impl Iterator<Item = usize>>) {
 fn routine(s: &mut State) {
     // linear(s.haystack.iter(), &s.needles[s.idx]);
-    linear(
+    black_box(linear(
         s.haystack.iter(),
-        &s.needles.next().expect("no more needles?!"),
-    );
+        &&s.needles.next().expect("no more needles?!"),
+    ));
     // s.idx += 1;
 }
 
@@ -110,7 +112,7 @@ fn bench_binary(c: &mut Criterion) {
         c.bench_function(&desc, |bencher| {
             bencher.iter_batched_ref(
                 || Batch {
-                    haystack: dsa::rand_iter_inc(1, 100)
+                    haystack: dsa::rand_iter_inc(1, usize::MAX / 2)
                         .expect("incorrect range?!")
                         .take(size)
                         .collect(),
@@ -121,10 +123,10 @@ fn bench_binary(c: &mut Criterion) {
                         .into_iter(),
                 },
                 |batch| {
-                    binary(
+                    black_box(binary(
                         &batch.haystack,
-                        batch.needles.next().expect("no more needles?!"),
-                    )
+                        &batch.needles.next().expect("no more needles?!"),
+                    ))
                 },
                 criterion::BatchSize::LargeInput,
             );
@@ -135,8 +137,11 @@ fn bench_binary(c: &mut Criterion) {
 criterion_group!(
     name = benches;
     config = Criterion::default()
-        .sample_size(10)
-        .measurement_time(Duration::from_secs(20));
+        .sample_size(10);
+        // .measurement_time(Duration::from_secs(20));
     targets = criterion_benchmark, bench_binary
+    // benches,
+    // criterion_benchmark,
+    // bench_binary
 );
 criterion_main!(benches);
