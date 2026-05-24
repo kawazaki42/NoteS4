@@ -237,7 +237,7 @@ $$I_i = \frac{\varphi_в - \varphi_н}{R_i}$$
 
 # 5 Эквивалентный генератор
 
-![eqgen.svg](svg/eqgen.svg)
+![eqgen.svg](svg/eqgen-2.excalidraw.svg)
 
 ## внутреннее сопротивление генератора
 
@@ -293,11 +293,9 @@ $\approx \frac{1836.016000019}{89.746666667} \approx 20.457762591 \, (Ом)$
 
 ## вспомогательные токи для вычисления ЭДС генератора
 
-![img_3.png](img_3.png)
-
-![img_4.png](img_4.png)
-
 [//]: # (ищем вспомогательные токи Ia, Ib методом двух узлов и контурных токов)
+
+![alt text](svg/eqgen-mod.excalidraw.svg)
 
 ### метод узловых потенциалов
 
@@ -395,6 +393,8 @@ $$I_1 = \frac{-18.1499034318823 \, В}{17 \, Ом + 23.257762591 \, Ом}$$
 
 возьмем контур dbcd: он включает обе ЭДС (E2, E5)
 
+![alt text](svg/cycle.excalidraw.svg)
+
 $$\varphi_d = 0 \, В$$
 
 $$\varphi_{m} = \varphi_d - I_2 \cdot R_2$$
@@ -426,4 +426,4 @@ $$\varphi_d = −0.609738913 \,В + 0.016045761 \,А * 38 \,Ом \approx 0 \,В$
 | n     | 71    | -0.609738913 |
 | d     | 79    | 0            |
 
-![pot-diagram.png](pot-diagram.png)
+![pot-diagram.png](svg/pot-diagram.excalidraw.svg)
