@@ -11,10 +11,7 @@
 - $E_2 = 27 \, В$
 - $E_5 = 8 \, В$
 
-> [!TODO]
-> photo
-
-![r/photo_1_2026-04-10_11-40-46.jpg](photo_1_2026-04-10_11-40-46.jpg)
+![task.excalidraw.svg](svg/task.excalidraw.svg)
 
 # 1 По законам кирхгофа
 
@@ -240,17 +237,13 @@ $$I_i = \frac{\varphi_в - \varphi_н}{R_i}$$
 
 # 5 Эквивалентный генератор
 
-TODO
-
-![img.png](img.png)
-
-![img_1.png](img_1.png)
-
-![img_2.png](img_2.png)
+![eqgen.svg](svg/eqgen.svg)
 
 ## внутреннее сопротивление генератора
 
 преобразование _треугольник-звезда_
+
+![triang.svg](svg/triang.svg)
 
 - $R_b = (R_2 \cdot R_3) / (R_2 + R_3 + R_5)$
 - $R_c = (R_3 \cdot R_5) / (R_2 + R_3 + R_5)$
