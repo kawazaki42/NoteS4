@@ -1,16 +1,20 @@
-#show quote.where(block: true): set block(
-  stroke: (left: 2pt + gray),
-  inset: (left: 1em, y: 0.5em),
-)
+// #show quote.where(block: true): set block(
+//   stroke: (left: 2pt + gray, rest: none),
+//   inset: (left: 1em, y: 0.5em),
+// )
 
-#quote(block: true)[
-  вариант 5
-]
+#show quote.where(block: true): block.with(stroke: (left:2pt + gray, rest: none), inset: (y: 0.5em))
 
 #columns(2)[
   #image("task.excalidraw.svg", height: 50%)
 
   #colbreak()
+
+  // #quote(block: true)[
+  //   Вариант 5
+  // ]
+  
+  == Вариант 5
 
   #block[
     === сопротивления
@@ -125,8 +129,9 @@ $ #rE(1) = E_1 cos psi_(e 1) = rnd(ei) cos 137 degree = rnd(rei) $
 
 $ #iE(1) = E_1 sin psi_(e 1) = rnd(ei) sin 137 degree = rnd(iei) $
 
+#let ue1 = $rnd(rei) + j rnd(iei)$
 
-комплекс $uE_#i$: $ uE_#i = rnd(rei) + j rnd(iei) = rnd(ei) ee^(j #psii.deg() degree) $
+комплекс $uE_#i$: $ uE_#i = ue1 = rnd(ei) ee^(j #psii.deg() degree) $
 
 //
 
@@ -146,7 +151,9 @@ $ #rE(i) = E_#i cos psi_(e #i) = rnd(ei) cos #psii.deg() degree = rnd(rei) $
 
 $ #iE(i) = E_#i sin psi_(e #i) = rnd(ei) sin #psii.deg() degree = rnd(iei) $
 
-комплекс $uE_#i$: $ uE_#i = rnd(rei) + j rnd(iei) = rnd(ei) ee^(j #psii.deg() degree) $
+#let ue3 = $rnd(rei) + j rnd(iei)$
+
+комплекс $uE_#i$: $ uE_#i = ue3 = rnd(ei) ee^(j #psii.deg() degree) $
 
 //
 
@@ -166,7 +173,9 @@ $ #rE(i) = E_#i cos psi_(e #i) = rnd(ei) cos (#psii.deg()degree) = rnd(rei) $
 
 $ #iE(i) = E_#i sin psi_(e #i) = rnd(ei) sin (#psii.deg()degree) = rnd(iei) $
 
-комплекс $uE_#i$: $ uE_#i = rnd(rei) + j rnd(iei) = rnd(ei) ee^(-j #calc.abs(psii.deg())degree) $
+#let ue5 = $rnd(rei) - j rnd(#calc.abs(iei))$
+
+комплекс $uE_#i$: $ uE_#i = ue5 = rnd(ei) ee^(-j #calc.abs(psii.deg())degree) $
 
 #pagebreak()
 
@@ -220,11 +229,13 @@ $ omega = 2 pi f = 2 dot #rnd(calc.pi) dot #f = rnd(omegaI) "рад"/с space (c
 - $X_(L 4) = omega L_4 = rnd(omegaI) dot l4 = rnd(xl4) "Ом"$
 - $X_(C 4) = 1 / (omega C_4) = 1 / (rnd(omegaI) dot c4str) = rnd(xc4) "Ом"$
 
+#let uz1 = $16 - j #rnd(calc.abs(x1))$
+
 $
   underline(Z)_1 =
   R_1 + j(X_(L 1) + X_(L 4) - X_(C 4)) =
   // 16 + j(rnd(xl1) + rnd(xl4) - rnd(xc4)) =
-  16 - j #rnd(calc.abs(x1)) = rnd(z1) ee^(-j rnd(#calc.abs(phii))degree)
+  #uz1 = rnd(z1) ee^(-j rnd(#calc.abs(phii))degree)
   "Ом"
 $
 
@@ -249,11 +260,12 @@ $
 - $R_2 = r2 "Ом"$
 - $X_(L 5) = omega L_5 = rnd(omegaI) dot l5 = rnd(xl5) "Ом"$
 
+#let uz2 = $r2 + j #rnd(x2)$
+
 $
   underline(Z)_#i =
-  R_2 + j X_(L 5) =
+  R_2 + j X_(L 5) = #uz2 = rnd(z2) ee^(j rnd(phii)degree)
   // 16 + j(rnd(xl1) + rnd(xl4) - rnd(xc4)) =
-  r2 + j #rnd(x2) = rnd(z2) ee^(j rnd(phii)degree)
   "Ом"
 $
 
@@ -276,11 +288,13 @@ $
 Сопротивления:
 - $X_(L 6) = omega L_6 = rnd(omegaI) dot l6 = rnd(xl6) "Ом"$
 
+#let uz3 = $ri + j #rnd(xi)$
+
 $
   underline(Z)_#i =
   R_2 + j X_(L 5) =
   // 16 + j(rnd(xl1) + rnd(xl4) - rnd(xc4)) =
-  ri + j #rnd(xi) = rnd(zi) ee^(j rnd(phii)degree)
+  #uz3 = rnd(zi) ee^(j rnd(phii)degree)
   "Ом"
 $
 
@@ -333,4 +347,102 @@ $
     eq2,
     eq3,
   )
+$
+
+#pagebreak()
+
+= 3 Комплексная система уравнений
+
+#let uI = $ underline(I) $
+#let uZ = $ underline(Z) $
+#let uE = $ underline(E) $
+
+для активного сопротивления: $ underline(U) = R underline(I) $
+
+для индуктивности:
+$ underline(U) = j omega L underline(I) = j X_L underline(I) $
+
+для ёмкости:
+$ underline(U) = 1/(j omega C) underline(I) = -j X_C underline(I) $
+
+=== по законам Кирхгофа:
+
+#let eq1 = $ uI_1 + uI_2 + uI_3 = 0 $
+#let eq2 = $
+  underline(Z)_1 uI_1
+  - underline(Z)_2 uI_2
+  = underline(E)_1 + underline(E)_5
+$
+#let eq3 = $
+  uZ_2 uI_2 - uZ_3 uI_3 = -uE_5 - uE_3
+$
+
+узел $a$: #eq1
+
+_левый_ контур: #eq2
+
+_правый_ контур: #eq3
+
+
+// #let ul(inner) = underline(inner)
+// #show "Z": set underline()
+// Z
+
+система: $ cases(eq1, eq2, eq3) $
+
+в матричной форме:
+
+$ mat(augment: #(-1),
+  1, 1, 1, 0;
+  uZ_1, -uZ_2, 0, uE_1 + uE_5;
+  0, uZ_2, - uZ_3, -uE_5 - uE_3
+) $
+
+$ mat(
+  1, 1, 1;
+  uZ_1, -uZ_2, 0;
+  0, uZ_2, - uZ_3;
+) vec(uI_1, uI_2, uI_3) = vec(0, uE_1 + uE_5, -uE_5 - uE_3) $
+
+// #let z1 = $16 - j #rnd(calc.abs(x1))$
+
+$ mat(
+  1, 1, 1;
+  uz1, -(uz2), 0;
+  0, uz2, - (uz3);
+) vec(uI_1, uI_2, uI_3) = vec(0, ue1 + ue5, -(ue5) - (ue3)) $
+
+$
+mat(
+  1, 1, 1;
+  uz1, -20 -j 75.398, 0;
+  0, uz2, - j 94.248;
+) vec(uI_1, uI_2, uI_3) =
+// vec(0, -27.31 - j 39.597, +j 64.997 + 25.983 -j 15.001)
+vec(
+  0,
+  -27.31 - j 39.597,
+  +j 49.996 + 25.983,
+)
+// 49,996
+$
+
+// #math.equation()
+
+// #eval()
+
+#let uis = "  -0.2771 - 0.9293i
+   0.4003 + 0.4103i
+  -0.1232 + 0.5190i
+".replace("i", "j").trim().split("\n").map(it => { eval(it, mode: "math") })
+
+Решение:
+
+// #let s = "times"
+$
+// #block[
+   uI_1 = uis.at(#0) \
+   uI_2 = uis.at(#1) \
+   uI_3 = uis.at(#2) \
+// ]
 $
