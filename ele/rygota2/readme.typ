@@ -79,7 +79,7 @@
 
 #pagebreak()
 
-= комплекс ЭДС
+= 1.1 Комплексы ЭДС
 
 #let uE = $ underline(E) $
 #let rE(idx) = $ "Re"(uE_#idx) $
@@ -170,7 +170,7 @@ $ #iE(i) = E_#i sin psi_(e #i) = rnd(ei) sin (#psii.deg()degree) = rnd(iei) $
 
 #pagebreak()
 
-= Комплекс сопротивлений ветвей
+= 1.2 Комплексы сопротивлений ветвей
 
 $ underline(Z) = R + j X = R + j(X_L - X_C) = Z ee^(j phi) $
 
@@ -224,7 +224,7 @@ $
   underline(Z)_1 =
   R_1 + j(X_(L 1) + X_(L 4) - X_(C 4)) =
   // 16 + j(rnd(xl1) + rnd(xl4) - rnd(xc4)) =
-  16 - j #rnd(calc.abs(x1)) = rnd(z1) ee ^(-j rnd(#calc.abs(phii))degree)
+  16 - j #rnd(calc.abs(x1)) = rnd(z1) ee^(-j rnd(#calc.abs(phii))degree)
   "Ом"
 $
 
@@ -253,7 +253,7 @@ $
   underline(Z)_#i =
   R_2 + j X_(L 5) =
   // 16 + j(rnd(xl1) + rnd(xl4) - rnd(xc4)) =
-  r2 + j #rnd(x2) = rnd(z2) ee ^(j rnd(phii)degree)
+  r2 + j #rnd(x2) = rnd(z2) ee^(j rnd(phii)degree)
   "Ом"
 $
 
@@ -280,6 +280,57 @@ $
   underline(Z)_#i =
   R_2 + j X_(L 5) =
   // 16 + j(rnd(xl1) + rnd(xl4) - rnd(xc4)) =
-  ri + j #rnd(xi) = rnd(zi) ee ^(j rnd(phii)degree)
+  ri + j #rnd(xi) = rnd(zi) ee^(j rnd(phii)degree)
   "Ом"
+$
+
+#pagebreak()
+
+= 2 Система уравнений для мгновенных значений
+
+для активного сопротивления: $ u = R i $
+
+для индуктивности: $ u = L (dif i) / (dif t) $
+
+для ёмкости: $ u = 1/C integral i dif t $
+
+3 ветви, 2 узла
+
+2 уравнения по 2 закону Кирхгофа
+
+1 уравение по 1 закону
+
+3 уравнения с 3 неизвестными
+
+узел $a$: $ i_1 + i_2 + i_3 = 0 $
+
+#let eq2 = $
+  1/C integral i_1 dif t +
+  L_4 (dif i_1) / (dif t) +
+  L_1 (dif i_1) / (dif t) +
+  R_1 i_1
+  - R_2 i_2
+  - L_5 i_2
+  = e_1 + e_5
+$
+
+левый контур: ветви 1 и 2, по часовой стрелке: #eq2
+
+
+#let eq3 = $
+  L_5 (dif i_2) / (dif t)
+  + R_2 i_2
+  - L_6 (dif i_3) / (dif t)
+  = - e_5 - e_3
+$
+
+правый контур: ветви 2 и 3, по часовой стрелке: #eq3
+
+система:
+$
+  cases(
+    i_1 + i_2 + i_3 = 0,
+    eq2,
+    eq3,
+  )
 $
