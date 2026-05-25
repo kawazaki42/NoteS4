@@ -446,3 +446,22 @@ $
    uI_3 = uis.at(#2) \
 // ]
 $
+
+#pagebreak()
+
+= 4 Метод двух узлов
+
+$ underline(U)_(a b) = (sum_k plus.minus uE_k / uZ_k) / (sum_n 1/uZ_n) $
+
+// `+` если ЭДС против U_ab
+
+$ underline(U)_(a b) = (uE_1 / uZ_1 + uE_3 / uZ_3) / (1/uZ_1 + 1/uZ_2 + 1/uZ_3) $
+
+$ underline(U)_(a b) = (ue1 / uz1 + ue3 / uz3) / (1/uz1 + 1/uz2 + 1/uz3) $
+
+$ underline(U)_(a b) = ((-0.6301 - j 0.3495) + (0.1592 +j 0.2757)) / ((0.0059573 + j 0.018353) + (0.0032868 -j 0.012391) -j 0.010610) $
+
+// #let phase = angle(-2.5202479938768034 ).deg()
+#let phase = -144.39957337545337
+
+$ underline(U)_(a b) = -37.457 -j 26.817 = 46.067 ee^(-j rnd(#calc.abs(phase))degree) $
