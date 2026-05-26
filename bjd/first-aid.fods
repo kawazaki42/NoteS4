@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
- <office:meta><meta:creation-date>2026-05-19T20:10:48.588024930</meta:creation-date><dc:date>2026-05-19T20:19:20.264224227</dc:date><meta:editing-duration>PT8M33S</meta:editing-duration><meta:editing-cycles>1</meta:editing-cycles><meta:document-statistic meta:table-count="1" meta:cell-count="14" meta:object-count="0"/><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator></office:meta>
+ <office:meta><meta:creation-date>2026-05-19T20:10:48.588024930</meta:creation-date><dc:date>2026-05-26T23:16:52.705439074</dc:date><meta:editing-duration>PT52M5S</meta:editing-duration><meta:editing-cycles>9</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:table-count="3" meta:cell-count="71" meta:object-count="0"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
-   <config:config-item config:name="VisibleAreaLeft" config:type="int">2258</config:config-item>
-   <config:config-item config:name="VisibleAreaWidth" config:type="int">12613</config:config-item>
-   <config:config-item config:name="VisibleAreaHeight" config:type="int">4849</config:config-item>
+   <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">16193</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">56459</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
      <config:config-item-map-named config:name="Tables">
       <config:config-item-map-entry config:name="Sheet1">
-       <config:config-item config:name="CursorPositionX" config:type="int">3</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">2</config:config-item>
+       <config:config-item config:name="CursorPositionX" config:type="int">2</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">16</config:config-item>
+       <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
+       <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionBottom" config:type="int">11</config:config-item>
+       <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">112</config:config-item>
+       <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+       <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+       <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="LegacySingleLineFontwork" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="ConnectorUseSnapRect" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="IgnoreBreakAfterMultilineField" config:type="boolean">false</config:config-item>
+      </config:config-item-map-entry>
+      <config:config-item-map-entry config:name="Sheet2">
+       <config:config-item config:name="CursorPositionX" config:type="int">0</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">0</config:config-item>
        <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
        <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-       <config:config-item config:name="ZoomValue" config:type="int">195</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">112</config:config-item>
+       <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+       <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+       <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="LegacySingleLineFontwork" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="ConnectorUseSnapRect" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="IgnoreBreakAfterMultilineField" config:type="boolean">false</config:config-item>
+      </config:config-item-map-entry>
+      <config:config-item-map-entry config:name="Sheet3">
+       <config:config-item config:name="CursorPositionX" config:type="int">1</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">2</config:config-item>
+       <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
+       <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionBottom" config:type="int">4</config:config-item>
+       <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">112</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
        <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
        <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
@@ -33,7 +67,7 @@
      <config:config-item config:name="ActiveTable" config:type="string">Sheet1</config:config-item>
      <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">1849</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-     <config:config-item config:name="ZoomValue" config:type="int">195</config:config-item>
+     <config:config-item config:name="ZoomValue" config:type="int">112</config:config-item>
      <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
      <config:config-item config:name="ShowPageBreakPreview" config:type="boolean">false</config:config-item>
      <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
@@ -70,6 +104,15 @@
    <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
    <config:config-item config:name="EmbedLatinScriptFonts" config:type="boolean">true</config:config-item>
    <config:config-item config:name="EmbedOnlyUsedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item-map-indexed config:name="ForbiddenCharacters">
+    <config:config-item-map-entry>
+     <config:config-item config:name="Language" config:type="string">en</config:config-item>
+     <config:config-item config:name="Country" config:type="string">US</config:config-item>
+     <config:config-item config:name="Variant" config:type="string"/>
+     <config:config-item config:name="BeginLine" config:type="string"/>
+     <config:config-item config:name="EndLine" config:type="string"/>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
    <config:config-item config:name="GridColor" config:type="int">12632256</config:config-item>
    <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
    <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
@@ -81,9 +124,9 @@
    <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
    <config:config-item config:name="LinkUpdateMode" config:type="short">3</config:config-item>
    <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterName" config:type="string"/>
+   <config:config-item config:name="PrinterName" config:type="string">HL-1200-series</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">wgH+/0hMLTEyMDAtc2VyaWVzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpITC0xMjAwLXNlcmllcwAAAAAAAAAAAAAAAAAWAAMAnwAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SEwtMTIwMC1zZXJpZXMKb3JpZW50YXRpb249UG9ydHJhaXQKY29waWVzPTEKY29sbGF0ZT1mYWxzZQptYXJnaW5hZGp1c3RtZW50PTAsMCwnMCwwCmNvbG9yZGVwdGg9MjQKY29sb3JkZXZpY2U9MApQUERDb250ZXh0RGF0YQpQYWdlU2l6ZTpBNAAAEgBDT01QQVRfRFVQTEVYX01PREUTAER1cGxleE1vZGU6OlVua25vd24MAFBSSU5URVJfTkFNRQ4ASEwtMTIwMC1zZXJpZXMLAERSSVZFUl9OQU1FEwBDVVBTOkhMLTEyMDAtc2VyaWVz</config:config-item>
    <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
    <config:config-item config:name="RasterResolutionX" config:type="int">1270</config:config-item>
    <config:config-item config:name="RasterResolutionY" config:type="int">1270</config:config-item>
@@ -96,20 +139,30 @@
    <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="SyntaxStringRef" config:type="short">7</config:config-item>
    <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
    <config:config-item-map-named config:name="ScriptConfiguration">
     <config:config-item-map-entry config:name="Sheet1">
      <config:config-item config:name="CodeName" config:type="string">Sheet1</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Sheet2">
+     <config:config-item config:name="CodeName" config:type="string">Sheet2</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Sheet3">
+     <config:config-item config:name="CodeName" config:type="string">Sheet3</config:config-item>
     </config:config-item-map-entry>
    </config:config-item-map-named>
   </config:config-item-set>
  </office:settings>
  <office:scripts>
   <office:script script:language="ooo:Basic">
-   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
   </office:script>
  </office:scripts>
  <office:font-face-decls>
+  <style:font-face style:name="FreeSans" svg:font-family="FreeSans" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Noto Sans CJK SC" svg:font-family="&apos;Noto Sans CJK SC&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Noto Sans Devanagari" svg:font-family="&apos;Noto Sans Devanagari&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
@@ -121,7 +174,7 @@
   </style:default-style>
   <style:default-style style:family="graphic">
    <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" draw:shadow-offset-x="0.1181in" draw:shadow-offset-y="0.1181in" style:writing-mode="page"/>
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" style:writing-mode="page" style:font-independent-line-spacing="false">
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" loext:tab-stop-distance="0in" style:writing-mode="page" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
    <style:text-properties style:use-window-font-color="true" loext:opacity="0%" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-family-asian="&apos;DejaVu Sans&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-family-complex="&apos;Noto Sans&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
@@ -224,22 +277,73 @@
  </office:styles>
  <office:automatic-styles>
   <style:style style:name="co1" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="0.889in"/>
-  </style:style>
-  <style:style style:name="co2" style:family="table-column">
    <style:table-column-properties fo:break-before="auto" style:column-width="2.4937in"/>
   </style:style>
-  <style:style style:name="co3" style:family="table-column">
+  <style:style style:name="co2" style:family="table-column">
    <style:table-column-properties fo:break-before="auto" style:column-width="1.5835in"/>
+  </style:style>
+  <style:style style:name="co3" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.298in"/>
+  </style:style>
+  <style:style style:name="co4" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.889in"/>
+  </style:style>
+  <style:style style:name="co5" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="5.228in"/>
+  </style:style>
+  <style:style style:name="co6" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="6.961in"/>
   </style:style>
   <style:style style:name="ro1" style:family="table-row">
    <style:table-row-properties style:row-height="0.1807in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ro2" style:family="table-row">
-   <style:table-row-properties style:row-height="0.6591in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+   <style:table-row-properties style:row-height="0.6472in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ro3" style:family="table-row">
+   <style:table-row-properties style:row-height="2.0634in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro4" style:family="table-row">
+   <style:table-row-properties style:row-height="0.9618in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro5" style:family="table-row">
+   <style:table-row-properties style:row-height="2.2209in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro6" style:family="table-row">
+   <style:table-row-properties style:row-height="2.85in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro7" style:family="table-row">
+   <style:table-row-properties style:row-height="2.5354in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro8" style:family="table-row">
+   <style:table-row-properties style:row-height="0.3425in" fo:break-before="auto" style:use-optimal-row-height="false"/>
+  </style:style>
+  <style:style style:name="ro9" style:family="table-row">
+   <style:table-row-properties style:row-height="1.7484in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro10" style:family="table-row">
+   <style:table-row-properties style:row-height="1.9898in" fo:break-before="auto" style:use-optimal-row-height="false"/>
+  </style:style>
+  <style:style style:name="ro11" style:family="table-row">
+   <style:table-row-properties style:row-height="1.2638in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro12" style:family="table-row">
+   <style:table-row-properties style:row-height="1.8862in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro13" style:family="table-row">
    <style:table-row-properties style:row-height="0.178in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro14" style:family="table-row">
+   <style:table-row-properties style:row-height="0.4902in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro15" style:family="table-row">
+   <style:table-row-properties style:row-height="1.1193in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro16" style:family="table-row">
+   <style:table-row-properties style:row-height="1.4339in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro17" style:family="table-row">
+   <style:table-row-properties style:row-height="0.8047in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ta1" style:family="table" style:master-page-name="Default">
    <style:table-properties table:display="true" style:writing-mode="lr-tb"/>
@@ -247,11 +351,12 @@
   <number:number-style style:name="N2">
    <number:number number:decimal-places="2" number:min-decimal-places="2" number:min-integer-digits="1"/>
   </number:number-style>
-  <style:style style:name="ce1" style:family="table-cell" style:parent-style-name="Default">
-   <style:table-cell-properties style:vertical-align="top"/>
-  </style:style>
   <style:style style:name="ce2" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties fo:wrap-option="wrap" style:vertical-align="top"/>
+  </style:style>
+  <style:style style:name="ce5" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:wrap-option="wrap" style:vertical-align="top"/>
+   <style:text-properties fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="ce3" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties fo:wrap-option="wrap"/>
@@ -298,7 +403,7 @@
      <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
     </style:region-left>
     <style:region-right>
-     <text:p><text:date style:data-style-name="N2" text:date-value="2026-05-19">00/00/0000</text:date>, <text:time>00:00:00</text:time></text:p>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2026-05-26">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="21:39:30.902190147">00:00:00</text:time></text:p>
     </style:region-right>
    </style:header>
    <style:header-left style:display="false"/>
@@ -314,96 +419,316 @@
   <office:spreadsheet>
    <table:calculation-settings table:automatic-find-labels="false" table:use-regular-expressions="false" table:use-wildcards="true"/>
    <table:table table:name="Sheet1" table:style-name="ta1">
-    <table:table-column table:style-name="co1" table:default-cell-style-name="Default"/>
-    <table:table-column table:style-name="co2" table:default-cell-style-name="Default"/>
-    <table:table-column table:style-name="co3" table:default-cell-style-name="ce3"/>
-    <table:table-column table:style-name="co1" table:default-cell-style-name="Default"/>
+    <table:table-column table:style-name="co1" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co2" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co3" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="16381" table:default-cell-style-name="ce2"/>
     <table:table-row table:style-name="ro1">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Травмы</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Признаки</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Первая помощь</text:p>
      </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell table:number-columns-repeated="3" office:value-type="string" calcext:value-type="string">
       <text:p>---</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
-      <text:p>---</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
-      <text:p>---</text:p>
-     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
     <table:table-row table:style-name="ro2">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>1. Ранения, кровотечение</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
-      <text:p>повреждение кожи, слизистой, внутренних органов; боль, кровотечение</text:p>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>повреждение кожи, слизистой, внутренних органов; боль</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string"><text:p>остановка кровотечения:</text:p><text:p>- </text:p>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>остановка кровотечения: йод, вата, марля, бинт, давящая повязка; защита раны от вторичного загрязнения</text:p>
      </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- артериальное</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>кровь алого цвета вытекает из раны сильной струей толчками</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Прижать артерию к кости выше места ранения</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>-венозное</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>кровь темно-красного цвета течет из раны непрерывно, медленно</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16382"/>
     </table:table-row>
     <table:table-row table:style-name="ro3">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>2. Ушибы</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2"/>
-     <table:table-cell table:style-name="ce1"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>несилные боли, небольшая опухлость, болезненность движения</text:p><text:p/><text:p>Для внутренних органов: сильные боли, рвота, признаки внутреннего кровотечения</text:p><text:p/><text:p>Для легких: кровохаркание</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>холод на место ушиба, давящая повязка на область кровоизлияния, покой ушибленной части тела; для конечности: подъем (подвес)</text:p><text:p/><text:p>При ушибах внутренних органов: отправить в больницу, не есть и не пить</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
     <table:table-row table:style-name="ro3">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell table:style-name="ce5" office:value-type="string" calcext:value-type="string">
       <text:p>3. Переломы</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2"/>
-     <table:table-cell table:style-name="ce1"/>
-    </table:table-row>
-    <table:table-row table:style-name="ro3">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
-      <text:p>4. Термические и химические ожоги</text:p>
+     <table:table-cell table:style-name="ce5" office:value-type="string" calcext:value-type="string">
+      <text:p>(нарушение целостности костей); боль при нагрузке или без нее, при ощупывании; невозможность движений в поврежденной области; изменение формы участка тела; кровоподтеки; ненормальная подвижность кости</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2"/>
-     <table:table-cell table:style-name="ce1"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Полный покой части тела; устранение подвижности отломков: смазать места около раны (если есть) йодной настойкой; наложить повязку/шину</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro3">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>4. ожоги</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>сильные боли; покраснение и отечность кожи; пузыри; омертвение кожи; обугливание тканей</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro5">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- термические</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>снять остатки одежды, срезать ножницами если прилипла; наложить повязку (возможно со спиртом); оросить 0.5%-раствором новокаина; закутать в обеззараженую простыню и одеяло; пить водно-солевой раствор; принимать анальгин (от боли)</text:p><text:p/><text:p>Для незначительных ожогов: смазать 2-3%-раствором марганцевокислого калия и наложить повязку (кроме лица)</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro6">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- химические</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>струпы (омертвение) разного цвета</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" office:value-type="string" calcext:value-type="string"><text:p>Удалить остатки вещества; сразу облить водой обожженую кожу в течение 5-10 мин, желательно под давлением. После воды обмыть:</text:p><text:p>- кислоты и фосфор =&gt; раствором соды или мыльной водой</text:p><text:p>- щелочи =&gt; раствором уксусной, лимонной или борной кислоты</text:p><text:p>- фосфор =&gt; раствором 5% марганцевокислого калия</text:p><text:p/><text:p>Наложить сухую повязку</text:p><text:p/><text:p>При ожогах пищевода и желудка: молоко или подсолнечное масло внутрь</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro7">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>5. Солнечный или тепловой удар</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2"/>
-     <table:table-cell table:style-name="ce1"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>длительное воздействие солнца; повышение температуры, озноб, головные боли, головокружение, покраснение лица, частые пульс и дыхание; тошнота, рвота, понос, обильный пот; потеря сознания, судороги, расстройство дыхания, падение сердечной деятельности</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>В легких случаях: Уложить, дать обильное питье</text:p><text:p/><text:p>В тяжелых случаях: перенести в прохладное место, раздеть, приложить холодный компресс к голове, облить холодной водой, отправить в больницу</text:p><text:p/><text:p>Тепловой удар: вынести из помещения; также вышеперечисленное</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro3">
-     <table:table-cell/>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+    <table:table-row table:style-name="ro8">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>6. Острое отравление</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2"/>
-     <table:table-cell table:style-name="ce1"/>
+     <table:table-cell table:style-name="Default" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro3">
+    <table:table-row table:style-name="ro9">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- пищевое</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>недомогание, сухость во рту, тошнота и рвота, боли в животе, головная боль, понос, температура 38-39 градусов; слабость, сонливость, бред, судороги, расстройства дыхания и сердечной деятельности</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>согреть, дать выпить 6-10 стаканов теплой воды с марганцевокислым калием или раствор пищевой соды, вызвать искуственную рвоту, слабительное</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro10">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- кислотное</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>резкие боли в полости рта, зева, по ходу пищевода и желудка, ожог (отек) слизистой полости рта, рвота с примесью крови, затрудненное глотание; запах изо рта; отек гортани, расстройство дыхания, потеря сознания</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>С кожи смыть кислоту с мылом, промыть желудок водой, напоить холодной водой; давать обволакивающие средства: молоко, растительное масло, яичный белок, жиры, сырые яйца</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro11">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- щелочное</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>то же что и кислотные</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>обмыть кожу водой; примочки из раствора лимонной или уксусной кислоты; промыть желудок водой чистой или подкисленной (1%) - только в первые 4 часа после отравления; принимать обволакивающие средства (см. Кислоты)</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro12">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- газовое</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>головокружение, тяжесть и боль в голове, шум в ушах, тошнота, рвота, слабость, частый пульс, одышка; слезотечение, раздражение носоглотки; сонливость, потеря сознания, остановка дыхания, судороги</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>вывести на свежий воздух; если невозможно – открыть окна, устроить сквозняк; снять стесняющую одежду, согреть; искуственное дыхание, внешний массаж сердца</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro13" table:number-rows-repeated="1048559">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro13">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+   </table:table>
+   <table:table table:name="Sheet2" table:style-name="ta1">
+    <table:table-column table:style-name="co4" table:default-cell-style-name="Default"/>
+    <table:table-row table:style-name="ro13">
      <table:table-cell/>
-     <table:table-cell table:style-name="ce1"/>
-     <table:table-cell table:style-name="ce2"/>
-     <table:table-cell table:style-name="ce1"/>
     </table:table-row>
-    <table:table-row table:style-name="ro3" table:number-rows-repeated="1048566">
-     <table:table-cell table:number-columns-repeated="4"/>
+   </table:table>
+   <table:table table:name="Sheet3" table:style-name="ta1">
+    <table:table-column table:style-name="co4" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co5" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co6" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="16381" table:default-cell-style-name="ce2"/>
+    <table:table-row table:style-name="ro13">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Травмы</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Признаки</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Первая помощь</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro13">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>--------</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>----------</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>---------------</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>1. Ранения, кровотечение</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>&lt;br&gt;**Капиллярное:** кровь сочится по всей поверхности раны.&lt;br&gt;**Паренхиматозное:** при повреждении печени, селезёнки и т.п.</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Остановка кровотечения, защита раны от загрязнения.&lt;br&gt;**При мелких сосудах:** давящая повязка + возвышенное положение конечности. Можно использовать БАТ.&lt;br&gt;**При артериальном:** пальцевое прижатие артерии к кости выше раны, затем жгут (резиновый, закрутка).&lt;br&gt;**Жгут:** накладывать выше раны на прокладку, не более 1,5–2 ч (зимой – 1 ч). Каждые 1–1,5 ч ослаблять на 3–5 мин. Не накладывать на голую кожу, при инородном теле в ране.&lt;br&gt;**Сгибание конечности:** в локтевом или коленном суставе с валиком.</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro14">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>- артериальное</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>кровь алого цвета, вытекает сильной пульсирующей струёй</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro13">
+     <table:table-cell table:style-name="Default" office:value-type="string" calcext:value-type="string">
+      <text:p>- венозное</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Default" office:value-type="string" calcext:value-type="string">
+      <text:p>кровь тёмно-красная, течёт непрерывно, медленно.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Default"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro15">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**2. Ушибы**</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Мягких тканей:** несильная боль, припухлость (кровоизлияние), ограничение болезненных движений.&lt;br&gt;**Живота (с повреждением органов):** сильные боли, рвота, признаки внутреннего кровотечения (бледность, головокружение, слабость, частый пульс).&lt;br&gt;**Груди:** возможны кровохарканье.&lt;br&gt;**Растяжение/разрыв связок (чаще голеностоп):** резкая боль в месте прикрепления связки, ограничение движений, припухлость.</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Холод на место ушиба (полотенце с холодной водой, пузырь со льдом), давящая повязка, покой, возвышенное положение конечности (подвесить на косынке).&lt;br&gt;При ушибах живота и груди – срочная доставка в медпункт, запрещается давать воду и пищу.&lt;br&gt;При растяжениях: холод, давящая повязка, полный покой, транспортная шина.</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
     <table:table-row table:style-name="ro3">
-     <table:table-cell table:number-columns-repeated="4"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**3. Переломы**</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Общие:** боль (самопроизвольная и при нагрузке/ощупывании), невозможность движения, изменение формы, кровоподтёк, ненормальная подвижность. Может быть тяжёлое общее состояние, повышение температуры.&lt;br&gt;**Ключицы:** укорочение, боль, острые края отломков, рука опущена.&lt;br&gt;**Рёбер:** резкая боль при вздохе, кашле; подкожная эмфизема, кровохарканье.&lt;br&gt;**Позвоночника:** боль в остистых отростках, невозможность движений, возможен «горб», при повреждении спинного мозга – параличи, потеря чувствительности, задержка мочи/кала.&lt;br&gt;**Таза:** не может стоять/ходить, не может поднять вытянутую ногу, поза «лягушки», припухлость, боль, кровоизлияния в паху/промежности.&lt;br&gt;**Верхней конечности:** боль, припухлость, деформация, укорочение, ненормальная подвижность.&lt;br&gt;**Нижней конечности:** боль, деформация, невозможность движений.</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Главное:** полный покой и иммобилизация (неподвижность). Наложить шину (стандартную или из подручных материалов) на обнажённую часть тела (с прокладкой) или поверх одежды. Шина должна захватывать не менее двух суставов выше и ниже перелома. Концы пальцев оставлять свободными.&lt;br&gt;**Открытый перелом:** кожу вокруг раны смазать йодом, на рану – стерильную повязку, затем шину.&lt;br&gt;**Ключица:** валик в подмышку, руку согнуть в локте и прибинтовать к туловищу, подвесить на косынке (или повязка Дезо).&lt;br&gt;**Рёбра:** тугая круговая повязка на нижнюю половину грудной клетки, анальгин/кодеин. Транспортировка полусидя.&lt;br&gt;**Позвоночник:** уложить на носилки с жёстким ложем (щит, доска) на живот, под плечи и голову валик. Не допускать сгибания позвоночника!&lt;br&gt;**Таз:** уложить на жёсткие носилки на спину, ноги в позе «лягушки» (согнуты и разведены, под колени валики). Стянуть таз и бёдра широким полотенцем. Срочная транспортировка.&lt;br&gt;**Плечо:** шина от здорового плеча через спину до основания пальцев, рука согнута в локте, ладонь к животу.&lt;br&gt;**Предплечье/кисть:** шина по сгибательной поверхности от верхней трети плеча до концов пальцев (желобом), кисть фиксирует валик.</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro16">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**4. Термические и химические ожоги**</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Термические:** сильная боль, при обширных – шок. Степени: I – покраснение и отёк; II – пузыри; III – омертвение (струп); IV – обугливание.&lt;br&gt;**Химические:** аналогично термическим. При кислотах – сухой струп (светло-жёлтый, серо-белый, затем коричневый); при щелочах – беловатое омертвение.</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Термические:** осторожно снять тлеющую одежду, прилипшее не сдирать, а срезать. Накрыть стерильной повязкой (или смоченной спиртом/0,5% новокаином). Не вскрывать пузыри, не использовать мази/примочки. При обширных – завернуть в стерильную простыню, тепло укрыть, дать обильное тёплое питьё (солевой раствор, чай), анальгин. Транспортная шина на конечности. Срочная госпитализация.&lt;br&gt;**Химические:** обильное промывание водой 5–10 мин (под давлением). При извести или фосфоре – сначала удалить остатки вещества, затем мыть. После воды – нейтрализация: кислоты/фосфор – 2% сода или мыльная вода; щёлочи – 1–2% уксусная/лимонная/борная кислота; фосфор – 5% марганцовка (примочки). Затем сухая повязка. При ожоге пищевода – молоко или растительное масло внутрь. Срочная госпитализация.</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro17">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**5. Солнечный или тепловой удар**</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Солнечный (через 6–10 ч):** повышение температуры, озноб, головная боль, головокружение, покраснение лица, частые пульс и дыхание, тошнота, рвота, понос, обильный пот. Тяжёлые случаи: потеря сознания, судороги, расстройство дыхания и сердечной деятельности.&lt;br&gt;**Тепловой (перегревание):** признаки аналогичны.</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Лёгкие случаи:** уложить, дать обильное питьё.&lt;br&gt;**Тяжёлые:** перенести в прохладное место, раздеть, холодные компрессы на голову, облить тело холодной водой. После первой помощи – срочно в медпункт.</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro9">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**6. Острое отравление**</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Пищевое (токсикоинфекция):** острое начало, недомогание, сухость во рту, тошнота, рвота, боли в животе, головная боль, понос, температура 38–39°С. Позже – слабость, сонливость, бред, судороги, расстройство дыхания и сердечной деятельности.&lt;br&gt;**Кислотами/щелочами:** резкие боли во рту, глотке, по ходу пищевода/желудка, ожог слизистой, рвота с кровью, затруднённое глотание, возбуждение, отёк гортани, потеря сознания (при щелочах – сходно).&lt;br&gt;**Газами (угарный, метан, сероводород и др.):** головокружение, тяжесть/боль в голове, шум в ушах, тошнота, рвота, слабость, частый пульс, одышка. При H₂S – слезотечение, раздражение носоглотки. Тяжёлые: сонливость, потеря сознания, судороги, остановка дыхания.</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>**Пищевое:** согреть, дать выпить 6–10 стаканов тёплой слабого раствора марганцовки или соды (2 ч.л. на 1 л воды), вызвать рвоту. Если после еды прошло &gt;2 ч – дать слабительное (2 ст.л. соли на ½ стакана воды). Затем под наблюдение врача.&lt;br&gt;**Кислоты/щёлочи:** промыть кожу водой с мылом. При возможности промыть желудок водой. Дать обволакивающие средства (молоко, растительное масло, яичный белок, сырые яйца). При щелочах – промывание желудка в первые 4 ч теплой подкисленной водой (1% лимонная или уксусная кислота). Срочная доставка в медпункт.&lt;br&gt;**Газы:** немедленно вынести на свежий воздух (или открыть окна), освободить от стесняющей одежды, согреть. При остановке дыхания – искусственное дыхание, при остановке сердца – наружный массаж сердца.</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro13" table:number-rows-repeated="1048565">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro13">
+     <table:table-cell table:number-columns-repeated="16384"/>
     </table:table-row>
    </table:table>
    <table:named-expressions/>
