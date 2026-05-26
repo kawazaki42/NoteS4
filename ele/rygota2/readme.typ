@@ -451,6 +451,8 @@ $
 
 = 4 Метод двух узлов
 
+#let euab = $underline(U)_(a b)$
+
 $ underline(U)_(a b) = (sum_k plus.minus uE_k / uZ_k) / (sum_n 1/uZ_n) $
 
 // `+` если ЭДС против U_ab
@@ -459,9 +461,152 @@ $ underline(U)_(a b) = (uE_1 / uZ_1 + uE_3 / uZ_3) / (1/uZ_1 + 1/uZ_2 + 1/uZ_3) 
 
 $ underline(U)_(a b) = (ue1 / uz1 + ue3 / uz3) / (1/uz1 + 1/uz2 + 1/uz3) $
 
-$ underline(U)_(a b) = ((-0.6301 - j 0.3495) + (0.1592 +j 0.2757)) / ((0.0059573 + j 0.018353) + (0.0032868 -j 0.012391) -j 0.010610) $
+$ /* underline(U)_(a b) */ = ((-0.6301 - j 0.3495) + (0.1592 +j 0.2757)) / ((0.0059573 + j 0.018353) + (0.0032868 -j 0.012391) -j 0.010610) $
 
 // #let phase = angle(-2.5202479938768034 ).deg()
 #let phase = -144.39957337545337
 
-$ underline(U)_(a b) = -37.457 -j 26.817 = 46.067 ee^(-j rnd(#calc.abs(phase))degree) $
+#let uab = $-37.457 - j 26.817$
+
+$ /* underline(U)_(a b) */ = uab = 46.067 ee^(-j rnd(#calc.abs(phase))degree) В $
+
+== по закону Ома (для активной ветви)
+
+$ uI_1 = (uE_1 - euab)/uZ_1 $
+
+$ uI_2 = (-uE_5 - euab)/uZ_2 $
+
+$ uI_3 = (uE_3 - euab)/uZ_3 $
+
+#line()
+
+$ uI_1 = ((ue1) - (uab))/uz1 = -0.8991 + j 0.4977 $
+
+$ uI_2 = (-(ue5) - (uab))/uz2 $
+
+// $ uI_2 = (-(ue5) - (uab))/uz2 $
+
+#pagebreak()
+
+= 5 Баланс мощностей
+
+$ sum underline(S)_"ист" = sum underline(S)_"потр" $
+
+$ underline(S) = underline(U I^*) $
+
+$I^*$ -- сопряженный комплекс тока
+
+$ sum plus.minus uE dot uI^* = sum underline(U) dot uI^* $
+
+$
+  sum underline(S)_"потр" =
+  sum underline(U) dot uI^* =
+  sum underline(I Z) dot uI^* =
+  sum I ee^(j psi_I) uZ dot I ee^(-j psi_I) =
+  sum I^2 uZ
+$
+
+// зависит от совпадения направлений тока и ЭДС
+
+$ sum plus.minus uE dot uI^* = sum I^2 uZ $
+
+$
+  underline(S)_"ист" =
+  sum plus.minus uE dot uI^* =
+  uE_1 dot uI_1^*
+  - uE_5 dot uI_2^*
+  + uE_3 dot uI_3^*
+$
+
+$
+  underline(S)_"потр" =
+  sum I^2 uZ =
+  I_1^2 uZ_1
+  + I_2^2 uZ_2
+  + I_3^2 uZ_3
+$
+
+#line()
+
+// $
+//   underline(S)_"ист" =
+//   (ue1) dot (ui1)^*
+//   - (ue5) dot (ui2)^*
+//   + (ue3) dot (ui3)^*
+// $
+
+#let complex(real, imag) = {
+  let imag = if imag < 0 [$- j #calc.abs(imag)$] else [$+ j #imag$]
+  $#real #imag$
+}
+
+#let compexp(real, imag) = {
+  let abs = calc.sqrt(real * real + imag * imag)
+  let phase = calc.atan2(real, imag).deg()
+  let phase = rnd(phase)
+
+  let phase = if phase >= 0 [$j phase$] else [$-j #calc.abs(phase)$]
+
+  $rnd(abs) ee^(phase degree)$
+}
+
+$
+  underline(S)_"ист" = \
+  // sum plus.minus uE dot uI^* =
+  (ue1) dot (-0.2771 + j 0.9293) - \
+  - (ue5) dot (0.4003 -j 0.4103) + \
+  + (ue3) dot (-0.1232 -j 0.5190) = \
+  = 21.556 + j 5.219
+  = compexp(#21.556, #5.219)
+$
+
+#line()
+
+$
+  underline(S)_"потр" = \
+  abs(-0.2771 -j 0.9293)^2 dot (uz1) + \
+  + abs(0.4003 +j 0.4103)^2 dot (uz2) + \
+  + abs(-0.1232 +j 0.5190)^2 dot (uz3) = \
+  = 21.618 + j 5.238
+  = compexp(#21.618, #5.238)
+$
+
+// #compexp(-1, -1)
+
+/*
+```python
+i1 = -0.2771 - 0.9293j
+i2 = 0.4003 + 0.4103j
+i3 = -0.1232 + 0.5190j
+
+z1 = 16 - 49.293j
+z2 = 20 + 75.398j
+z3 = 0 + 94.248j
+
+e1 = -27.31 + 25.467j
+e3 = -25.983 + 15.001j
+e5 = -64.997j
+```
+
+```python
+# S_ист
+
+e1 * i1.conjugate() - e5 * i2.conjugate() + e3 * i3.conjugate()
+abs(i1)**2 * z1 + abs(i2)**2 * z2 + abs(i3)**2 * z3
+```
+
+
+```python
+actual = [
+    i1 + i2 + i3,
+    z1*i1 - z2*i2,
+    z2*i2 - z3*i3,
+]
+
+expected = [
+    0, e1 + e5, -e5 - e3
+]
+
+zip(lambda a, b: a - b, actual, expacted)
+```
+*/
