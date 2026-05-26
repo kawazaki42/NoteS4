@@ -3,6 +3,25 @@
 //   inset: (left: 1em, y: 0.5em),
 // )
 
+#let rnd(value) = calc.round(value, digits: 3)
+
+#let complex(real, imag) = {
+  let imag = if imag < 0 [$- j #calc.abs(imag)$] else [$+ j #imag$]
+  $#real #imag$
+}
+
+#let ee = $upright(e)$
+
+#let compexp(real, imag) = {
+  let abs = calc.sqrt(real * real + imag * imag)
+  let phase = calc.atan2(real, imag).deg()
+  let phase = rnd(phase)
+
+  let phase = if phase >= 0 [$j phase$] else [$-j #calc.abs(phase)$]
+
+  $rnd(abs) ee^(phase degree)$
+}
+
 #show quote.where(block: true): block.with(stroke: (left:2pt + gray, rest: none), inset: (y: 0.5em))
 
 #columns(2)[
@@ -88,7 +107,6 @@
 #let uE = $ underline(E) $
 #let rE(idx) = $ "Re"(uE_#idx) $
 #let iE(idx) = $ "Im"(uE_#idx) $
-#let ee = $upright(e)$
 
 $ uE = rE("") + j iE("") = E ee^(j psi_e) $
 
@@ -109,9 +127,6 @@ $ iE("") = E sin psi_e $
 == Вычисления
 
 // #line()
-
-#let rnd(value) = calc.round(value, digits: 3)
-
 
 расчет $uE_1$:
 
@@ -441,9 +456,9 @@ $
 // #let s = "times"
 $
 // #block[
-   uI_1 = uis.at(#0) \
-   uI_2 = uis.at(#1) \
-   uI_3 = uis.at(#2) \
+   uI_1 = uis.at(#0) space А \
+   uI_2 = uis.at(#1) space А \
+   uI_3 = uis.at(#2) space А \
 // ]
 $
 
@@ -457,18 +472,25 @@ $ underline(U)_(a b) = (sum_k plus.minus uE_k / uZ_k) / (sum_n 1/uZ_n) $
 
 // `+` если ЭДС против U_ab
 
-$ underline(U)_(a b) = (uE_1 / uZ_1 + uE_3 / uZ_3) / (1/uZ_1 + 1/uZ_2 + 1/uZ_3) $
+$ underline(U)_(a b) = (uE_1 / uZ_1 + uE_3 / uZ_3 - uE_5/uZ_3) / (1/uZ_1 + 1/uZ_2 + 1/uZ_3) $
 
-$ underline(U)_(a b) = (ue1 / uz1 + ue3 / uz3) / (1/uz1 + 1/uz2 + 1/uz3) $
+$ underline(U)_(a b) = (ue1 / uz1 + ue3 / uz3 - ue5/uz2) / (1/uz1 + 1/uz2 + 1/uz3) $
 
-$ /* underline(U)_(a b) */ = ((-0.6301 - j 0.3495) + (0.1592 +j 0.2757)) / ((0.0059573 + j 0.018353) + (0.0032868 -j 0.012391) -j 0.010610) $
+// #(toString: it => [1234]).
+
+$ /* underline(U)_(a b) */ = ((-0.6301 - j 0.3495) + (0.1592 +j 0.2757) - (-0.8054 -j 0.2136)) / ((0.0059573 + j 0.018353) + (0.0032868 -j 0.012391) -j 0.010610) $
 
 // #let phase = angle(-2.5202479938768034 ).deg()
 #let phase = -144.39957337545337
 
-#let uab = $-37.457 - j 26.817$
+// #let uab = $-37.457 - j 26.817$
 
-$ /* underline(U)_(a b) */ = uab = 46.067 ee^(-j rnd(#calc.abs(phase))degree) В $
+#let uab = complex(22.814, 26.594)
+#let uabe = compexp(22.814, 26.594)
+
+// $ /* underline(U)_(a b) */ = uab = 46.067 ee^(-j rnd(#calc.abs(phase))degree) В $
+
+$ = uab = uabe В $
 
 == по закону Ома (для активной ветви)
 
@@ -480,9 +502,15 @@ $ uI_3 = (uE_3 - euab)/uZ_3 $
 
 #line()
 
-$ uI_1 = ((ue1) - (uab))/uz1 = -0.8991 + j 0.4977 $
+// $ uI_1 = ((ue1) - (uab))/uz1 = -0.8991 + j 0.4977 $
+$ uI_1 = ((ue1) - (uab))/uz1 = #complex(-0.278, -0.927) = #compexp(-0.278, -0.927) А $
 
-$ uI_2 = (-(ue5) - (uab))/uz2 $
+$ uI_2 = (-(ue5) - (uab))/uz2 = #complex(0.401, 0.409) = #compexp(0.401, 0.409) А $
+
+// #let i3 = (-0.12299579020922825+0.5176937679479894)
+#let i3 = (-0.123, 0.518)
+
+$ uI_3 = ((ue3) - (uab))/uz3 = #complex(..i3) = #compexp(..i3) А $
 
 // $ uI_2 = (-(ue5) - (uab))/uz2 $
 
@@ -535,21 +563,6 @@ $
 //   + (ue3) dot (ui3)^*
 // $
 
-#let complex(real, imag) = {
-  let imag = if imag < 0 [$- j #calc.abs(imag)$] else [$+ j #imag$]
-  $#real #imag$
-}
-
-#let compexp(real, imag) = {
-  let abs = calc.sqrt(real * real + imag * imag)
-  let phase = calc.atan2(real, imag).deg()
-  let phase = rnd(phase)
-
-  let phase = if phase >= 0 [$j phase$] else [$-j #calc.abs(phase)$]
-
-  $rnd(abs) ee^(phase degree)$
-}
-
 $
   underline(S)_"ист" = \
   // sum plus.minus uE dot uI^* =
@@ -557,7 +570,7 @@ $
   - (ue5) dot (0.4003 -j 0.4103) + \
   + (ue3) dot (-0.1232 -j 0.5190) = \
   = 21.556 + j 5.219
-  = compexp(#21.556, #5.219)
+  = compexp(#21.556, #5.219) В А
 $
 
 #line()
@@ -568,8 +581,10 @@ $
   + abs(0.4003 +j 0.4103)^2 dot (uz2) + \
   + abs(-0.1232 +j 0.5190)^2 dot (uz3) = \
   = 21.618 + j 5.238
-  = compexp(#21.618, #5.238)
+  = compexp(#21.618, #5.238) В А
 $
+
+баланс соблюден: разница $<0.1 А$ для целой и мнимой части
 
 // #compexp(-1, -1)
 
@@ -586,6 +601,17 @@ z3 = 0 + 94.248j
 e1 = -27.31 + 25.467j
 e3 = -25.983 + 15.001j
 e5 = -64.997j
+```
+
+```python
+"метод двух узлов"
+uab = (e1/z1 - e5/z2 + e3/z3)/sum(1/z for z in [z1, z2, z3])
+
+i1 = (e1 - uab) / z1
+i2 = (-e5 - uab) / z2
+i3 = (e3 - uab) / z3
+
+[i1, i2, i3]
 ```
 
 ```python
