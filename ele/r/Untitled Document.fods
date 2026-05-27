@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
- <office:meta><dc:date>2026-05-24T21:03:43.436094874</dc:date><meta:editing-duration>PT2H28M55S</meta:editing-duration><meta:editing-cycles>6</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:table-count="2" meta:cell-count="96" meta:object-count="1"/></office:meta>
+ <office:meta><dc:date>2026-05-28T00:52:41.743545352</dc:date><meta:editing-duration>PT3H26M41S</meta:editing-duration><meta:editing-cycles>20</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:table-count="3" meta:cell-count="189" meta:object-count="1"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
    <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
-   <config:config-item config:name="VisibleAreaWidth" config:type="int">27093</config:config-item>
-   <config:config-item config:name="VisibleAreaHeight" config:type="int">13095</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">31609</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">18553</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
@@ -15,6 +15,23 @@
       <config:config-item-map-entry config:name="Sheet2">
        <config:config-item config:name="CursorPositionX" config:type="int">5</config:config-item>
        <config:config-item config:name="CursorPositionY" config:type="int">37</config:config-item>
+       <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
+       <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
+       <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">134</config:config-item>
+       <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+       <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+       <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="LegacySingleLineFontwork" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="ConnectorUseSnapRect" config:type="boolean">false</config:config-item>
+       <config:config-item config:name="IgnoreBreakAfterMultilineField" config:type="boolean">false</config:config-item>
+      </config:config-item-map-entry>
+      <config:config-item-map-entry config:name="Sheet3">
+       <config:config-item config:name="CursorPositionX" config:type="int">7</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">16</config:config-item>
        <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
        <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
@@ -47,7 +64,7 @@
        <config:config-item config:name="IgnoreBreakAfterMultilineField" config:type="boolean">false</config:config-item>
       </config:config-item-map-entry>
      </config:config-item-map-named>
-     <config:config-item config:name="ActiveTable" config:type="string">Sheet2</config:config-item>
+     <config:config-item config:name="ActiveTable" config:type="string">Sheet3</config:config-item>
      <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">1849</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ZoomValue" config:type="int">134</config:config-item>
@@ -109,7 +126,7 @@
    <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterName" config:type="string">HL-1200-series</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary">wgH+/0hMLTEyMDAtc2VyaWVzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpITC0xMjAwLXNlcmllcwAAAAAAAAAAAAAAAAAWAAMAnwAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SEwtMTIwMC1zZXJpZXMKb3JpZW50YXRpb249UG9ydHJhaXQKY29waWVzPTEKY29sbGF0ZT1mYWxzZQptYXJnaW5hZGp1c3RtZW50PTAsMCwnMCwwCmNvbG9yZGVwdGg9MjQKY29sb3JkZXZpY2U9MApQUERDb250ZXh0RGF0YQpQYWdlU2l6ZTpBNAAAEgBDT01QQVRfRFVQTEVYX01PREUTAER1cGxleE1vZGU6OlVua25vd24MAFBSSU5URVJfTkFNRQ4ASEwtMTIwMC1zZXJpZXMLAERSSVZFUl9OQU1FEwBDVVBTOkhMLTEyMDAtc2VyaWVz</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">0QH+/0hMLTEyMDAtc2VyaWVzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpITC0xMjAwLXNlcmllcwAAAAAAAAAAAAAAAAAWAAMArgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SEwtMTIwMC1zZXJpZXMKb3JpZW50YXRpb249UG9ydHJhaXQKY29waWVzPTEKY29sbGF0ZT1mYWxzZQptYXJnaW5hZGp1c3RtZW50PTAsMCwnMCwwCmNvbG9yZGVwdGg9MjQKY29sb3JkZXZpY2U9MApQUERDb250ZXh0RGF0YQpJbnB1dFNsb3Q6QXV0bwBQYWdlU2l6ZTpBNAAAEgBDT01QQVRfRFVQTEVYX01PREUTAER1cGxleE1vZGU6OlVua25vd24MAFBSSU5URVJfTkFNRQ4ASEwtMTIwMC1zZXJpZXMLAERSSVZFUl9OQU1FEwBDVVBTOkhMLTEyMDAtc2VyaWVz</config:config-item>
    <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
    <config:config-item config:name="RasterResolutionX" config:type="int">1270</config:config-item>
    <config:config-item config:name="RasterResolutionY" config:type="int">1270</config:config-item>
@@ -131,6 +148,9 @@
     <config:config-item-map-entry config:name="Sheet2">
      <config:config-item config:name="CodeName" config:type="string">Sheet2</config:config-item>
     </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Sheet3">
+     <config:config-item config:name="CodeName" config:type="string">Sheet3</config:config-item>
+    </config:config-item-map-entry>
    </config:config-item-map-named>
   </config:config-item-set>
  </office:settings>
@@ -142,12 +162,9 @@
   </office:script>
  </office:scripts>
  <office:font-face-decls>
-  <style:font-face style:name="DejaVu Sans" svg:font-family="&apos;DejaVu Sans&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
-  <style:font-face style:name="F" svg:font-family="" style:font-family-generic="roman"/>
   <style:font-face style:name="FreeSans" svg:font-family="FreeSans" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="JetBrains Mono" svg:font-family="&apos;JetBrains Mono&apos;" style:font-family-generic="modern"/>
   <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
-  <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Noto Sans CJK SC" svg:font-family="&apos;Noto Sans CJK SC&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
  </office:font-face-decls>
  <office:styles>
@@ -160,7 +177,7 @@
    <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" loext:tab-stop-distance="0in" style:writing-mode="page" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
-   <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="DejaVu Sans" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-family-complex="&apos;Noto Sans&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+   <style:text-properties style:use-window-font-color="true" loext:opacity="0%" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-family-asian="&apos;DejaVu Sans&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-family-complex="&apos;Noto Sans&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
   </style:default-style>
   <style:style style:name="Default" style:family="graphic"/>
   <style:style style:name="Note" style:family="graphic" style:parent-style-name="Default">
@@ -169,6 +186,9 @@
   </style:style>
   <number:number-style style:name="N0">
    <number:number number:min-integer-digits="1"/>
+  </number:number-style>
+  <number:number-style style:name="N129">
+   <number:number number:decimal-places="3" number:min-decimal-places="3" number:min-integer-digits="1"/>
   </number:number-style>
   <style:style style:name="Default" style:family="table-cell"/>
   <style:style style:name="Heading" style:family="table-cell" style:parent-style-name="Default">
@@ -262,6 +282,9 @@
   <style:style style:name="co1" style:family="table-column">
    <style:table-column-properties fo:break-before="auto" style:column-width="0.889in"/>
   </style:style>
+  <style:style style:name="co2" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.2161in"/>
+  </style:style>
   <style:style style:name="ro1" style:family="table-row">
    <style:table-row-properties style:row-height="0.178in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
@@ -277,6 +300,8 @@
   <style:style style:name="ce1" style:family="table-cell" style:parent-style-name="Default">
    <style:text-properties style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="JetBrains Mono" fo:font-size="10pt" fo:language="none" fo:country="none" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-name-asian="JetBrains Mono" style:font-size-asian="10pt" style:language-asian="none" style:country-asian="none" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="JetBrains Mono" style:font-size-complex="10pt" style:language-complex="none" style:country-complex="none" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
   </style:style>
+  <style:style style:name="ce3" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0"/>
+  <style:style style:name="ce4" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N129"/>
   <style:style style:name="gr1" style:family="graphic" style:parent-style-name="Default">
    <style:graphic-properties draw:stroke="none" draw:fill="none" draw:textarea-horizontal-align="center" draw:textarea-vertical-align="middle" draw:ole-draw-aspect="1" loext:decorative="false"/>
    <style:paragraph-properties fo:text-align="center"/>
@@ -336,7 +361,7 @@
      <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
     </style:region-left>
     <style:region-right>
-     <text:p><text:date style:data-style-name="N2" text:date-value="2026-05-24">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="17:41:43.067455057">00:00:00</text:time></text:p>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2026-05-28">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="23:43:39.028640150">00:00:00</text:time></text:p>
     </style:region-right>
    </style:header>
    <style:header-left style:display="false"/>
@@ -1460,6 +1485,384 @@
       <text:p>-0.450839669926036</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="8"/>
+    </table:table-row>
+   </table:table>
+   <table:table table:name="Sheet3" table:style-name="ta1">
+    <table:table-column table:style-name="co1" table:default-cell-style-name="Default"/>
+    <table:table-column table:style-name="co2" table:default-cell-style-name="Default"/>
+    <table:table-column table:style-name="co1" table:number-columns-repeated="11" table:default-cell-style-name="Default"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vb</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=COMPLEX(0; 0)" office:value-type="string" office:string-value="0" calcext:value-type="string">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="7"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>R</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>U</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Va</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUM([.B1];[.M2])" office:value-type="string" office:string-value="22,814+26,594i" calcext:value-type="string">
+      <text:p>22,814+26,594i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="9"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Uab</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=COMPLEX(22.814;26.594)" office:value-type="string" office:string-value="22,814+26,594i" calcext:value-type="string">
+      <text:p>22,814+26,594i</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:number-columns-repeated="13"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vb</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=IMSUB([.D5];[.M8])" office:value-type="string" office:string-value="-0,119443500000003-0,0821554999999989i" calcext:value-type="string">
+      <text:p>-0,119443500000003-0,0821554999999989i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B4];[.D4]))" office:value-type="float" office:value="0.144969913680393" calcext:value-type="float">
+      <text:p>0.144969913680393</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="6"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vm</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUM([.B4];[.M8])" office:value-type="string" office:string-value="90,1848478-26,8914466j" calcext:value-type="string">
+      <text:p>90,1848478-26,8914466j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUM([.D6];[.M7])" office:value-type="string" office:string-value="90,0654043-26,9736021i" calcext:value-type="string">
+      <text:p>90,0654043-26,9736021i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B5];[.D5]))" office:value-type="float" office:value="0.144969913680393" calcext:value-type="float">
+      <text:p>0.144969913680393</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>R1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="16" calcext:value-type="float">
+      <text:p>16</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMPRODUCT([.J18];[.J5])" office:value-type="string" office:string-value="-4,4336-14,8688j" calcext:value-type="string">
+      <text:p>-4,4336-14,8688j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vn</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" table:formula="of:=IMSUB([.B5];[.M7])" office:value-type="string" office:string-value="80,8435242-24,1060374j" calcext:value-type="string">
+      <text:p>80,8435242-24,1060374j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUM([.D7];[.M6])" office:value-type="string" office:string-value="80,7240807-24,1881929i" calcext:value-type="string">
+      <text:p>80,7240807-24,1881929i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B6];[.D6]))" office:value-type="float" office:value="0.144969913680393" calcext:value-type="float">
+      <text:p>0.144969913680393</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>XL1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="37.699" calcext:value-type="float">
+      <text:p>37.699</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMPRODUCT([.J6];[.J18];&quot;j&quot;)" office:value-type="string" office:string-value="35,0336807-10,4463929j" calcext:value-type="string">
+      <text:p>35,0336807-10,4463929j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vk</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce4" table:formula="of:=IMSUB([.B6];[.M6])" office:value-type="string" office:string-value="45,8098435-13,6596445j" calcext:value-type="string">
+      <text:p>45,8098435-13,6596445j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUM([.D8];[.M5])" office:value-type="string" office:string-value="45,6904-13,7418i" calcext:value-type="string">
+      <text:p>45,6904-13,7418i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B7];[.D7]))" office:value-type="float" office:value="0.144969913680393" calcext:value-type="float">
+      <text:p>0.144969913680393</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>XL4</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="10.052" calcext:value-type="float">
+      <text:p>10.052</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMPRODUCT([.J7];[.J18];&quot;j&quot;)" office:value-type="string" office:string-value="9,3413236-2,7854092j" calcext:value-type="string">
+      <text:p>9,3413236-2,7854092j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vp</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUB([.B7];[.M5])" office:value-type="string" office:string-value="50,2434435+1,2091555j" calcext:value-type="string">
+      <text:p>50,2434435+1,2091555j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUB([.D9];[.M18])" office:value-type="string" office:string-value="50,124+1,127i" calcext:value-type="string">
+      <text:p>50,124+1,127i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B8];[.D8]))" office:value-type="float" office:value="0.144969913680388" calcext:value-type="float">
+      <text:p>0.144969913680388</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>XC4</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="97.046" calcext:value-type="float">
+      <text:p>97.046</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMPRODUCT([.$J$18]; [.$J$8]; &quot;j&quot;)" office:value-type="string" office:string-value="90,1848478-26,8914466j" calcext:value-type="string">
+      <text:p>90,1848478-26,8914466j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Va</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUM([.B8];[.M18])" office:value-type="string" office:string-value="22,9334435+26,6761555j" calcext:value-type="string">
+      <text:p>22,9334435+26,6761555j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:style-name="ce3" table:formula="of:=[.M2]" office:value-type="string" office:string-value="22,814+26,594i" calcext:value-type="string">
+      <text:p>22,814+26,594i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B9];[.D9]))" office:value-type="float" office:value="0.14496991368039" calcext:value-type="float">
+      <text:p>0.14496991368039</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="6"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:number-columns-repeated="8"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>R2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="20" calcext:value-type="float">
+      <text:p>20</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMPRODUCT([.J10];[.$J$19])" office:value-type="string" office:string-value="8,006+8,206j" calcext:value-type="string">
+      <text:p>8,006+8,206j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:number-columns-repeated="8"/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>XL5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="75.398" calcext:value-type="float">
+      <text:p>75.398</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMPRODUCT([.J11];[.$J$19]; &quot;j&quot;)" office:value-type="string" office:string-value="-30,9357994+30,1818194j" calcext:value-type="string">
+      <text:p>-30,9357994+30,1818194j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vb</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce3" office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUM([.D13];[.M11])" office:value-type="string" office:string-value="-0,1157994-0,0151806000000008i" calcext:value-type="string">
+      <text:p>-0,1157994-0,0151806000000008i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B12];[.D12]))" office:value-type="float" office:value="0.116790203599103" calcext:value-type="float">
+      <text:p>0.116790203599103</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="6"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vq</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUB([.B12];[.M11])" office:value-type="string" office:string-value="30,9357994-30,1818194j" calcext:value-type="string">
+      <text:p>30,9357994-30,1818194j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUM([.D14];[.M20])" office:value-type="string" office:string-value="30,82-30,197i" calcext:value-type="string">
+      <text:p>30,82-30,197i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B13];[.D13]))" office:value-type="float" office:value="0.116790203599103" calcext:value-type="float">
+      <text:p>0.116790203599103</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>XL6</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="94.248" calcext:value-type="float">
+      <text:p>94.248</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMPRODUCT([.J13];[.J20];&quot;j&quot;)" office:value-type="string" office:string-value="-48,914712-11,6113536j" calcext:value-type="string">
+      <text:p>-48,914712-11,6113536j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vr</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUB([.B13];[.M20])" office:value-type="string" office:string-value="30,9357994+34,8151806j" calcext:value-type="string">
+      <text:p>30,9357994+34,8151806j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUM([.D15];[.M10])" office:value-type="string" office:string-value="30,82+34,8i" calcext:value-type="string">
+      <text:p>30,82+34,8i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B14];[.D14]))" office:value-type="float" office:value="0.116790203599103" calcext:value-type="float">
+      <text:p>0.116790203599103</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="6"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Va</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUB([.B14];[.M10])" office:value-type="string" office:string-value="22,9297994+26,6091806j" calcext:value-type="string">
+      <text:p>22,9297994+26,6091806j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=[.M2]" office:value-type="string" office:string-value="22,814+26,594i" calcext:value-type="string">
+      <text:p>22,814+26,594i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B15];[.D15]))" office:value-type="float" office:value="0.116790203599103" calcext:value-type="float">
+      <text:p>0.116790203599103</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="6"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1" table:number-rows-repeated="2">
+     <table:table-cell table:number-columns-repeated="13"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vb</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUM([.D19];[.M13])" office:value-type="string" office:string-value="-0,117712000000004-0,0183535999999993i" calcext:value-type="string">
+      <text:p>-0,117712000000004-0,0183535999999993i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B18];[.D18]))" office:value-type="float" office:value="0.119134250226209" calcext:value-type="float">
+      <text:p>0.119134250226209</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>I1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>-0.2771-0.9293j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>E1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>-27.31+25.467j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Vs</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUB([.B18];[.M13])" office:value-type="string" office:string-value="48,914712+11,6113536j" calcext:value-type="string">
+      <text:p>48,914712+11,6113536j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=IMSUB([.D20];[.M19])" office:value-type="string" office:string-value="48,797+11,593i" calcext:value-type="string">
+      <text:p>48,797+11,593i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B19];[.D19]))" office:value-type="float" office:value="0.119134250226209" calcext:value-type="float">
+      <text:p>0.119134250226209</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>I2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>0.4003+0.4103j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>E3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>-25.983+15.001j</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Va</text:p>
+     </table:table-cell>
+     <table:table-cell table:formula="of:=IMSUM([.B19];[.M19])" office:value-type="string" office:string-value="22,931712+26,6123536j" calcext:value-type="string">
+      <text:p>22,931712+26,6123536j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:formula="of:=[.M2]" office:value-type="string" office:string-value="22,814+26,594i" calcext:value-type="string">
+      <text:p>22,814+26,594i</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2"/>
+     <table:table-cell table:formula="of:=IMABS(IMSUB([.B20];[.D20]))" office:value-type="float" office:value="0.119134250226206" calcext:value-type="float">
+      <text:p>0.119134250226206</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>I3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>-0.1232+0.5190j</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>E5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>-64.997j</text:p>
+     </table:table-cell>
     </table:table-row>
    </table:table>
    <table:named-expressions/>
