@@ -702,14 +702,12 @@ $ euab = uab = #compexp(22.814, 26.594) В $
 
 $ uI_1 = uis.at(#0) = #compexp(-0.2771, -0.9293) А $
 
-#columns(2)[
-  #image("diag1.png")
-  
-  #colbreak()
-
+#columns[
   масштаб:
   - $m_I = 0.1 А/"клетку"$
   - $m_U = 10 В/"клетку"$
+
+  #image("diag1.png")
 ]
 
 = 8. Временная диаграмма тока в ветви 1
