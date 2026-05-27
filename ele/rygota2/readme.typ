@@ -749,6 +749,8 @@ $ uV_(r) = uV_(q) - uE_5 = #complex(30.936, -30.182) - (ue5) = #complex(30.936, 
 // L6 E3
 $ uV_(s) = uV_a - uE_3 = uab -(ue3) = #complex(48.797, 11.593) space В $
 
+#image("diag2.png")
+
 = 8. Временная диаграмма тока в ветви 1
 
 $ i = I_m sin(omega t + psi_i) $
