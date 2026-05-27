@@ -710,6 +710,39 @@ $ uI_1 = uis.at(#0) = #compexp(-0.2771, -0.9293) А $
   #image("diag1.png")
 ]
 
+= 7 Векорная диаграмма токов и напряжений
+
+#let uV = $underline(V)$
+
+пусть $uV_b = 0$, тогда:
+
+$ uV_a = uV_b + euab = euab = uab space В $
+
+// C4 L4
+$ uV_(m) = uV_b + j X_(C 4) uI_1 = j X_(C 4) uI_1 = j 97.046 dot (uis.at(#0)) dot (uis.at(#0)) = #complex(-49.980, -76.357) space В $
+
+// L4 L1
+$ uV_(n) = uV_(C 4 L 4) - j X_(L 4) uI_1 = #complex(-49.980, -76.357) -j 10.052 dot (uis.at(#0)) = #complex(-59.321, -73.572) space В $
+
+// L1 R1
+$ uV_(k) = uV_(L 4 L 1) - j X_(L 1) uI_1 = #complex(-59.321, -73.572) -j 37.699 dot (uis.at(#0)) = #complex(-94.355, -63.126) space В $
+
+// R1 E1
+$ uV_(p) = uV_a - uE_1 = (uab) - (ue1) = #complex(50.124, 1.127) space В $
+
+// L5 E5
+$ uV_(q) = uV_b - j X_(L 5) uI_2 = - j X_(L 5) uI_2 = -j 75.398 dot (uis.at(#1)) = #complex(30.936, -30.182) space В $
+
+// E5 R2
+$ uV_(r) = uV_(L 5 E 5) - uE_5 = #complex(30.936, -30.182) - (ue5) = #complex(30.936, 34.815) space В$
+
+// $ uV_(L 6 E 3) = uV_b - j X_(L 6) uI_3 = - j X_(L 6) uI_3 = - j 94.248 dot (uis.at(#2)) = #complex(48.915, 11.611) $
+
+// кайф
+
+// L6 E3
+$ uV_(s) = uV_a - uE_3 = uab -(ue3) = #complex(48.797, 11.593) space В $
+
 = 8. Временная диаграмма тока в ветви 1
 
 $ i = I_m sin(omega t + psi_i) $
@@ -737,3 +770,6 @@ space А
 $
 
 #image("diag3.png")
+
+
+// забгу - студенту...
