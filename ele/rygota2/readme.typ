@@ -637,7 +637,9 @@ zip(lambda a, b: a - b, actual, expacted)
 ```
 */
 
-#show heading.where(level: 1): it => [#pagebreak() #it]
+// #show heading.where(level: 1): it => [#pagebreak() #it]
+
+#pagebreak()
 
 = 6 Показания ваттметра
 
@@ -696,21 +698,27 @@ $ P &= U_(a b) I_1 cos phi = \
 
 разница между методами: $0.03 "Вт"$
 
-== векторная диаграмма
 
-$ euab = uab = #compexp(22.814, 26.594) В $
 
-$ uI_1 = uis.at(#0) = #compexp(-0.2771, -0.9293) А $
+#pagebreak()
 
-#columns[
+#columns(2)[
+  #image("diag1.png")
+
+  #colbreak()
+
+  == векторная диаграмма
+
+  $ euab = uab = #compexp(22.814, 26.594) В $
+
+  $ uI_1 = uis.at(#0) = #compexp(-0.2771, -0.9293) А $
+
   масштаб:
   - $m_I = 0.1 А/"клетку"$
   - $m_U = 10 В/"клетку"$
-
-  #image("diag1.png")
 ]
 
-= 7 Векорная диаграмма токов и напряжений
+= 7 Векторная диаграмма токов и напряжений
 
 #let uV = $underline(V)$
 
@@ -740,7 +748,7 @@ $ uV_(p) = uV_a - uE_1 = (uab) - (ue1) = #complex(50.124, 1.127) space В $
 $ uV_(q) = uV_b - j X_(L 5) uI_2 = - j X_(L 5) uI_2 = -j 75.398 dot (uis.at(#1)) = #complex(30.936, -30.182) space В $
 
 // E5 R2
-$ uV_(r) = uV_(q) - uE_5 = #complex(30.936, -30.182) - (ue5) = #complex(30.936, 34.815) space В$
+$ uV_(r) = uV_(q) - uE_5 = #complex(30.936, -30.182) - (ue5) = #complex(30.936, 34.815) space В $
 
 // $ uV_(L 6 E 3) = uV_b - j X_(L 6) uI_3 = - j X_(L 6) uI_3 = - j 94.248 dot (uis.at(#2)) = #complex(48.915, 11.611) $
 
@@ -757,6 +765,8 @@ $ uV_(s) = uV_a - uE_3 = uab -(ue3) = #complex(48.797, 11.593) space В $
 
   #image("diag2.png")
 ]
+
+#pagebreak()
 
 = 8. Временная диаграмма тока в ветви 1
 
