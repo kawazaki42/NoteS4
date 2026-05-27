@@ -719,19 +719,19 @@ $ uI_1 = uis.at(#0) = #compexp(-0.2771, -0.9293) А $
 $ uV_a = uV_b + euab = euab = uab space В $
 
 // C4 L4
-$ uV_(m) = uV_b + j X_(C 4) uI_1 = j X_(C 4) uI_1 = j 97.046 dot (uis.at(#0)) dot (uis.at(#0)) = #complex(-49.980, -76.357) space В $
+$ uV_(m) = uV_b + j X_(C 4) uI_1 = j X_(C 4) uI_1 = j 97.046 dot (uis.at(#0)) = #complex(90.185, -26.891) space В $
 
 // L4 L1
-$ uV_(n) = uV_(m) - j X_(L 4) uI_1 = #complex(-49.980, -76.357) -j 10.052 dot (uis.at(#0)) = #complex(-59.321, -73.572) space В $
+$ uV_(n) = uV_(m) - j X_(L 4) uI_1 = #complex(90.185, -26.891) -j 10.052 dot (uis.at(#0)) = #complex(80.844, -24.106) space В $
 
 // L1 R1
-$ uV_(k) = uV_(n) - j X_(L 1) uI_1 = #complex(-59.321, -73.572) -j 37.699 dot (uis.at(#0)) = #complex(-94.355, -63.126) space В $
+$ uV_(k) = uV_(n) - j X_(L 1) uI_1 = #complex(80.844, -24.106) -j 37.699 dot (uis.at(#0)) = #complex(45.81, -13.66) space В $
 
 // k via p and R1
 
-$ #complex(50.124, 1.127) + r1 (uis.at(#0)) $
+// $ #complex(50.124, 1.127) + r1 (uis.at(#0)) $
 
-// doesnt work
+// ~~doesnt work~~ works now!
 
 // R1 E1
 $ uV_(p) = uV_a - uE_1 = (uab) - (ue1) = #complex(50.124, 1.127) space В $
