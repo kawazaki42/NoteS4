@@ -89,43 +89,47 @@
 //     Last,
 // }
 
-// pub fn quick<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
-//     let (Some(&first), Some(&last)) = (arr.first(), arr.last()) else {
-//         return vec![];
-//     };
+fn find_median<T: PartialOrd>(arr: &mut [T; 3]) {
+    if arr[0] > arr[1]
+}
 
-//     // let mut low = first;
-//     // let mut high = last;
+pub fn quick<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+    let (Some(&first), Some(&last)) = (arr.first(), arr.last()) else {
+        return vec![];
+    };
 
-//     // // ensure `low <= high`
-//     // if low > high {
-//     //     (low, high) = (high, low)
-//     // }
+    // let mut low = first;
+    // let mut high = last;
 
-//     let midx = arr.len() / 2;
-//     let mid = arr[midx].clone();
+    // // ensure `low <= high`
+    // if low > high {
+    //     (low, high) = (high, low)
+    // }
 
-//     // if median > high {
-//     //     (median, high) = (high, median)
-//     // } else if median < low {
-//     //     (low, median) = (median, low)
-//     // }
+    let midx = arr.len() / 2;
+    let mid = arr[midx].clone();
 
-//     let median = if first <= mid && mid <= high {
-//         mid
-//     } else if
+    // if median > high {
+    //     (median, high) = (high, median)
+    // } else if median < low {
+    //     (low, median) = (median, low)
+    // }
 
-//     let a = &arr[..mid];
-//     let b = &arr[mid + 1..];
+    let median = if first <= mid && mid <= high {
+        mid
+    } else if
 
-//     let mut result = quick(a);
-//     result.push(median);
-//     for x in quick(b) {
-//         result.push(x)
-//     }
+    let a = &arr[..mid];
+    let b = &arr[mid + 1..];
 
-//     result
-// }
+    let mut result = quick(a);
+    result.push(median);
+    for x in quick(b) {
+        result.push(x)
+    }
+
+    result
+}
 
 pub mod impurative {
     pub fn merge<T: Ord + Clone>(aa: &[T], bb: &[T]) -> Vec<T> {
