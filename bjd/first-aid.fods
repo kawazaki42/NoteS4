@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
- <office:meta><meta:creation-date>2026-05-19T20:10:48.588024930</meta:creation-date><dc:date>2026-05-26T23:16:52.705439074</dc:date><meta:editing-duration>PT52M5S</meta:editing-duration><meta:editing-cycles>9</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:table-count="3" meta:cell-count="71" meta:object-count="0"/></office:meta>
+ <office:meta><meta:creation-date>2026-05-19T20:10:48.588024930</meta:creation-date><dc:date>2026-05-27T12:55:04.505441384</dc:date><meta:editing-duration>PT54M22S</meta:editing-duration><meta:editing-cycles>11</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:table-count="3" meta:cell-count="71" meta:object-count="0"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
    <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
-   <config:config-item config:name="VisibleAreaWidth" config:type="int">16193</config:config-item>
-   <config:config-item config:name="VisibleAreaHeight" config:type="int">56459</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">17545</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">54061</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
      <config:config-item-map-named config:name="Tables">
       <config:config-item-map-entry config:name="Sheet1">
-       <config:config-item config:name="CursorPositionX" config:type="int">2</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">16</config:config-item>
+       <config:config-item config:name="CursorPositionX" config:type="int">3</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">5</config:config-item>
        <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
        <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
        <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
-       <config:config-item config:name="PositionBottom" config:type="int">11</config:config-item>
+       <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
        <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
        <config:config-item config:name="ZoomValue" config:type="int">112</config:config-item>
        <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
@@ -126,7 +126,7 @@
    <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterName" config:type="string">HL-1200-series</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary">wgH+/0hMLTEyMDAtc2VyaWVzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpITC0xMjAwLXNlcmllcwAAAAAAAAAAAAAAAAAWAAMAnwAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SEwtMTIwMC1zZXJpZXMKb3JpZW50YXRpb249UG9ydHJhaXQKY29waWVzPTEKY29sbGF0ZT1mYWxzZQptYXJnaW5hZGp1c3RtZW50PTAsMCwnMCwwCmNvbG9yZGVwdGg9MjQKY29sb3JkZXZpY2U9MApQUERDb250ZXh0RGF0YQpQYWdlU2l6ZTpBNAAAEgBDT01QQVRfRFVQTEVYX01PREUTAER1cGxleE1vZGU6OlVua25vd24MAFBSSU5URVJfTkFNRQ4ASEwtMTIwMC1zZXJpZXMLAERSSVZFUl9OQU1FEwBDVVBTOkhMLTEyMDAtc2VyaWVz</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">0QH+/0hMLTEyMDAtc2VyaWVzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpITC0xMjAwLXNlcmllcwAAAAAAAAAAAAAAAAAWAAMArgAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9SEwtMTIwMC1zZXJpZXMKb3JpZW50YXRpb249UG9ydHJhaXQKY29waWVzPTEKY29sbGF0ZT1mYWxzZQptYXJnaW5hZGp1c3RtZW50PTAsMCwnMCwwCmNvbG9yZGVwdGg9MjQKY29sb3JkZXZpY2U9MApQUERDb250ZXh0RGF0YQpJbnB1dFNsb3Q6QXV0bwBQYWdlU2l6ZTpBNAAAEgBDT01QQVRfRFVQTEVYX01PREUTAER1cGxleE1vZGU6OlVua25vd24MAFBSSU5URVJfTkFNRQ4ASEwtMTIwMC1zZXJpZXMLAERSSVZFUl9OQU1FEwBDVVBTOkhMLTEyMDAtc2VyaWVz</config:config-item>
    <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
    <config:config-item config:name="RasterResolutionX" config:type="int">1270</config:config-item>
    <config:config-item config:name="RasterResolutionY" config:type="int">1270</config:config-item>
@@ -276,15 +276,6 @@
   </loext:theme>
  </office:styles>
  <office:automatic-styles>
-  <style:style style:name="co1" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="2.4937in"/>
-  </style:style>
-  <style:style style:name="co2" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="1.5835in"/>
-  </style:style>
-  <style:style style:name="co3" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="2.298in"/>
-  </style:style>
   <style:style style:name="co4" style:family="table-column">
    <style:table-column-properties fo:break-before="auto" style:column-width="0.889in"/>
   </style:style>
@@ -294,56 +285,68 @@
   <style:style style:name="co6" style:family="table-column">
    <style:table-column-properties fo:break-before="auto" style:column-width="6.961in"/>
   </style:style>
-  <style:style style:name="ro1" style:family="table-row">
-   <style:table-row-properties style:row-height="0.1807in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  <style:style style:name="co7" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.4937in"/>
   </style:style>
-  <style:style style:name="ro2" style:family="table-row">
-   <style:table-row-properties style:row-height="0.6472in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  <style:style style:name="co8" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.1161in"/>
   </style:style>
-  <style:style style:name="ro3" style:family="table-row">
-   <style:table-row-properties style:row-height="2.0634in" fo:break-before="auto" style:use-optimal-row-height="true"/>
-  </style:style>
-  <style:style style:name="ro4" style:family="table-row">
-   <style:table-row-properties style:row-height="0.9618in" fo:break-before="auto" style:use-optimal-row-height="true"/>
-  </style:style>
-  <style:style style:name="ro5" style:family="table-row">
-   <style:table-row-properties style:row-height="2.2209in" fo:break-before="auto" style:use-optimal-row-height="true"/>
-  </style:style>
-  <style:style style:name="ro6" style:family="table-row">
-   <style:table-row-properties style:row-height="2.85in" fo:break-before="auto" style:use-optimal-row-height="true"/>
-  </style:style>
-  <style:style style:name="ro7" style:family="table-row">
-   <style:table-row-properties style:row-height="2.5354in" fo:break-before="auto" style:use-optimal-row-height="true"/>
-  </style:style>
-  <style:style style:name="ro8" style:family="table-row">
-   <style:table-row-properties style:row-height="0.3425in" fo:break-before="auto" style:use-optimal-row-height="false"/>
-  </style:style>
-  <style:style style:name="ro9" style:family="table-row">
-   <style:table-row-properties style:row-height="1.7484in" fo:break-before="auto" style:use-optimal-row-height="true"/>
-  </style:style>
-  <style:style style:name="ro10" style:family="table-row">
-   <style:table-row-properties style:row-height="1.9898in" fo:break-before="auto" style:use-optimal-row-height="false"/>
-  </style:style>
-  <style:style style:name="ro11" style:family="table-row">
-   <style:table-row-properties style:row-height="1.2638in" fo:break-before="auto" style:use-optimal-row-height="true"/>
-  </style:style>
-  <style:style style:name="ro12" style:family="table-row">
-   <style:table-row-properties style:row-height="1.8862in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  <style:style style:name="co9" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.298in"/>
   </style:style>
   <style:style style:name="ro13" style:family="table-row">
    <style:table-row-properties style:row-height="0.178in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
+  <style:style style:name="ro4" style:family="table-row">
+   <style:table-row-properties style:row-height="0.9535in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
   <style:style style:name="ro14" style:family="table-row">
-   <style:table-row-properties style:row-height="0.4902in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+   <style:table-row-properties style:row-height="0.4866in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ro15" style:family="table-row">
-   <style:table-row-properties style:row-height="1.1193in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+   <style:table-row-properties style:row-height="0.9535in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro3" style:family="table-row">
+   <style:table-row-properties style:row-height="2.0417in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ro16" style:family="table-row">
-   <style:table-row-properties style:row-height="1.4339in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+   <style:table-row-properties style:row-height="1.4193in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ro17" style:family="table-row">
-   <style:table-row-properties style:row-height="0.8047in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+   <style:table-row-properties style:row-height="0.798in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro9" style:family="table-row">
+   <style:table-row-properties style:row-height="1.7307in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro10" style:family="table-row">
+   <style:table-row-properties style:row-height="0.1807in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro11" style:family="table-row">
+   <style:table-row-properties style:row-height="0.6425in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro12" style:family="table-row">
+   <style:table-row-properties style:row-height="2.1972in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro18" style:family="table-row">
+   <style:table-row-properties style:row-height="2.5075in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro19" style:family="table-row">
+   <style:table-row-properties style:row-height="2.3528in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro20" style:family="table-row">
+   <style:table-row-properties style:row-height="0.3425in" fo:break-before="auto" style:use-optimal-row-height="false"/>
+  </style:style>
+  <style:style style:name="ro21" style:family="table-row">
+   <style:table-row-properties style:row-height="1.5752in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro22" style:family="table-row">
+   <style:table-row-properties style:row-height="1.9898in" fo:break-before="auto" style:use-optimal-row-height="false"/>
+  </style:style>
+  <style:style style:name="ro23" style:family="table-row">
+   <style:table-row-properties style:row-height="1.2638in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro24" style:family="table-row">
+   <style:table-row-properties style:row-height="1.8862in" fo:break-before="auto" style:use-optimal-row-height="true"/>
   </style:style>
   <style:style style:name="ta1" style:family="table" style:master-page-name="Default">
    <style:table-properties table:display="true" style:writing-mode="lr-tb"/>
@@ -352,6 +355,9 @@
    <number:number number:decimal-places="2" number:min-decimal-places="2" number:min-integer-digits="1"/>
   </number:number-style>
   <style:style style:name="ce2" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:wrap-option="wrap" style:vertical-align="top"/>
+  </style:style>
+  <style:style style:name="ce4" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties fo:wrap-option="wrap" style:vertical-align="top"/>
   </style:style>
   <style:style style:name="ce5" style:family="table-cell" style:parent-style-name="Default">
@@ -403,7 +409,7 @@
      <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
     </style:region-left>
     <style:region-right>
-     <text:p><text:date style:data-style-name="N2" text:date-value="2026-05-26">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="21:39:30.902190147">00:00:00</text:time></text:p>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2026-05-27">00/00/0000</text:date>, <text:time style:data-style-name="N2" text:time-value="12:54:31.330940184">00:00:00</text:time></text:p>
     </style:region-right>
    </style:header>
    <style:header-left style:display="false"/>
@@ -419,11 +425,11 @@
   <office:spreadsheet>
    <table:calculation-settings table:automatic-find-labels="false" table:use-regular-expressions="false" table:use-wildcards="true"/>
    <table:table table:name="Sheet1" table:style-name="ta1">
-    <table:table-column table:style-name="co1" table:default-cell-style-name="ce2"/>
-    <table:table-column table:style-name="co2" table:default-cell-style-name="ce2"/>
-    <table:table-column table:style-name="co3" table:default-cell-style-name="ce2"/>
-    <table:table-column table:style-name="co4" table:number-columns-repeated="16381" table:default-cell-style-name="ce2"/>
-    <table:table-row table:style-name="ro1">
+    <table:table-column table:style-name="co7" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co8" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co9" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="16381" table:default-cell-style-name="ce4"/>
+    <table:table-row table:style-name="ro10">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Травмы</text:p>
      </table:table-cell>
@@ -435,13 +441,13 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro1">
+    <table:table-row table:style-name="ro10">
      <table:table-cell table:number-columns-repeated="3" office:value-type="string" calcext:value-type="string">
       <text:p>---</text:p>
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro2">
+    <table:table-row table:style-name="ro11">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>1. Ранения, кровотечение</text:p>
      </table:table-cell>
@@ -453,7 +459,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro2">
+    <table:table-row table:style-name="ro11">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>- артериальное</text:p>
      </table:table-cell>
@@ -465,7 +471,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro2">
+    <table:table-row table:style-name="ro14">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>-венозное</text:p>
      </table:table-cell>
@@ -505,7 +511,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16382"/>
     </table:table-row>
-    <table:table-row table:style-name="ro5">
+    <table:table-row table:style-name="ro12">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>- термические</text:p>
      </table:table-cell>
@@ -514,7 +520,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro6">
+    <table:table-row table:style-name="ro18">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>- химические</text:p>
      </table:table-cell>
@@ -525,7 +531,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro7">
+    <table:table-row table:style-name="ro19">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>5. Солнечный или тепловой удар</text:p>
      </table:table-cell>
@@ -536,14 +542,14 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro8">
+    <table:table-row table:style-name="ro20">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>6. Острое отравление</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Default" table:number-columns-repeated="2"/>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro9">
+    <table:table-row table:style-name="ro21">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>- пищевое</text:p>
      </table:table-cell>
@@ -555,7 +561,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro10">
+    <table:table-row table:style-name="ro22">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>- кислотное</text:p>
      </table:table-cell>
@@ -567,7 +573,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro11">
+    <table:table-row table:style-name="ro23">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>- щелочное</text:p>
      </table:table-cell>
@@ -579,7 +585,7 @@
      </table:table-cell>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro12">
+    <table:table-row table:style-name="ro24">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>- газовое</text:p>
      </table:table-cell>
@@ -605,10 +611,10 @@
     </table:table-row>
    </table:table>
    <table:table table:name="Sheet3" table:style-name="ta1">
-    <table:table-column table:style-name="co4" table:default-cell-style-name="ce2"/>
-    <table:table-column table:style-name="co5" table:default-cell-style-name="ce2"/>
-    <table:table-column table:style-name="co6" table:default-cell-style-name="ce2"/>
-    <table:table-column table:style-name="co4" table:number-columns-repeated="16381" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co4" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co5" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co6" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="16381" table:default-cell-style-name="ce4"/>
     <table:table-row table:style-name="ro13">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>Травмы</text:p>
@@ -664,7 +670,7 @@
      <table:table-cell table:style-name="Default"/>
      <table:table-cell table:number-columns-repeated="16381"/>
     </table:table-row>
-    <table:table-row table:style-name="ro15">
+    <table:table-row table:style-name="ro4">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>**2. Ушибы**</text:p>
      </table:table-cell>

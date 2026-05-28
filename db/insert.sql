@@ -1,12 +1,12 @@
 -- WARNING: this script deletes data before inserting!
 
-DELETE FROM discipline;
-DELETE FROM speciality;
-DELETE FROM "group";
-DELETE FROM kind;
-DELETE FROM lecturer;
-DELETE FROM standard;
 DELETE FROM lesson;
+DELETE FROM standard;
+DELETE FROM lecturer;
+DELETE FROM kind;
+DELETE FROM "group";
+DELETE FROM speciality;
+DELETE FROM discipline;
 
 INSERT INTO discipline VALUES
 (0, 'Вычислительная математика'),
@@ -32,6 +32,10 @@ INSERT INTO lecturer(
 (1, 'Ветров', 'Сергей', 'Владимирович', 'ИВТиПМ', 'ст. преподаватель', NULL, 2020),
 (2, 'Забелин', 'Анатолий', 'Анатольевич', 'ИВТиПМ', 'доцент', NULL, 2014);
 
+INSERT INTO speciality VALUES
+(0, 'Информатика и вычислительная техника'),
+(1, 'Прикладная информатика в цифровой экономике');
+
 INSERT INTO standard(
     id,
     id_discipline,
@@ -47,10 +51,6 @@ INSERT INTO standard(
 (5, 0, 'практика', 0, 10),
 (6, 2, 'лекция', 0, 20);
 
-INSERT INTO speciality VALUES
-(0, 'Информатика и вычислительная техника'),
-(1, 'Прикладная информатика в цифровой экономике');
-
 INSERT INTO "group"(name, id_speciality, begin_year) VALUES
 ('ИВТ-24-1', 0, 2024),
 ('ПИ-24', 1, 2024),
@@ -60,9 +60,9 @@ INSERT INTO "group"(name, id_speciality, begin_year) VALUES
 
 INSERT INTO lesson(
     name_group,
-    group_semester
+    group_semester,
     id_standard,
-    id_lecturer,
+    id_lecturer
 ) VALUES
 ('ИВТ-24-1', 4, 3, 2),
 ('ИВТ-24-1', 4, 4, 2),
