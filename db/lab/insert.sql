@@ -1,5 +1,6 @@
 -- WARNING: this script deletes data before inserting!
 
+-- clear dependent tables first to avoid fk violation
 DELETE FROM lesson;
 DELETE FROM standard;
 DELETE FROM lecturer;
@@ -11,7 +12,8 @@ DELETE FROM discipline;
 INSERT INTO discipline VALUES
 (0, 'Вычислительная математика'),
 (1, 'Базы данных'),
-(2, 'ООП');
+(2, 'ООП'),
+(3, 'Математический анализ');
 
 INSERT INTO kind VALUES
 ('лекция'),
@@ -49,7 +51,8 @@ INSERT INTO standard(
 (3, 0, 'лекция', 0, 10),
 (4, 0, 'практика', 0, 5),
 (5, 0, 'практика', 0, 10),
-(6, 2, 'лекция', 0, 20);
+(6, 2, 'лекция', 0, 20),
+(7, 3, 'практика', 0, 10);
 
 INSERT INTO "group"(name, id_speciality, begin_year) VALUES
 ('ИВТ-24-1', 0, 2024),
@@ -70,4 +73,5 @@ INSERT INTO lesson(
 ('ИВТ-24-1', 4, 1, 0),
 ('ПИ-24', 4, 1, 0),
 ('ИВТ-24-1', 3, 6, 1),
-('ИВТ-24-1', 4, 6, 1);
+('ИВТ-24-1', 4, 6, 1),
+('ИВТ-24-1', 1, 7, 2);
