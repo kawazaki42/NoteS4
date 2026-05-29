@@ -136,6 +136,8 @@ impl<S: Stack<f64>> ReversePolish<f64, S> {
                     OperatorKind::Minus => a - b,
                     OperatorKind::Asterisk => a * b,
                     OperatorKind::Slash => a / b,
+
+                    #[allow(unreachable_patterns)] // non-exhaustive
                     _ => return Ok(false),
                 };
                 self.operands.push(result);

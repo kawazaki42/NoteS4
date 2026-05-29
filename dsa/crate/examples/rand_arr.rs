@@ -1,4 +1,5 @@
-use dsa::{is_sorted, rand_arr, rand_arr_inc};
+use dsa::helper::is_sorted;
+use dsa::helper::rand::{rand_arr, rand_arr_inc};
 
 fn main() {
     // meta-test

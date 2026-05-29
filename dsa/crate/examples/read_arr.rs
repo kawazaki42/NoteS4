@@ -1,4 +1,4 @@
-use dsa::file::read_arr;
+use dsa::helper::file::read_arr;
 use std::path::Path;
 
 fn main() {

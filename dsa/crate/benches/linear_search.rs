@@ -1,9 +1,9 @@
 use std::hint::black_box;
-use std::time::Duration;
 use std::usize;
 
 use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
+use dsa::helper::rand::{rand_iter, rand_iter_inc};
 // use dsa::rand_arr;
 use dsa::search::{binary, linear};
 // use std::iter::IntoIterator
@@ -35,11 +35,11 @@ fn setup(n: usize) -> State {
 
     Batch {
         // haystack: rand_arr(1..=usize::MAX).expect("incorrect range?!"),
-        haystack: dsa::rand_iter(1..=usize::MAX)
+        haystack: rand_iter(1..=usize::MAX)
             .expect("incorrect range?!")
             .take(n)
             .collect(),
-        needles: dsa::rand_iter(0..=usize::MAX)
+        needles: rand_iter(0..=usize::MAX)
             .expect("incorrect range?!")
             .take(n)
             .collect::<Vec<_>>()
@@ -112,11 +112,11 @@ fn bench_binary(c: &mut Criterion) {
         c.bench_function(&desc, |bencher| {
             bencher.iter_batched_ref(
                 || Batch {
-                    haystack: dsa::rand_iter_inc(1, usize::MAX / 2)
+                    haystack: rand_iter_inc(1, usize::MAX / 2)
                         .expect("incorrect range?!")
                         .take(size)
                         .collect(),
-                    needles: dsa::rand_iter(0..=usize::MAX)
+                    needles: rand_iter(0..=usize::MAX)
                         .expect("incorrect range?!")
                         .take(size)
                         .collect::<Vec<_>>()
