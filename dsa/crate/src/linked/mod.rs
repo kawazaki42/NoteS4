@@ -1,3 +1,7 @@
-mod dumb;
+//! Linked list.
+//!
+//! Submodules contain implementations.
 
-pub use dumb::LinkedList;
+// mod dumb;
+
+// pub use dumb::LinkedList;
