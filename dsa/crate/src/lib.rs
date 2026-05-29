@@ -8,6 +8,5 @@ pub mod sort;
 
 // data structures
 pub mod linked;
-pub mod linked_double;
 pub mod stack;
 pub mod vec;
