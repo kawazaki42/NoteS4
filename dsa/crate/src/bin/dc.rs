@@ -5,7 +5,7 @@ use dsa::stack::Stack;
 use dsa::stack::calc;
 use dsa::vec::Vec as DiyVec;
 
-fn prompt<S: Stack<f64> + Debug>(c: &calc::InversePolish<f64, S>, interactive: bool) {
+fn prompt<S: Stack<f64> + Debug>(c: &calc::ReversePolish<f64, S>, interactive: bool) {
     if interactive {
         eprint!("{:?} > ", c.operands)
     }
@@ -13,7 +13,7 @@ fn prompt<S: Stack<f64> + Debug>(c: &calc::InversePolish<f64, S>, interactive: b
 
 fn main() {
     let stack = DiyVec::new();
-    let mut c = calc::InversePolish::new(stack);
+    let mut c = calc::ReversePolish::new(stack);
 
     let interactive = std::io::stdin().is_terminal();
 
