@@ -9,7 +9,7 @@ use std::ops::AddAssign;
 type RangeError = rand::distr::uniform::Error;
 
 /// Create a static array of random elements in the specified range.
-pub fn rand_arr<T, const N: usize, R>(range: R) -> Result<[T; N], RangeError>
+pub fn array<T, const N: usize, R>(range: R) -> Result<[T; N], RangeError>
 where
     T: SampleUniform,
     Uniform<T>: TryFrom<R, Error = RangeError>,
@@ -23,7 +23,7 @@ where
 }
 
 /// Create an iterator of random elements in the specified range.
-pub fn rand_iter<T, R>(range: R) -> Result<impl Iterator<Item = T>, RangeError>
+pub fn iterator<T, R>(range: R) -> Result<impl Iterator<Item = T>, RangeError>
 where
     T: SampleUniform,
     Uniform<T>: TryFrom<R, Error = RangeError>,
@@ -35,7 +35,7 @@ where
 }
 
 /// Create a static array of random ascending elements in the specified range.
-pub fn rand_arr_inc<T, const N: usize>(min: T, maxd: T) -> Result<[T; N], RangeError>
+pub fn ascending_array<T, const N: usize>(min: T, maxd: T) -> Result<[T; N], RangeError>
 where
     T: SampleUniform + Default + AddAssign + Copy,
 {
@@ -56,7 +56,7 @@ where
 }
 
 /// Create an iterator of random ascending elements in the specified range.
-pub fn rand_iter_inc<T>(min: T, maxd: T) -> Result<impl Iterator<Item = T>, RangeError>
+pub fn ascending_iterator<T>(min: T, maxd: T) -> Result<impl Iterator<Item = T>, RangeError>
 where
     T: SampleUniform + Default + AddAssign + Copy,
 {

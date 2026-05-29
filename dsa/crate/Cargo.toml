@@ -10,7 +10,7 @@ rand = "0.10.0"
 criterion = "0.8.2"
 
 [[bench]]
-name = "linear_search"
+name = "search"
 # Use criterion instead of builtin bench (which is unstable yet)
 harness = false
 
