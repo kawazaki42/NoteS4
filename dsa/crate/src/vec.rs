@@ -103,10 +103,15 @@ impl<T> Vec<T> {
         self.len() == 0
     }
 
-    /// Checks whether we need to reallocate (i.e. capacity is fully used)
-    fn realloc_needed(&self) -> bool {
+    /// Check whether we need to reallocate (i.e. capacity is fully used)
+    fn need_to_expand(&self) -> bool {
         self.size == self.capacity()
     }
+
+    // /// Check whether we need to shrink the allocated memory
+    // fn need_to_shrink(&self) -> bool {
+    //     self.size < self.capacity()
+    // }
 
     const REALLOC_RATE: usize = 2;
 
@@ -114,8 +119,10 @@ impl<T> Vec<T> {
     // fn realloc_if_needed(ob: Option<Box<[T]>>) -> Box<[T]> {
 
     /// Reallocate a larger block of memory if needed.
+    ///
+    /// Whether we needed is decided by [`need_to_expand()`].
     fn realloc_if_needed(&mut self) {
-        if !self.realloc_needed() {
+        if !self.need_to_expand() {
             // return self;
             return;
         }
@@ -164,6 +171,34 @@ impl<T> Vec<T> {
         // }
     }
 
+    // fn realloc_with_hole(&mut self, hole_at: usize, new_elem: T) {
+    //     if !self.need_to_expand() {
+    //         return;
+    //     }
+
+    //     let new_cap = match self.capacity() {
+    //         0 => 1,
+    //         n => Self::REALLOC_RATE * n,
+    //     };
+
+    //     let mut new = Box::new_uninit_slice(new_cap);
+
+    //     if let Some(b) = self.raw.take() {
+    //         for (i, x) in b.into_iter().enumerate() {
+    //             // for i in 0..cap {
+    //             let x = if i == hole_at {
+    //                 new_elem
+    //             } else {
+    //                 unsafe { x.assume_init() }
+    //             };
+
+    //             let i = if i > hole_at { i + 1 } else { i };
+
+    //             new[i].write(x);
+    //         }
+    //     }
+    // }
+
     /// Add an element to the end of array.
     ///
     /// Amortized time complexity: O(1)
@@ -180,9 +215,7 @@ impl<T> Vec<T> {
         //     self.raw = Some(new);
         // }
 
-        let opt: &mut Option<_> = &mut self.raw;
-        let opt_ref: Option<&mut _> = opt.as_mut();
-        let ref_slice: &mut [MaybeUninit<T>] = opt_ref.expect("nullptr");
+        let ref_slice = self.raw.as_deref_mut().expect("nullptr");
 
         // let mut_slice = self.raw.as_mut().expect("allocation failed")/* .as_mut() */;
 
@@ -190,6 +223,27 @@ impl<T> Vec<T> {
         ref_slice[lasti].write(elem);
 
         self.size += 1;
+    }
+
+    pub fn insert(&mut self, at: usize, elem: T) {
+        // self.realloc_if_needed();
+
+        // for i in (at..self.len()).rev() {
+        //     // let slice = self
+        //     //     .raw
+        //     //     .as_deref_mut()
+
+        //     let slice = &self.raw.take().expect("nullptr after resize is impossible")[at..];
+
+        //     slice[i + 1].write(unsafe { slice[i].assume_init() });
+
+        //     self.raw = Some(slice);
+        // }
+
+        let mut new = Self::new();
+        for i in 0..at {
+            new.push(self[i]);
+        }
     }
 
     /// Remove an element from the end of array and return it.
@@ -257,10 +311,14 @@ impl<T> Vec<T> {
         // self.raw.len()
     }
 
+    /// Last item stored.
     pub fn last(&self) -> Option<&T> {
         self.get(self.len() - 1)
     }
 
+    /// Convert into an array slice (borrow).
+    ///
+    /// Useful for using builtin methods.
     pub fn as_slice(&self) -> &[T] {
         if let Some(slice) = self.raw.as_ref() {
             let unboxed = slice.as_ref();
@@ -282,6 +340,8 @@ impl<T> Borrow<[T]> for Vec<T> {
 //     type Item = T;
 //     type IntoIter = <[T] as IntoIterator>::IntoIter;
 // }
+
+// delegates printing to borrowed slice
 
 impl<T: Debug> Debug for Vec<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

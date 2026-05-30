@@ -3,6 +3,7 @@
 pub mod helper;
 
 // algorithms
+pub mod recur;
 pub mod search;
 pub mod sort;
 

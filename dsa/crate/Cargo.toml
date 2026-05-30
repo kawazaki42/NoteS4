@@ -14,6 +14,10 @@ name = "search"
 # Use criterion instead of builtin bench (which is unstable yet)
 harness = false
 
+[[bench]]
+name = "recur"
+harness = false
+
 # for inspecting optimizations
 [profile.inspect]
 inherits = "dev"
