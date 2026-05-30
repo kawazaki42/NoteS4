@@ -1,8 +1,12 @@
 @startuml
 
-class Complex {
+struct Complex {
 + real: Double
 + imag: Double
+
++ override toString(): String
++ fun arg(): Double
++ fun abs(): Double
 }
 
 class DemoApplication {
@@ -17,21 +21,32 @@ class Controller {
 - label: Label
 - inputReal: TextField
 - inputImag: TextField
+- subject: Complex?
+
 - showError(text: String)
 - hideError()
 - readField(widget: TextField, name: String): Double?
 - createFromFields(): Complex?
+
 - onToStringButtonClick()
 - onAbsButtonClick()
 - onArgButtonClick()
 }
 
-Controller --> Complex
+class window-fxml
+
+Controller o-- Complex
 
 LauncherKt --> DemoApplication
 
-DemoApplication ---|> javafx.application.Application
+abstract class javafx.application.Application
 
-Application --> Controller
+DemoApplication ..|> javafx.application.Application
+
+DemoApplication --> "window-fxml"
+
+"window-fxml" --> Controller
+
+'Application --> Controller
 
 @enduml
