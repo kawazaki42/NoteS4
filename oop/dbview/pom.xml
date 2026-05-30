@@ -81,7 +81,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                io.github.kawazaki42.course.dbview/io.github.kawazaki42.course.dbview.HelloApplication
+                                io.github.kawazaki42.course.dbview/io.github.kawazaki42.course.dbview.ApplicationImpl
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
