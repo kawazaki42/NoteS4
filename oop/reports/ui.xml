@@ -9,10 +9,15 @@ FXML - конкретное применение XML для
 -->
 
 <!--
-XML-документы состоят из т.н. тегов, которые имеют следующий вид:
+XML-документы состоят из т.н. тегов, которые
+заключены в угловые скобки (`<>`), имеют имя (идентификатор),
+должны быть закрыты соответствующими закрывающими тегами.
 
-- тег с текстовым содерз <body>oh no</body>
-    <body />
+например:
+
+    <body><p id="main-text" class="invisible">Nothing to <br /> see here.</p></body>
+
+// это html, но синтаксис почти такой же
 -->
 
 <!--
@@ -30,7 +35,10 @@ XML-документы состоят из т.н. тегов, которые и�
 
 Напр. `VBox` - экземпляр вертикального контейнера
 
-атрибут `fx:controller` в корневом элементе (теге) полный путь класса контроллера для всего файла разметки (сцены).
+Атрибуты тегов (кроме начинающихся с `fx:`) присваивают значения свойствам экземпляров.
+
+- `fx:controller` в корневом элементе (теге) полный путь класса контроллера для всего файла разметки (сцены).
+- `fx:id` задает имя экземпляра, нужный в т.ч. для инъекции в контроллер.
 -->
 
 <VBox fx:controller="io.github.kawazaki42.course.bot.Controller"
@@ -39,12 +47,16 @@ XML-документы состоят из т.н. тегов, которые и�
       stylesheets="@style.css"
       xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- внутренний тег - альтернативный метод присвоить значение свойствам -->
+
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+
+    <!-- вложенный тег - экземпляр графического компонента -->
     <ListView fx:id="dialogView" />
-    <!--focusTraversable="false"-->
-    <!--items="${dialog}"-->
+
     <HBox alignment="BOTTOM_RIGHT" maxWidth="-Infinity">
         <TextArea fx:id="promptInput" maxWidth="Infinity" onKeyPressed="#onKeyPressed" wrapText="true"/>
         <Button defaultButton="true" minWidth="-Infinity" onAction="#sendPrompt" text="Send">

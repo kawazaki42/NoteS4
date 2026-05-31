@@ -8,6 +8,7 @@ import java.sql.DriverManager
 import java.sql.ResultSet
 import kotlin.io.use
 
+/** Example database table row. */
 data class Record(
     var id: Int,
     val group: String?,
@@ -16,36 +17,39 @@ data class Record(
     val lecturer: String?,
 )
 
+/** Observable property version. */
+//class Record(
+//    val id: Int = 0,
+//    val group: SimpleStringProperty = SimpleStringProperty(),
+//    val discipline: SimpleStringProperty = SimpleStringProperty(),
+//    val kind: SimpleStringProperty = SimpleStringProperty(),
+//    val lecturer: SimpleStringProperty = SimpleStringProperty(),
+//)
+
+/** Model (program logic) for the application. */
 class DBHandler(
+    /** JDBC connection. */
     private val connection: Connection = DriverManager.getConnection(
         "jdbc:postgresql:workload_dumb",
         "pivo",
         "pivo"
     ),
+    /** Observer pattern: observed data list. */
     val data: ObservableList<Record> = observableArrayList(),
 ) {
     /** Load all data from database's table. */
     fun loadAll() {
-        connection.createStatement().use {
+        connection.createStatement().use { stmt ->
+            // needed to avoid incorrect behavior
+            // in case we want to reload multiple times
             data.removeListener(listener)
 
-//            val rs = it.executeQuery("""
-//                SELECT
-//                  lesson.id,
-//                  name_group AS "group",
-//                  discipline.name AS discipline,
-//                  name_kind AS kind,
-//                  CONCAT_WS(' ', lecturer.surname, lecturer.first_name, lecturer.patronym) AS lecturer
-//                FROM lesson
-//                  JOIN standard ON id_standard = standard.id
-//                  JOIN discipline ON id_discipline = discipline.id
-//                  JOIN lecturer ON id_lecturer = lecturer.id;
-//            """)
-            val rs = it.executeQuery("SELECT * FROM dumb;")
+            val rs = stmt.executeQuery("SELECT * FROM dumb;")
 
+            /** Extract data from ResultSet. Helper extension method. */
             fun ResultSet.toRecords() = generateSequence {
                 if (!next()) return@generateSequence null
-//
+
 //                Record(getInt("id")).apply {
 //                    group.value = getString("group")
 //                    discipline.value = getString("discipline")
@@ -62,14 +66,16 @@ class DBHandler(
                 )
             }
 
-//            println(rs.asStringSequence("group", "discipline", "kind", "lecturer").toList())
+            // replace the list's data with what we got
+            // from the DBCS
             data.setAll(rs.toRecords().toList())
-//            data = observableArrayList()
 
+            // observer pattern
             data.addListener(listener)
         }
     }
 
+    /** List listener that updates the database on change. */
     private val listener = ListChangeListener<Record> { change ->
         while (change.next()) when {
 //                change.wasUpdated() -> for (i in change.from..change.to) {
@@ -84,6 +90,7 @@ class DBHandler(
 //                            setInt(5, record.id)
 //                        }.use { it.executeUpdate() }
 //                }
+            
             change.wasReplaced() -> change.addedSubList.forEach { (id, group, discipline, kind, lecturer) ->
                 connection
                     .prepareStatement("""UPDATE dumb SET "group" = ?, discipline = ?, kind = ?, lecturer = ? WHERE id = ?""")
@@ -108,29 +115,27 @@ class DBHandler(
                     .use { it.executeQuery("SELECT MAX(id) FROM dumb").also { rs -> assert(rs.next()) }.getInt(1) }
 
                 change.addedSubList.forEach { record ->
-                for (i in change.from..<change.to) {
-                    val record = change.list[i]
-                    lastId += 1
+                    for (i in change.from..<change.to) {
+                        val record = change.list[i]
+                        lastId += 1
 
-                    change.list[i].id = lastId
+                        change.list[i].id = lastId
 
-                    connection
-                        .prepareStatement("""INSERT INTO dumb("group", discipline, kind, lecturer, id) VALUES (?, ?, ?, ?, ?)""")
-                        .apply {
-                            setString(1, record.group)
-                            setString(2, record.discipline)
-                            setString(3, record.kind)
-                            setString(4, record.lecturer)
-                            setInt(5, lastId)
-                        }
-                        .use { it.executeUpdate() }
+                        connection
+                            .prepareStatement("""INSERT INTO dumb("group", discipline, kind, lecturer, id) VALUES (?, ?, ?, ?, ?)""")
+                            .apply {
+                                setString(1, record.group)
+                                setString(2, record.discipline)
+                                setString(3, record.kind)
+                                setString(4, record.lecturer)
+                                setInt(5, lastId)
+                            }
+                            .use { it.executeUpdate() }
 
 //                    loadAll()
+                    }
                 }
             }
         }
     }
-
-//    private fun listener(change: ListChangeListener.Change<out Record>) {
-//    }
-} }
+}
