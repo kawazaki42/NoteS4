@@ -1,0 +1,52 @@
+@startuml
+
+struct Record {
++ id: Int
++ group: String?
++ discipline: String?
++ kind: String?
++ lecturer: String?
+}
+
+class ApplicationImpl implements javafx.application.Application {
++ override start(stage: Stage)
+}
+
+class LauncherKt {
++ main()
+}
+
+class Controller {
+- table: TableView
+- db: DBHandler
+
+- initialize()
+- onAddButtonClick()
+- onDeleteButtonClick()
+}
+
+class DBHandler {
+- connection: Connection
+- data: ObservableList<Record>
+- listener: ListChangeListener<Record>
+
++ loadAll()
+}
+
+DBHandler o-- Record
+
+class window-fxml
+
+Controller *-- DBHandler
+
+LauncherKt --> ApplicationImpl
+
+abstract class javafx.application.Application
+
+ApplicationImpl --> "window-fxml"
+
+"window-fxml" --> Controller
+
+'Application --> Controller
+
+@enduml
