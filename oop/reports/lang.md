@@ -3,8 +3,8 @@
 <>
 
 TODO:
-- [ ] roadmap
-- [ ] шаблоны
+- [x] roadmap
+- [x] шаблоны
   - [x] GUI
   - [x] CLI
 - [x] GUI frameworks
@@ -121,6 +121,42 @@ fun main() = Application.launch(ApplicationImpl::class.java)
 Более полные шаблоны генерирует IntelliJ IDEA при создании проекта.
 
 ![Screenshot from 2026-05-31 02-19-05.png](Screenshot%20from%202026-05-31%2002-19-05.png)
+
+# Обзор коллекций
+
+На платформе JVM доступны все коллекции из библиотеки классов Java.
+
+Но обычно они используются не напрямую,
+а через интерфейсы или классы в пакете `kotlin.collections`.
+
+Это позволяет использовать коллекции на других платформах: JS и Native.
+
+Экземпляры коллекций обычно создаются при помощи функций:
+- `listOf`
+- `mutableListOf`
+- `setOf`
+- `mutableSetOf`
+- `mapOf`
+- `mutableMapOf`
+
+или при помощи Builder-паттерна внутри лямбда-аргумента функций:
+- `buildList`
+- `buildSet`
+- `buildMap`
+
+упрощенная иерархия:
+- `interface Iterable`
+  - `interface Collection`
+    - `interface List`
+      - `interface MutableList`
+        - `class ArrayList`
+
+```plantuml
+
+@startuml
+@enduml
+
+```
 
 # Roadmap
 
