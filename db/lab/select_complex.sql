@@ -7,7 +7,7 @@ LANGUAGE 'sql'
 AS 'SELECT begin + semester/2';
 
 -- суммарная нагрузка преподавателя в каждом году
-CREATE VIEW lecturer_year_hours AS
+CREATE OR REPLACE VIEW lecturer_year_hours AS
 SELECT DISTINCT
   lecturer.id AS id_lecturer,
   lecturer.surname,
@@ -30,12 +30,25 @@ SELECT
   lecturer.surname,
   lecturer.first_name,
   lecturer.patronym,
-  year("group".begin_year, lesson.semester_relative) AS year
+  year("group".begin_year, lesson.semester_relative) AS year,
   "group".name AS "group",
   discipline.name as discipline,
-  standard.name_kind as kind
+  standard.name_kind as kind,
+  study_hours
 FROM lesson
   JOIN lecturer ON id_lecturer = lecturer.id
   JOIN "group" ON name_group = "group".name
   JOIN standard ON id_standard = standard.id
-  JOIN discipline ON id_discipline = discipline.id
+  JOIN discipline ON id_discipline = discipline.id;
+
+
+-- среднее количество лекций и лабораторных (по часам)
+CREATE OR REPLACE VIEW avg_lecs_labs_by_degree AS
+SELECT
+  degree,
+  AVG(study_hours)
+FROM lesson
+  JOIN lecturer ON id_lecturer = lecturer.id
+  JOIN standard ON id_standard = standard.id
+  WHERE kind IN ('лекция', 'лабораторная')
+  GROUP BY degree;
