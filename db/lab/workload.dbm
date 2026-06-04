@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="522,593" last-zoom="1" max-obj-count="8"
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="0,122" last-zoom="0.75" max-obj-count="8"
 	 default-schema="public"
 	 layers="Default layer"
 	 active-layers="0"
@@ -18,7 +18,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="lecturer" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
 	<schema name="public"/>
-	<position x="340" y="880"/>
+	<position x="220" y="940"/>
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -50,7 +50,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="discipline" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="public"/>
-	<position x="1240" y="200"/>
+	<position x="1220" y="100"/>
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -64,7 +64,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="group" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="public"/>
-	<position x="380" y="600"/>
+	<position x="280" y="540"/>
 	<column name="name" not-null="true">
 		<type name="text" length="0"/>
 	</column>
@@ -126,7 +126,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="kind" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
 	<schema name="public"/>
-	<position x="1680" y="200"/>
+	<position x="1820" y="100"/>
 	<column name="name" not-null="true">
 		<type name="text" length="0"/>
 	</column>
@@ -146,9 +146,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 identifier="true"
 />
 
-<table name="standard" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+<table name="standard" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
 	<schema name="public"/>
-	<position x="1520" y="620"/>
+	<position x="1720" y="620"/>
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -193,7 +193,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 
 <table name="speciality" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
 	<schema name="public"/>
-	<position x="920" y="420"/>
+	<position x="880" y="320"/>
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
@@ -309,5 +309,9 @@ END]]> </definition>
 	 table="public.lesson">
 		<function signature="public.validate_cycle()"/>
 </trigger>
+
+<constraint name="primary" type="uq-constr" table="public.standard">
+	<columns names="id_discipline,name_kind,id_speciality" ref-type="src-columns"/>
+</constraint>
 
 </dbmodel>
