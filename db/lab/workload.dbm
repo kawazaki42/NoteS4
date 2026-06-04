@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="234,699" last-zoom="1" max-obj-count="8"
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="522,593" last-zoom="1" max-obj-count="8"
 	 default-schema="public"
 	 layers="Default layer"
 	 active-layers="0"
@@ -297,14 +297,14 @@ BEGIN
     WHERE id = NEW.id_standard;
 
   IF from_group != from_standard THEN
-    RETURN NULL;
+    RAISE 'inconsistent';
   ELSE
     RETURN NEW;
   END IF;
 END]]> </definition>
 </function>
 
-<trigger name="validate_cycle" firing-type="BEFORE" per-line="false" constraint="false"
+<trigger name="validate_cycle" firing-type="BEFORE" per-line="true" constraint="false"
 	 ins-event="true" del-event="false" upd-event="true" trunc-event="false"
 	 table="public.lesson">
 		<function signature="public.validate_cycle()"/>
