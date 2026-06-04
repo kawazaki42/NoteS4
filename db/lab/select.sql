@@ -20,14 +20,14 @@ SELECT surname, first_name, patronym FROM
     JOIN "group" ON name_group = "group".name
     JOIN standard ON id_standard = standard.id
     JOIN lecturer ON id_lecturer = lecturer.id
-  WHERE ("group".begin_year + group_semester/2)::integer BETWEEN 2020 AND 2025;
+  WHERE ("group".begin_year + semester_relative/2)::integer BETWEEN 2020 AND 2025;
   -- AND "group".id_speciality == ;
 
 -- у какой группы велись какие предметы в каком году
 SELECT
   name_group,
   discipline.name,
-  ("group".begin_year + group_semester/2)::integer AS lesson_year
+  ("group".begin_year + semester_relative/2)::integer AS lesson_year
 FROM
   lesson
     JOIN "group" ON name_group = "group".name

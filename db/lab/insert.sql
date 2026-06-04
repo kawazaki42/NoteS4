@@ -31,10 +31,10 @@ INSERT INTO lecturer(
     patronym,
     department,
     degree,
-    occupation,
+    administrative_duty,
     work_begin_year
 ) VALUES
-(0, 'Гончаров', 'Денис', 'Сергеевич', 'ИВТиПМ', 'ст. преподаватель', NULL, 2017),
+(0, 'Гончаров', 'Денис', 'Сергеевич', 'ИВТиПМ', 'доцент', NULL, 2017),
 (1, 'Ветров', 'Сергей', 'Владимирович', 'ИВТиПМ', 'ст. преподаватель', NULL, 2020),
 (2, 'Забелин', 'Анатолий', 'Анатольевич', 'ИВТиПМ', 'доцент', NULL, 2014);
 
@@ -67,7 +67,7 @@ INSERT INTO "group"(name, id_speciality, begin_year) VALUES
 
 INSERT INTO lesson(
     name_group,
-    group_semester,
+    semester_relative,
     id_standard,
     id_lecturer
 ) VALUES

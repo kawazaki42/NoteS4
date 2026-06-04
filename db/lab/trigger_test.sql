@@ -11,7 +11,7 @@ SELECT * FROM kind WHERE name = 'экзамен';
 -- неверный ввод
 INSERT INTO lesson(
     name_group,
-    group_semester,
+    semester_relative,
     id_standard,
     id_lecturer
 ) VALUES

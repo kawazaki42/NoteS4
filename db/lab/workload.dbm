@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="0,122" last-zoom="0.75" max-obj-count="8"
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="0,137" last-zoom="0.75" max-obj-count="8"
 	 default-schema="public"
 	 layers="Default layer"
 	 active-layers="0"
@@ -22,7 +22,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="surname">
+	<column name="surname" not-null="true">
 		<type name="text" length="0"/>
 	</column>
 	<column name="first_name" not-null="true">
@@ -31,13 +31,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="patronym">
 		<type name="text" length="0"/>
 	</column>
-	<column name="department">
+	<column name="department" not-null="true">
 		<type name="text" length="0"/>
 	</column>
-	<column name="degree">
+	<column name="degree" not-null="true">
 		<type name="text" length="0"/>
 	</column>
-	<column name="occupation">
+	<column name="administrative_duty">
 		<type name="text" length="0"/>
 	</column>
 	<column name="work_begin_year">
@@ -74,7 +74,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="group_pk" type="pk-constr" table="public.&quot;group&quot;">
 		<columns names="name" ref-type="src-columns"/>
 	</constraint>
-	<constraint name="nonzero" type="ck-constr" table="public.&quot;group&quot;">
+	<constraint name="minimum" type="ck-constr" table="public.&quot;group&quot;">
 			<expression> <![CDATA[begin_year > 1900]]> </expression>
 	</constraint>
 
@@ -88,11 +88,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="lesson" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
 	<schema name="public"/>
 	<position x="940" y="920"/>
-	<column name="group_semester" not-null="true">
+	<column name="semester_relative" not-null="true">
 		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="lesson_pk" type="pk-constr" table="public.lesson">
-		<columns names="group_semester" ref-type="src-columns"/>
+		<columns names="semester_relative" ref-type="src-columns"/>
 	</constraint>
 	<constraint name="sem_number" type="ck-constr" table="public.lesson">
 			<expression> <![CDATA[group_semester BETWEEN 1 and 20]]> </expression>

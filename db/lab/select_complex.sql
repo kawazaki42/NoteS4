@@ -1,3 +1,4 @@
+-- вычислить год по номеру семестра и году начала обучения
 CREATE OR REPLACE FUNCTION year(
   begin SMALLINT,
   semester SMALLINT
@@ -5,14 +6,14 @@ CREATE OR REPLACE FUNCTION year(
 LANGUAGE 'sql'
 AS 'SELECT begin + semester/2';
 
-
+-- суммарная нагрузка преподавателя в каждом году
 CREATE VIEW lecturer_year_hours AS
 SELECT DISTINCT
   lecturer.id AS id_lecturer,
   lecturer.surname,
   lecturer.first_name,
   lecturer.patronym,
-  year("group".begin_year, lesson.group_semester) AS year,
+  year("group".begin_year, lesson.semester_relative) AS year,
   SUM(standard.study_hours)
 FROM lesson
   JOIN lecturer ON id_lecturer = lecturer.id
@@ -22,3 +23,12 @@ FROM lesson
 --  ORDER BY year
 
 -- CROSSTAB(SELECT, columns), CASE
+
+-- для ручной проверки
+SELECT
+  lecturer.id AS id_lecturer,
+  lecturer.surname,
+  lecturer.first_name,
+  lecturer.patronym,
+  year("group".begin_year, lesson.semester_relative) AS year
+  "group".name AS "group",
