@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="0,156" last-zoom="0.75" max-obj-count="8"
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="0,386" last-zoom="0.75" max-obj-count="8"
 	 default-schema="public"
 	 layers="Default layer"
 	 active-layers="0"
@@ -146,7 +146,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 identifier="true"
 />
 
-<table name="standard" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+<table name="standard" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
 	<schema name="public"/>
 	<position x="1720" y="620"/>
 	<column name="id" not-null="true">
@@ -309,9 +309,5 @@ END]]> </definition>
 	 table="public.lesson">
 		<function signature="public.validate_cycle()"/>
 </trigger>
-
-<constraint name="primary" type="uq-constr" table="public.standard">
-	<columns names="id_discipline,name_kind,id_speciality" ref-type="src-columns"/>
-</constraint>
 
 </dbmodel>
