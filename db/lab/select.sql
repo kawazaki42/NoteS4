@@ -34,5 +34,49 @@ FROM
     JOIN standard ON id_standard = standard.id
     JOIN discipline ON id_discipline = discipline.id;
 
--- попытаться найти математические дисциплины по имени
+-- "грубый" поиск по имени
+
+-- математические дисциплины
 SELECT * FROM discipline WHERE name LIKE '%мат%';
+
+-- нематематические дисциплины, в названии которых есть слово "теория"
+-- при помощи оператора разности
+SELECT * FROM discipline WHERE name LIKE '%теор%' EXCEPT
+SELECT * FROM discipline WHERE name LIKE '%мат%';
+
+-- математические дисциплины, в названии которых есть слово "теория"
+-- при помощи оператора пересечения
+SELECT * FROM discipline WHERE name LIKE '%теор%' INTERSECT
+SELECT * FROM discipline WHERE name LIKE '%мат%';
+
+-- дисциплины, связанные с математикой ИЛИ программированием
+-- при помощи оператора объединения
+SELECT * FROM discipline WHERE name LIKE '%мат%' UNION
+SELECT * FROM discipline WHERE name LIKE '%прог%';
+
+-- соответствие между специальностью и группой (если уже есть хося бы одна)
+SELECT
+  "group".name AS "group",
+  "speciality".name AS "speciality"
+FROM
+  speciality JOIN "group" -- то же что и INNER JOIN
+    ON id_speciality = speciality.id;
+
+-- соответствие между специальностью (перечисляются все) и группой (NULL если отсутствуют)
+SELECT
+    "group".name AS "group",
+    "speciality".name AS "speciality"
+FROM
+    speciality LEFT JOIN "group" -- изменилось: LEFT
+    ON id_speciality = speciality.id;
+
+-- специальности, для которых еще не создали ни одной группы
+SELECT
+  -- "group".name AS "group",
+  "speciality".name AS "speciality"
+FROM
+  speciality LEFT JOIN "group"
+    ON id_speciality = speciality.id
+WHERE "group".name IS NULL; -- изменилось: NULL-фильтр
+
+-- XXX: добавить еще?

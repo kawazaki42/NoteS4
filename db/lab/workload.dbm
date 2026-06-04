@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="244,412" last-zoom="1" max-obj-count="8"
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="247,0" last-zoom="1" max-obj-count="8"
 	 default-schema="public"
 	 layers="Default layer"
 	 active-layers="0"
@@ -25,7 +25,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="surname">
 		<type name="text" length="0"/>
 	</column>
-	<column name="first_name">
+	<column name="first_name" not-null="true">
 		<type name="text" length="0"/>
 	</column>
 	<column name="patronym">
@@ -54,7 +54,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="name">
+	<column name="name" not-null="true">
 		<type name="text" length="0"/>
 	</column>
 	<constraint name="discipline_pk" type="pk-constr" table="public.discipline">
@@ -74,6 +74,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<constraint name="group_pk" type="pk-constr" table="public.&quot;group&quot;">
 		<columns names="name" ref-type="src-columns"/>
 	</constraint>
+	<constraint name="nonzero" type="ck-constr" table="public.&quot;group&quot;">
+			<expression> <![CDATA[begin_year > 1900]]> </expression>
+	</constraint>
 
 	<customidxs object-type="column">
 		<object name="id_speciality" index="2"/>
@@ -82,7 +85,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<object name="speciality_fk" index="1"/>
 	</customidxs></table>
 
-<table name="lesson" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+<table name="lesson" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
 	<schema name="public"/>
 	<position x="940" y="920"/>
 	<column name="group_semester" not-null="true">
@@ -90,6 +93,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="lesson_pk" type="pk-constr" table="public.lesson">
 		<columns names="group_semester" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="sem_number" type="ck-constr" table="public.lesson">
+			<expression> <![CDATA[group_semester BETWEEN 1 and 20]]> </expression>
 	</constraint>
 
 	<customidxs object-type="column">
@@ -146,11 +152,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="study_hours">
+	<column name="study_hours" not-null="true">
 		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="standard_pk" type="pk-constr" table="public.standard">
 		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="nonzero" type="ck-constr" table="public.standard">
+			<expression> <![CDATA[study_hours > 0]]> </expression>
 	</constraint>
 
 	<customidxs object-type="column">
@@ -188,7 +197,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="id" not-null="true">
 		<type name="integer" length="0"/>
 	</column>
-	<column name="name">
+	<column name="name" not-null="true">
 		<type name="text" length="0"/>
 	</column>
 	<constraint name="speciality_pk" type="pk-constr" table="public.speciality">
@@ -232,5 +241,25 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<position x="0" y="0"/>
 	</label>
 </relationship>
+
+<function name="casefold"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		parallel-type="PARALLEL UNSAFE"
+		execution-cost="1"
+		row-amount="0">
+	<schema name="public"/>
+	<language name="sql"/>
+	<return-type>
+	<type name="trigger" length="0"/>
+	</return-type>
+	<parameter name="name">
+		<type name="text" length="0"/>
+	</parameter>
+	<definition> <![CDATA[SELECT LOWER(name)]]> </definition>
+</function>
 
 </dbmodel>
