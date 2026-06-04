@@ -85,37 +85,10 @@ FROM lesson
 -- import
 CREATE EXTENSION tablefunc;
 
-SELECT
-  id_lecturer,
-  l.surname,
-  l.first_name,
-  l.patronym,
-  year1, year2, year3
-FROM CROSSTAB(
-  $$
-  SELECT
-    id_lecturer AS row_name,
-    year AS col_name,
-    hours::INTEGER AS cell
-  FROM lecturer_year_hours
-    ORDER BY year DESC
-  $$
-  -- $$
-  -- SELECT year FROM lecturer_year_hours ORDER BY year;
-  -- $$
-) AS (id_lecturer INTEGER, year1 INTEGER, year2 INTEGER, year3 INTEGER)
-JOIN lecturer AS l ON id_lecturer = l.id
-ORDER BY 1;
-
-
-SELECT *
-  -- id_lecturer,
-  -- l.surname,
-  -- l.first_name,
-  -- l.patronym,
-  -- year1, year2, year3
-  --
-FROM CROSSTAB(
+-- (4.5) кросс-таблица: часы по преподавателю и году
+-- implementation detail: столбцы обязаны быть статическими,
+-- поэтому возьмем только последние 3 года
+SELECT * FROM CROSSTAB(
   $$
   SELECT
     id_lecturer AS row_name,
@@ -123,35 +96,17 @@ FROM CROSSTAB(
     year AS col_name,
     hours::INTEGER AS cell
   FROM lecturer_year_hours
-    ORDER BY 1
+    ORDER BY 1, year DESC
   $$,
   $$
   SELECT DISTINCT year FROM lecturer_year_hours ORDER BY year DESC LIMIT 3
   $$
-) AS (id_lecturer INTEGER, surname TEXT, first_name TEXT, patronym TEXT, year1 INTEGER, year2 INTEGER, year3 INTEGER)
--- JOIN lecturer AS l ON id_lecturer = l.id
-ORDER BY 1;
-
-
--- SELECT
---   id_lecturer,
---   -- l.surname,
---   -- l.first_name,
---   -- l.patronym,
---   year1, year2, year3
--- FROM CROSSTAB(
---   $$
---   SELECT
---     id_lecturer::INTEGER AS row_name,
---     -- surname, first_name, patronym,
---     year::INTEGER AS col_name,
---     hours::INTEGER AS cell
---   FROM lecturer_year_hours
---     ORDER BY 1
---   $$,
---   $$
---   SELECT DISTINCT year FROM lecturer_year_hours ORDER BY year DESC LIMIT 3
---   $$
--- ) AS (id_lecturer INTEGER, year1 INTEGER, year2 INTEGER, year3 INTEGER)
--- -- JOIN lecturer AS l ON id_lecturer = l.id
--- ORDER BY 1;
+) AS (
+  id_lecturer INTEGER,
+  surname TEXT,
+  first_name TEXT,
+  patronym TEXT,
+  year1 INTEGER,
+  year2 INTEGER,
+  year3 INTEGER
+);
