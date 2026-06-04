@@ -95,14 +95,6 @@ FROM lesson
 
 ---
 
--- SELECT
---   id_lecturer, surname, first_name, patronym, COUNT(*)
--- FROM lecturer_year_hours
--- GROUP BY id_lecturer, surname, first_name, patronym; -- требует уникальности
-
--- SELECT *, year - COALESCE(LAG(year) OVER (PARTITION BY id_lecturer), 1) AS diff FROM lecturer_year_hours;
--- SELECT *, year - LAG(year, 1, 1+0) OVER (PARTITION BY id_lecturer) AS diff FROM lecturer_year_hours;
-
 -- (4.4) непрерывный стаж преподавания
 --
 -- XXX: did i misinterpret the task?
@@ -125,7 +117,7 @@ WITH labeled AS (
     MAX(year) AS "end"
 FROM labeled_max
 WHERE "offset" = max_offset
-GROUP BY id_lecturer, surname, first_name, patronym;
+GROUP BY id_lecturer, surname, first_name, patronym; -- требует уникальность
 
 ---
 
