@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="403,105" last-zoom="1" max-obj-count="8"
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="234,699" last-zoom="1" max-obj-count="8"
 	 default-schema="public"
 	 layers="Default layer"
 	 active-layers="0"
@@ -242,7 +242,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</label>
 </relationship>
 
-<function name="casefold"
+<function name="casefold_name"
 		window-func="false"
 		returns-setof="false"
 		behavior-type="CALLED ON NULL INPUT"
@@ -252,17 +252,62 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		execution-cost="1"
 		row-amount="0">
 	<schema name="public"/>
-	<language name="sql"/>
+	<language name="plpgsql"/>
 	<return-type>
 	<type name="trigger" length="0"/>
 	</return-type>
-	<definition> <![CDATA[SELECT LOWER(old)]]> </definition>
+	<definition> <![CDATA[BEGIN
+  NEW.name := LOWER(TRIM(NEW.name));
+  RETURN NEW;
+END]]> </definition>
 </function>
 
-<trigger name="casefold" firing-type="BEFORE" per-line="false" constraint="false"
+<trigger name="casefold" firing-type="BEFORE" per-line="true" constraint="false"
 	 ins-event="true" del-event="false" upd-event="true" trunc-event="false"
 	 table="public.kind">
-		<function signature="public.casefold()"/>
+		<function signature="public.casefold_name()"/>
+</trigger>
+
+<function name="validate_cycle"
+		window-func="false"
+		returns-setof="false"
+		behavior-type="CALLED ON NULL INPUT"
+		function-type="VOLATILE"
+		security-type="SECURITY INVOKER"
+		parallel-type="PARALLEL UNSAFE"
+		execution-cost="1"
+		row-amount="0">
+	<schema name="public"/>
+	<language name="plpgsql"/>
+	<return-type>
+	<type name="trigger" length="0"/>
+	</return-type>
+	<definition> <![CDATA[DECLARE
+  from_group INTEGER;
+  from_standard INTEGER;
+BEGIN
+  SELECT id_speciality
+    INTO from_group
+    FROM "group"
+    WHERE name = NEW.name_group;
+
+  SELECT id_speciality
+    INTO from_standard
+    FROM standard
+    WHERE id = NEW.id_standard;
+
+  IF from_group != from_standard THEN
+    RETURN NULL;
+  ELSE
+    RETURN NEW;
+  END IF;
+END]]> </definition>
+</function>
+
+<trigger name="validate_cycle" firing-type="BEFORE" per-line="false" constraint="false"
+	 ins-event="true" del-event="false" upd-event="true" trunc-event="false"
+	 table="public.lesson">
+		<function signature="public.validate_cycle()"/>
 </trigger>
 
 </dbmodel>
