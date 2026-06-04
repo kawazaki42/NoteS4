@@ -63,6 +63,7 @@ INSERT INTO seniority_range VALUES
 (10, 15);
 
 -- (4.3) распределение по диапазонам стажа с количеством часов
+CREATE OR REPLACE VIEW hours_by_range AS
 SELECT
   lecturer.id AS id_lecturer,
   lecturer.surname,
