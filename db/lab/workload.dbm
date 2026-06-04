@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="247,0" last-zoom="1" max-obj-count="8"
+<dbmodel pgmodeler-ver="1.1.0-beta1" use-changelog="false" last-position="403,105" last-zoom="1" max-obj-count="8"
 	 default-schema="public"
 	 layers="Default layer"
 	 active-layers="0"
@@ -256,10 +256,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<return-type>
 	<type name="trigger" length="0"/>
 	</return-type>
-	<parameter name="name">
-		<type name="text" length="0"/>
-	</parameter>
-	<definition> <![CDATA[SELECT LOWER(name)]]> </definition>
+	<definition> <![CDATA[SELECT LOWER(old)]]> </definition>
 </function>
+
+<trigger name="casefold" firing-type="BEFORE" per-line="false" constraint="false"
+	 ins-event="true" del-event="false" upd-event="true" trunc-event="false"
+	 table="public.kind">
+		<function signature="public.casefold()"/>
+</trigger>
 
 </dbmodel>
