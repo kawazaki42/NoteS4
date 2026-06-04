@@ -19,10 +19,8 @@ FROM lesson
   JOIN lecturer ON id_lecturer = lecturer.id
   JOIN "group" ON name_group = "group".name
   JOIN standard ON id_standard = standard.id
-  GROUP BY lecturer.id, year;
---  ORDER BY year
-
--- CROSSTAB(SELECT, columns), CASE
+  GROUP BY lecturer.id, year
+  ORDER BY id_lecturer, year;
 
 -- для ручной проверки
 SELECT
@@ -53,6 +51,7 @@ FROM lesson
   WHERE kind IN ('лекция', 'лабораторная')
   GROUP BY degree;
 
+-- вспомогательная таблица для задания
 CREATE TEMPORARY TABLE seniority_range(
     begin SMALLINT,
     "end" SMALLINT
@@ -63,6 +62,7 @@ INSERT INTO seniority_range VALUES
 (5, 10),
 (10, 15);
 
+-- (4.3) распределение по диапазонам стажа с количеством часов
 SELECT
   lecturer.id AS id_lecturer,
   lecturer.surname,
@@ -74,13 +74,9 @@ SELECT
 FROM lesson
   JOIN lecturer ON id_lecturer = lecturer.id
   JOIN standard ON id_standard = standard.id
-  JOIN seniority_range AS r ON EXTRACT(YEAR FROM CURRENT_DATE) - lecturer.work_begin_year BETWEEN r.begin AND r."end"
+  JOIN seniority_range AS r
+    ON EXTRACT(YEAR FROM CURRENT_DATE) - lecturer.work_begin_year BETWEEN r.begin AND r."end"
   GROUP BY lecturer.id, r.begin, r."end";
-
--- CREATE OR REPLACE FUNCTION hours_by_seniority(
---   begin SMALLINT,
---   end SMALLINT
--- ) RETURNS
 
 -- import
 CREATE EXTENSION tablefunc;
