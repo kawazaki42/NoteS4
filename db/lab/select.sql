@@ -81,5 +81,3 @@ FROM
   speciality LEFT JOIN "group"
     ON id_speciality = speciality.id
 WHERE "group".name IS NULL; -- изменилось: NULL-фильтр
-
--- XXX: добавить еще?

@@ -32,3 +32,10 @@ SELECT
   lecturer.patronym,
   year("group".begin_year, lesson.semester_relative) AS year
   "group".name AS "group",
+  discipline.name as discipline,
+  standard.name_kind as kind
+FROM lesson
+  JOIN lecturer ON id_lecturer = lecturer.id
+  JOIN "group" ON name_group = "group".name
+  JOIN standard ON id_standard = standard.id
+  JOIN discipline ON id_discipline = discipline.id
