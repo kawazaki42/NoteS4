@@ -6,7 +6,7 @@ CREATE OR REPLACE FUNCTION year_from_semester(
 LANGUAGE 'sql'
 AS 'SELECT begin + semester/2';
 
--- суммарная нагрузка преподавателя в каждом году (4.1)
+-- (4.1) суммарная нагрузка преподавателя в каждом году
 CREATE OR REPLACE VIEW lecturer_year_hours AS
 SELECT DISTINCT
   lecturer.id AS id_lecturer,
@@ -39,8 +39,9 @@ FROM lesson
   JOIN standard ON id_standard = standard.id
   JOIN discipline ON id_discipline = discipline.id;
 
+---
 
--- среднее количество лекций и лабораторных (по часам) (4.2)
+-- (4.2) среднее количество лекций и лабораторных (по часам)
 CREATE OR REPLACE VIEW avg_lecs_labs_by_degree AS
 SELECT
   degree,
@@ -48,8 +49,21 @@ SELECT
 FROM lesson
   JOIN lecturer ON id_lecturer = lecturer.id
   JOIN standard ON id_standard = standard.id
-  WHERE kind IN ('лекция', 'лабораторная')
+  WHERE name_kind IN ('лекция', 'лабораторная')
   GROUP BY degree;
+
+-- XXX: такое вообще теоретически возможно? 🤔
+-- -- по кол-ву распределенных занятий
+-- WITH t AS (
+--     SELECT degree, COUNT(*)
+--     FROM lesson
+--         JOIN lecturer ON id_lecturer = lecturer.id
+--         JOIN standard ON id_standard = standard.id
+--         WHERE name_kind IN ('лекция', 'лабораторная')
+-- ) SELECT degree, AVG(count) FROM t
+-- GROUP BY degree;
+
+---
 
 -- вспомогательная таблица для задания
 CREATE TEMPORARY TABLE seniority_range(
@@ -79,12 +93,49 @@ FROM lesson
     ON EXTRACT(YEAR FROM CURRENT_DATE) - lecturer.work_begin_year BETWEEN r.begin AND r."end"
   GROUP BY lecturer.id, r.begin, r."end";
 
+---
+
+-- SELECT
+--   id_lecturer, surname, first_name, patronym, COUNT(*)
+-- FROM lecturer_year_hours
+-- GROUP BY id_lecturer, surname, first_name, patronym; -- требует уникальности
+
+-- SELECT *, year - COALESCE(LAG(year) OVER (PARTITION BY id_lecturer), 1) AS diff FROM lecturer_year_hours;
+-- SELECT *, year - LAG(year, 1, 1+0) OVER (PARTITION BY id_lecturer) AS diff FROM lecturer_year_hours;
+
+-- (4.4) непрерывный стаж преподавания
+--
+-- XXX: did i misinterpret the task?
+CREATE OR REPLACE VIEW working_year_series AS
+WITH labeled AS (
+    SELECT *,
+        -- разница последовательности, увеличивающейся на 1 и номера строки постоянна.
+        -- если же она растет, последовательность увеличилась более чем на 1.
+        year - ROW_NUMBER() OVER (PARTITION BY id_lecturer) AS offset
+    FROM lecturer_year_hours
+), labeled_max AS (
+    SELECT *,
+        -- вспомогательный ключ для последней увеличивающейся серии
+        MAX("offset") OVER (PARTITION BY id_lecturer) AS max_offset
+    FROM labeled
+) SELECT
+    id_lecturer, surname, first_name, patronym,
+    COUNT(*) AS series,
+    MIN(year) AS "begin",
+    MAX(year) AS "end"
+FROM labeled_max
+WHERE "offset" = max_offset
+GROUP BY id_lecturer, surname, first_name, patronym;
+
+---
+
 -- import
 CREATE EXTENSION tablefunc;
 
 -- (4.5) кросс-таблица: часы по преподавателю и году
 -- implementation detail: столбцы обязаны быть статическими,
 -- поэтому возьмем только последние 3 года
+CREATE OR REPLACE VIEW lecturer_cross_last3year_hours AS
 SELECT * FROM CROSSTAB(
   $$
   SELECT
