@@ -35,24 +35,27 @@ FROM
     JOIN discipline ON id_discipline = discipline.id;
 
 -- "грубый" поиск по имени
+--
+-- NOTE: оператор ILIKE - регистронезависимый вариант LIKE.
+--       это расширение PostgreSQL; отсутствует в стандартном SQL.
 
 -- математические дисциплины
-SELECT * FROM discipline WHERE name LIKE '%мат%';
+SELECT * FROM discipline WHERE name ILIKE '%мат%';
 
 -- нематематические дисциплины, в названии которых есть слово "теория"
 -- при помощи оператора разности
-SELECT * FROM discipline WHERE name LIKE '%теор%' EXCEPT
-SELECT * FROM discipline WHERE name LIKE '%мат%';
+SELECT * FROM discipline WHERE name ILIKE '%теор%' EXCEPT
+SELECT * FROM discipline WHERE name ILIKE '%мат%';
 
 -- математические дисциплины, в названии которых есть слово "теория"
 -- при помощи оператора пересечения
-SELECT * FROM discipline WHERE name LIKE '%теор%' INTERSECT
-SELECT * FROM discipline WHERE name LIKE '%мат%';
+SELECT * FROM discipline WHERE name ILIKE '%теор%' INTERSECT
+SELECT * FROM discipline WHERE name ILIKE '%мат%';
 
 -- дисциплины, связанные с математикой ИЛИ программированием
 -- при помощи оператора объединения
-SELECT * FROM discipline WHERE name LIKE '%мат%' UNION
-SELECT * FROM discipline WHERE name LIKE '%прог%';
+SELECT * FROM discipline WHERE name ILIKE '%мат%' UNION
+SELECT * FROM discipline WHERE name ILIKE '%прог%';
 
 -- соответствие между специальностью и группой (если уже есть хося бы одна)
 SELECT
