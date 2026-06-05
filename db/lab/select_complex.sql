@@ -43,25 +43,26 @@ FROM lesson
 
 -- (4.2) среднее количество лекций и лабораторных (по часам)
 CREATE OR REPLACE VIEW avg_lecs_labs_by_degree AS
-SELECT
-  degree,
-  AVG(study_hours)
-FROM lesson
-  JOIN lecturer ON id_lecturer = lecturer.id
-  JOIN standard ON id_standard = standard.id
-  WHERE name_kind IN ('лекция', 'лабораторная')
-  GROUP BY degree;
-
--- XXX: такое вообще теоретически возможно? 🤔
--- -- по кол-ву распределенных занятий
--- WITH t AS (
---     SELECT degree, COUNT(*)
---     FROM lesson
---         JOIN lecturer ON id_lecturer = lecturer.id
---         JOIN standard ON id_standard = standard.id
---         WHERE name_kind IN ('лекция', 'лабораторная')
--- ) SELECT degree, AVG(count) FROM t
--- GROUP BY degree;
+WITH sums AS (
+    SELECT
+        id_lecturer,
+        degree,
+        -- AVG(lec_std.study_hours) AS avg_lec,
+        -- AVG(lab_std.study_hours) AS avg_lab
+        SUM(lec_std.study_hours) as sum_lec,
+        SUM(lab_std.study_hours) as sum_lab
+    FROM lesson
+    JOIN lecturer ON id_lecturer = lecturer.id
+    LEFT JOIN standard AS lec_std
+        ON id_standard = lec_std.id AND lec_std.name_kind = 'лекция'
+    LEFT JOIN standard AS lab_std
+        ON id_standard = lab_std.id AND lab_std.name_kind = 'лабораторная'
+    GROUP BY id_lecturer, lecturer.degree
+) SELECT
+    degree,
+    AVG(sum_lec) AS avg_lec,
+    AVG(sum_lab) AS avg_lab
+FROM sums GROUP BY degree;
 
 ---
 
@@ -125,7 +126,7 @@ GROUP BY id_lecturer, surname, first_name, patronym; -- требует уник�
 CREATE EXTENSION tablefunc;
 
 -- (4.5) кросс-таблица: часы по преподавателю и году
--- implementation detail: столбцы обязаны быть статическими,
+-- implementation detail: в SQL столбцы обязаны быть статическими,
 -- поэтому возьмем только последние 3 года
 CREATE OR REPLACE VIEW lecturer_cross_last3year_hours AS
 SELECT * FROM CROSSTAB(
